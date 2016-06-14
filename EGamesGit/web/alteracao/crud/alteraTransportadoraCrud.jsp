@@ -1,6 +1,6 @@
 <%-- 
-    Document   : transportadoraCrud
-    Created on : Jun 8, 2016, 11:21:12 AM
+    Document   : alteraTransportadoraCrud
+    Created on : Jun 11, 2016, 3:49:38 PM
     Author     : evio
 --%>
 
@@ -55,7 +55,7 @@
           
 
           
-           if (crud.equals("Cadastrar")) {
+           if (crud.equals("Alterar")) {
                 //Enviando o objeto para o banco
                 out.print(transd.inserir(trans));
             }
@@ -63,3 +63,4 @@
         %>
     </body>
 </html>
+

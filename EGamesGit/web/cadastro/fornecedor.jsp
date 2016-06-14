@@ -13,37 +13,14 @@
     <title>Cadastro de Fornecedor</title>
 </head>
 <body>
-    <%
-            String nomeForn = request.getParameter("nomeForn");
-            if(nomeForn == null || nomeForn.equals("")){
-                nomeForn = "";
-            }
-            String enderecoForn = request.getParameter("enderecoForn");
-            if(enderecoForn == null || enderecoForn.equals("")){
-                enderecoForn = "";
-            }
-            String cnpjForn = request.getParameter("cnpjForn");
-            if(cnpjForn == null || cnpjForn.equals("")){
-                cnpjForn = "";
-            }
-           
-            String idTelefone = request.getParameter("idTelefone");
-            if(idTelefone == null || idTelefone.equals("")){
-                idTelefone = "";
-            }
-            String cepForn = request.getParameter("cepForn");
-            if(cepForn == null || cepForn.equals("")){
-                cepForn = "";
-            }
-            
-        %>
+
 <div><h2>Cadastro de Fornecedores</h2></div>
 <form action="crud/fornecedorCrud.jsp" method="get" name="form1" >
-    <div>Nome: <input type="text" name="nome" value="<%=nomeForn%>"></div><p>
-    <div>Endereço: <input type="text" name="endereco" value="<%=enderecoForn%>" </div><p>
-    <div>Telefone: <input type="text" name="telefone" value="<%=idTelefone%>"</div><p>
-    <div>CEP: <input type="text" name="cep" value="<%=cepForn%>"</div><p>
-    <div>Cnpj: <input type="text" name="cnpj" value="<%=cnpjForn%>"</div><p>
+    <div>Nome: <input type="text" name="nomeForn" value=""/></div><p>
+    <div>Endereço: <input type="text" name="enderecoForn" value=""/> </div><p>
+    <div>Telefone: <input type="text" name="idTelefone" value=""/></div><p>
+    <div>CEP: <input type="text" name="cepFonr" value=""/></div><p>
+    <div>Cnpj: <input type="text" name="cnpjForn" value=""/></div><p>
     <div>
        <!-- <input type="submit" name="crud" value="Sign In"/> -->
        <input type="submit" name="crud" value="Cadastrar" />
@@ -51,3 +28,6 @@
         <input type="submit" name="crud" value="Pesquisar"/>
         <input type="reset" value="Limpar"/> -->
     </div>
+    </form>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : fornecedorCrud
-    Created on : Jun 8, 2016, 10:22:40 AM
+    Document   : alteraFornecedorCrud
+    Created on : Jun 11, 2016, 3:30:21 PM
     Author     : evio
 --%>
 
@@ -51,7 +51,7 @@
             forn.setNomeForn(nomeForn);
             forn.setIdTelefone(idTelefone);
 
-            if (crud.equals("Cadastrar")) {
+            if (crud.equals("Alterar")) {
                 //Enviando o objeto para o banco
                 out.print (fornd.inserir(forn));
             }

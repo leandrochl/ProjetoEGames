@@ -1,6 +1,6 @@
 <%-- 
-    Document   : produtoCrud
-    Created on : Jun 8, 2016, 3:08:42 PM
+    Document   : alteraProdutoCrud
+    Created on : Jun 11, 2016, 3:40:51 PM
     Author     : evio
 --%>
 
@@ -53,18 +53,10 @@
         produto.setQtdeEstoque(iQtdeEstoque);
         produto.setDataCadastro(data.toString());
         produto.setIdProduto(idProduto);
-        
-        if(crud.equals("Cadastrar"))
-        produtod.inserir(produto);
 
-        
-        
-        
-        
-        
-        
-        
-        
+        if(crud.equals("Alterar"))
+        produtod.alterar(produto);
+
         %>
     </body>
 </html>

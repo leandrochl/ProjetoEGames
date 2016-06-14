@@ -66,7 +66,7 @@ public class ClienteDAO {
             pst.setInt   (3, cliente.getCepCliente());
             pst.setInt   (4, cliente.getRgCliente());
             pst.setString(5, cliente.getEmailCliente());
-            pst.setLong  (6, cliente.getCpfCliente());
+            pst.setLong(6, cliente.getCpfCliente());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -141,14 +141,14 @@ public class ClienteDAO {
     
     //Método que retorna um objeto, de acordo
     //com o código
-    public Cliente buscaPorCPF(int cod){
+    public Cliente buscaPorCPF(Long cpf){
         String sql = "select * from cliente ";
         sql += "where cpfcliente=?";
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setLong(1, cod);
+            pst.setLong(1, cpf);
             
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
