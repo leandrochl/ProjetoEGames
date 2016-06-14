@@ -72,7 +72,7 @@
 
             Integer iCepCliente = 0;
             Integer iRgCliente = 0;
-            long iCpfCliente = iCpfCliente = Long.parseLong(cpfCli);;
+            long iCpfCliente = Long.parseLong(cpfCli);
             Integer iPerAcesso = 0;
 
             //  if (!crud.equals("Pesquisar")) {

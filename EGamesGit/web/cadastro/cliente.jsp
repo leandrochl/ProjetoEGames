@@ -9,9 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../css/menu_suspenso.css">
         <link rel="stylesheet" type="text/css" href="../css/formatacao_form.css">
     </head>
-    <style>
-
-    </style>
+   
     <body>
         <!-- Menu Suspenso -->
         <div id='cssmenu'>
@@ -31,7 +29,7 @@
 
     <form name="form_cadastro_cliente" action="crud/clienteCrud.jsp" method="post" name="form1" >
         <h3>Formulário de Cadastro</h3>            <div>
-                <form action="action_page.php">
+               
                     
                     <label for="fname">Nome Completo</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     <label for="lname">Email</label><p>

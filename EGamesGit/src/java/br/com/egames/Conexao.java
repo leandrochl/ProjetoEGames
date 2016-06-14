@@ -8,8 +8,8 @@ public class Conexao {
     public static Connection abrirConexao() {
         String driver = "org.postgresql.Driver";
         String user = "postgres";//Coloque o usuário criado para acesso ao banco
-        String senha = "evio";//Coloque a senha para acesso ao banco
-        String url = "jdbc:postgresql://127.0.0.1:5432/Egames";//Coloque o //servidor onde está instalado o banco
+        String senha = "leandro";//Coloque a senha para acesso ao banco
+        String url = "jdbc:postgresql://127.0.0.1:5432/EGames";//Coloque o //servidor onde está instalado o banco
         Connection con = null;
         try {
             Class.forName(driver);
