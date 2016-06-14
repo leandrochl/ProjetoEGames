@@ -25,7 +25,61 @@
             </ul>
         </div>
         <!--FIM DO MENU SUSPENSO -->
-      
+        <%
+            String nomeCliente = request.getParameter("nomeCliente");
+            if (nomeCliente == null || nomeCliente.equals("")) {
+                nomeCliente = "";
+            }
+            String enderecoCliente = request.getParameter("enderecoCliente");
+            if (enderecoCliente == null || enderecoCliente.equals("")) {
+                enderecoCliente = "";
+            }
+            String emailCliente = request.getParameter("emailCliente");
+            if (emailCliente == null || emailCliente.equals("")) {
+                emailCliente = "";
+            }
+            String senhaCliente = request.getParameter("senhaCliente");
+            if (senhaCliente == null || senhaCliente.equals("")) {
+                senhaCliente = "";
+            }
+            String idTelefone = request.getParameter("idTelefone");
+            if (idTelefone == null || idTelefone.equals("")) {
+                idTelefone = "";
+            }
+            String telefone1 = request.getParameter("telefone1");
+            if (telefone1 == null || telefone1.equals("")) {
+                telefone1 = "";
+            }
+            String telefone2 = request.getParameter("telefone2");
+            if (telefone2 == null || telefone2.equals("")) {
+                telefone2 = "";
+            }
+            String telefone3 = request.getParameter("telefone3");
+            if (telefone3 == null || telefone3.equals("")) {
+                telefone3 = "";
+            }
+            String dataCadastro = request.getParameter("dataCadastro");
+            if (dataCadastro == null || dataCadastro.equals("")) {
+                dataCadastro = "";
+            }
+            String cepCliente = request.getParameter("cepCliente");
+            if (cepCliente == null || cepCliente.equals("")) {
+                cepCliente = "";
+            }
+            String rgCliente = request.getParameter("rgCliente");
+            if (rgCliente == null || rgCliente.equals("")) {
+                rgCliente = "";
+            }
+            String cpfCliente = request.getParameter("cpfCliente");
+            if (cpfCliente == null || cpfCliente.equals("")) {
+                cpfCliente = "";
+            }
+            String perAcesso = request.getParameter("perAcesso");
+            if (perAcesso == null || perAcesso.equals("")) {
+                perAcesso = "";
+            }
+            String senhaCliente2 = "";
+        %>
 
     <center><div><h2>Cadastro de Clientes</h2></div></center>
 

@@ -96,13 +96,13 @@
             cli.setDataCadastro(data.toString());
             cli.setEmailCliente(email);
             cli.setEnderecoCliente(endereco);
-            tel.setIdTelefone("32");
+            tel.setIdTelefone("201601");
             cli.setIdTelefone(tel.getIdTelefone());
             tel.setTelefone1(telefone1);
             tel.setTelefone2(telefone2);
             tel.setTelefone3(telefone3);
             cli.setNomeCliente(nome);
-            cli.setPerAcesso(3); //PERMISSÃO DE ACESSO DE CLIENTE É SEMPRE 1
+            cli.setPerAcesso(1); //PERMISSÃO DE ACESSO DE CLIENTE É SEMPRE 1
             cli.setRgCliente(iRgCliente);
             cli.setSenhaCliente(senha);
             //Verificando qual botão foi acionado
