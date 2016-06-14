@@ -1,0 +1,101 @@
+﻿body{
+background-image: url(../imagens/imagem_fundo_index.png);
+background-attachment: fixed;
+background-repeat:repeat;
+background-position: x 100% y 100%;
+}
+
+#rodape{
+width: auto;
+height: -50px;
+background: url(../imagens/bg2.png) repeat-x center bottom;
+border-radius: 4px;
+border: 4px solid red;
+}
+
+#imagem{
+margin-top: 10px;
+}
+
+.bg{
+margin-top: 3px;
+margin-left:600px;
+float: left;
+position: absolute;
+}
+
+.bg2{
+float: right;
+}
+
+
+.logoprincipal{
+margin-top: 30px;
+float: left;
+
+}
+
+.login{
+margin-top: 30px;
+float: right;
+position: relative;
+}
+
+/* div que modifica as fontes das páginas dos produos */
+.letra{
+font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+font-size: 110px;
+color: orange;
+line-height: 22px;
+margin-left: 220px;
+margin-top: 80px;
+text-shadow: 2px 2px red;
+}
+
+hr{
+
+clear: both;
+margin-top: 150px;
+
+}
+
+.ola{
+	font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+	font-size: 20px;
+	color:#F00;
+	width: auto;
+	height: 30px;
+	background:url(../imagens/bg2.png);
+	border-radius: 3px;
+}
+.menu_paginas{
+	font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+	font-size: 20px;
+	color:#F00;
+	width: auto;
+	height: 130px;
+	background:url(../imagens/colorgrande.png);
+	border-radius: 3px;
+}
+.icone1{
+	float: left;
+}
+.icone5{
+	float: right;
+	position: relative;
+}
+.icone3{
+	float: left;
+	margin-left: 546px;
+	position: absolute;
+}
+.icone2{
+	float: left;
+	margin-left: 273px;
+	position: absolute;
+}
+.icone4{
+	float: left;
+	margin-left: 819px;
+	position: absolute;
+}
