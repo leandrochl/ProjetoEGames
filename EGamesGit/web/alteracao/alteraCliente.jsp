@@ -93,6 +93,7 @@
             <div>
                 <!-- <input type="submit" name="crud" value="Sign In"/> -->
                 <input type="submit" name="crud" value="Alterar" />
+                <input type="button" name="voltar" value="Voltar" onclick="history.go(-1)" />
                 <!--  <input type="submit" name="crud" value="Excluir"/>
                   <input type="submit" name="crud" value="Pesquisar"/>
                   <input type="reset" value="Limpar"/> -->

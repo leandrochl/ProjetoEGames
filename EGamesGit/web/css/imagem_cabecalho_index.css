@@ -1,0 +1,6 @@
+
+.imagem {
+background-image: url(../imagens/imagem_cabecalho_index.png); /* Insere a imagem */
+width: 100%;/* Faz a largura ficar igual a da largura da imagem de exemplo */
+position: absolute;/* Faz a altura ficar igual a da altura da imagem de exemplo */
+}

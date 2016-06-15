@@ -70,7 +70,7 @@ public class ClienteDAO {
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
-                return "Registro alterado com sucesso.";
+                return "Registro alterado com sucesso!";
             }else{
                 Conexao.fecharConexao(con);
                 return "Erro ao alterar registro.";
