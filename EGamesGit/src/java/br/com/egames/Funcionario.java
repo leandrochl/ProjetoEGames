@@ -21,7 +21,7 @@ public class Funcionario {
     private Integer cepFunc;
     private Integer rgFunc;
     private Integer perAcessFunc;
-    private Integer cpfFunc;
+    private Long cpfFunc;
     private Integer numCarteiraFunc;
     private Integer matriculaFunc;
 
@@ -97,11 +97,11 @@ public class Funcionario {
         this.perAcessFunc = perAcessFunc;
     }
 
-    public Integer getCpfFunc() {
+    public Long getCpfFunc() {
         return cpfFunc;
     }
 
-    public void setCpfFunc(Integer cpfFunc) {
+    public void setCpfFunc(Long cpfFunc) {
         this.cpfFunc = cpfFunc;
     }
 

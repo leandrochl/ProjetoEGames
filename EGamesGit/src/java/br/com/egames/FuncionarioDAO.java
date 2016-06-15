@@ -29,7 +29,7 @@ public class FuncionarioDAO {
             pst.setInt   (3, funcionario.getCepFunc());
             pst.setInt   (4, funcionario.getRgFunc());
             pst.setInt   (5, funcionario.getPerAcessFunc());
-            pst.setInt   (6, funcionario.getCpfFunc());
+            pst.setLong   (6, funcionario.getCpfFunc());
             pst.setInt   (7, funcionario.getNumCarteiraFunc());
             pst.setInt   (8, funcionario.getMatriculaFunc());
             pst.setString(9, funcionario.getEmailFunc());
@@ -70,7 +70,7 @@ public class FuncionarioDAO {
             pst.setInt   (3, funcionario.getCepFunc());
             pst.setInt   (4, funcionario.getRgFunc());
             pst.setInt   (5, funcionario.getPerAcessFunc());
-            pst.setInt   (6, funcionario.getCpfFunc());
+            pst.setLong   (6, funcionario.getCpfFunc());
             pst.setInt   (7, funcionario.getNumCarteiraFunc());
             pst.setInt   (8, funcionario.getMatriculaFunc());
             pst.setString(9, funcionario.getEmailFunc());
@@ -129,7 +129,7 @@ public class FuncionarioDAO {
                     c.setNomeFunc       (rs.getString(2));
                     c.setCepFunc        (rs.getInt(3));
                     c.setRgFunc         (rs.getInt(4));
-                    c.setCpfFunc        (rs.getInt(5));
+                    c.setCpfFunc        (rs.getLong(5));
                     c.setNumCarteiraFunc(rs.getInt(6));
                     c.setEmailFunc      (rs.getString(7));
                     c.setDataCadastro   (rs.getString(8));
@@ -147,5 +147,39 @@ public class FuncionarioDAO {
             return null;
         }
     }
-}
+    
+      public Funcionario buscaPorCPF(Long cpf){
+        String sql = "select * from funcionario ";
+        sql += "where cpfFunc=?";
+        Connection con = Conexao.abrirConexao();
+        try{
+            PreparedStatement pst = con.prepareStatement(sql);
+            
+            pst.setLong(1, cpf);
+            
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                    Funcionario funcOBJ = new Funcionario();
+                    funcOBJ.setMatriculaFunc  (rs.getInt(1));
+                    funcOBJ.setNomeFunc       (rs.getString(2));
+                    funcOBJ.setCepFunc        (rs.getInt(3));
+                    funcOBJ.setRgFunc         (rs.getInt(4));
+                    funcOBJ.setCpfFunc        (rs.getLong(5));
+                    funcOBJ.setNumCarteiraFunc(rs.getInt(6));
+                    funcOBJ.setEmailFunc      (rs.getString(7));
+                    funcOBJ.setDataCadastro   (rs.getString(8));
+                    
+                Conexao.fecharConexao(con);
+                return funcOBJ;
+            }else{
+                Conexao.fecharConexao(con);
+                
+                return null;
+            }
+        }catch(SQLException e){
+            Conexao.fecharConexao(con);            
+            return null;
+        }
+    }
 
+}

@@ -29,6 +29,7 @@
         </div>
         <!--FIM DO MENU SUSPENSO -->
     </head>
+    
     <body>
         <%
 
@@ -39,7 +40,7 @@
             if (session.getAttribute("login") == null) {
                 //request.getSession().invalidate();
                 response.sendRedirect("../altenticacao/login.jsp");
-            }else{
+            }
                  cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
                 
                 //if (cli.getPerAcesso() != 1) {
@@ -47,7 +48,7 @@
                   //  response.sendRedirect("../altenticacao/login.jsp");
 
                 //}
-            }
+            
             String nomeCliente = cli.getNomeCliente();
             if (nomeCliente == null || nomeCliente.equals("")) {
                 nomeCliente = "";

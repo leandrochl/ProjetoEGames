@@ -4,6 +4,8 @@
     Author     : evio
 --%>
 
+<%@page import="br.com.egames.TelefoneDAO"%>
+<%@page import="br.com.egames.Telefone"%>
 <%@page import="java.util.Date"%>
 <%@page import="br.com.egames.Funcionario ,br.com.egames.FuncionarioDAO"%>
 <%@page import="java.lang.*" %>
@@ -33,15 +35,24 @@
             if(senhaFunc == null || senhaFunc.equals("")){
                 senhaFunc = "";
             }
-            String idTelefone = request.getParameter("idTelefone");
-            if(idTelefone == null || idTelefone.equals("")){
-                idTelefone = "";
+            String telefone = request.getParameter("telefone1");
+            if(telefone == null || telefone.equals("")){
+                telefone = "";
             }
-            String dataCadastro = request.getParameter("dataCadastro");
-            if(dataCadastro == null || dataCadastro.equals("")){
-                dataCadastro = "";
+            
+            String telefone2 = request.getParameter("telefone2");
+            if(telefone2 == null || telefone2.equals("")){
+                telefone2 = "";
+            }
+            String telefone3 = request.getParameter("telefone3");
+            if(telefone3 == null || telefone3.equals("")){
+                telefone3 = "";
             }
             String cepFunc = request.getParameter("cepFunc");
+            if(cepFunc == null || cepFunc.equals("")){
+                cepFunc = "";
+            }
+            String carteiraFunc = request.getParameter("carteiraFunc");
             if(cepFunc == null || cepFunc.equals("")){
                 cepFunc = "";
             }
@@ -53,27 +64,29 @@
             if(cpfFunc == null || cpfFunc.equals("")){
                 cpfFunc = "";
             }
-            String perAcesso = request.getParameter("perAcesso");
-            if(perAcesso == null || perAcesso.equals("")){
-                perAcesso = "";
-            }
+            
             
                    String crud = request.getParameter("crud");
                    
         Integer iCepFunc = 0;
         Integer iRgFunc = 0;
-        Integer iCpfFunc = 0;
-       
+        Long iCpfFunc = 0L;
+        Integer iCarteiraFunc = 0;
+        
+        
         Date data = new Date();
   //  if (!crud.equals("Pesquisar")) {
         //Convertendo dados
         iCepFunc = Integer.parseInt(cepFunc);
         iRgFunc = Integer.parseInt(rgFunc);
-        iCpfFunc = Integer.parseInt(cpfFunc);
-    
+        iCpfFunc = Long.parseLong(cpfFunc);
+        iCarteiraFunc = Integer.parseInt(carteiraFunc);
+        
 
             Funcionario func = new Funcionario();
             FuncionarioDAO funcd = new FuncionarioDAO();
+            Telefone tel = new Telefone();
+            TelefoneDAO teld = new TelefoneDAO();
             
     func.setPerAcessFunc(2);
     func.setCepFunc(iCepFunc);
@@ -81,14 +94,20 @@
     func.setDataCadastro(data.toString());
     func.setEmailFunc(emailFunc);
     func.setEnderecoFunc(enderecoFunc);
-    func.setIdTelefone(idTelefone);
+    tel.setIdTelefone("56");
+    func.setIdTelefone(tel.getIdTelefone());
+    tel.setTelefone1(telefone);
+    tel.setTelefone2(telefone2);
+    tel.setTelefone3(telefone3);
     func.setNomeFunc(nomeFunc);
-   
+    func.setNumCarteiraFunc(iCarteiraFunc);
+    func.setMatriculaFunc(2);
     func.setRgFunc(iRgFunc);
     func.setSenhaFunc(senhaFunc);
     //Verificando qual botão foi acionado
     if (crud.equals("Cadastrar")) {
         //Enviando o objeto para o banco
+        out.print(teld.inserir(tel));
         out.print(funcd.inserir(func));
     }
         %>

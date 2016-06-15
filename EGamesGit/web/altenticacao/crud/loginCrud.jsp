@@ -46,19 +46,19 @@
            
             session.setAttribute("login", login);
             
-            response.sendRedirect("pagina/paginaFuncionario.jsp");
+            response.sendRedirect("../../pagina/paginaFuncionario.jsp");
             
             
         }
-        else
+        else if(logd.verificaAdmin(log))
         {
            
             //JOptionPane.showMessageDialog(null, "bora lá"); 
                
              // out.println("Senha ou Login Inválidos");
-  
+            session.setAttribute("login", login);
             
-                     response.sendRedirect("../login.jsp");
+            response.sendRedirect("pagina/paginaAdmin.jsp");
         }
         
        %>

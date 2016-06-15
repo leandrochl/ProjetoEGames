@@ -81,4 +81,32 @@ public class LoginDAO {
 
         }
     }
+    
+    public Boolean verificaAdmin(Login login) {
+
+        String sql = "select * from funcionario ";
+        sql += "where cpfFunc=? and senhaFunc=? and perAcess=3";
+        Connection con = Conexao.abrirConexao();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setLong(1, login.getLogin());
+            pst.setString(2, login.getSenha());
+
+            ResultSet rs = pst.executeQuery();
+            if (!rs.isBeforeFirst()) {
+                Conexao.fecharConexao(con);
+                return false;
+
+            } else {
+                Conexao.fecharConexao(con);
+
+                return true;
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return null;
+
+        }
+    }
 }

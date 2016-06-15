@@ -7,6 +7,16 @@
 <%@page import="br.com.egames.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+  <%
+            ClienteDAO cd = new ClienteDAO();
+            Cliente cli = new Cliente();
+            
+             if (session.getAttribute("login") == null) {
+                //request.getSession().invalidate();
+                response.sendRedirect("../altenticacao/login.jsp");
+            }
+                 cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
+        %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,11 +38,7 @@
         <!--FIM DO MENU SUSPENSO -->
     </head>
     <body>
-        <%
-            ClienteDAO cd = new ClienteDAO();
-            Cliente cli = new Cliente();
-            cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
-        %>
+        
         <h1>BEM VINDO À SUA PÁGINA!! </h1>
         <h3>Aqui você poderá alterar os seus dados cadastrais, verificar as compras realizadas e em andamento
         <div><a href="../alteracao/alteraCliente.jsp"><img class="thumb" src="../imagens/alterar2.png" width="100" height="100"  alt=""/></a></div> 

@@ -23,62 +23,7 @@
             </ul>
         </div>
         <!--FIM DO MENU SUSPENSO -->
-        <%
-            String nomeCliente = request.getParameter("nomeCliente");
-            if (nomeCliente == null || nomeCliente.equals("")) {
-                nomeCliente = "";
-            }
-            String enderecoCliente = request.getParameter("enderecoCliente");
-            if (enderecoCliente == null || enderecoCliente.equals("")) {
-                enderecoCliente = "";
-            }
-            String emailCliente = request.getParameter("emailCliente");
-            if (emailCliente == null || emailCliente.equals("")) {
-                emailCliente = "";
-            }
-            String senhaCliente = request.getParameter("senhaCliente");
-            if (senhaCliente == null || senhaCliente.equals("")) {
-                senhaCliente = "";
-            }
-            String idTelefone = request.getParameter("idTelefone");
-            if (idTelefone == null || idTelefone.equals("")) {
-                idTelefone = "";
-            }
-            String telefone1 = request.getParameter("telefone1");
-            if (telefone1 == null || telefone1.equals("")) {
-                telefone1 = "";
-            }
-            String telefone2 = request.getParameter("telefone2");
-            if (telefone2 == null || telefone2.equals("")) {
-                telefone2 = "";
-            }
-            String telefone3 = request.getParameter("telefone3");
-            if (telefone3 == null || telefone3.equals("")) {
-                telefone3 = "";
-            }
-            String dataCadastro = request.getParameter("dataCadastro");
-            if (dataCadastro == null || dataCadastro.equals("")) {
-                dataCadastro = "";
-            }
-            String cepCliente = request.getParameter("cepCliente");
-            if (cepCliente == null || cepCliente.equals("")) {
-                cepCliente = "";
-            }
-            String rgCliente = request.getParameter("rgCliente");
-            if (rgCliente == null || rgCliente.equals("")) {
-                rgCliente = "";
-            }
-            String cpfCliente = request.getParameter("cpfCliente");
-            if (cpfCliente == null || cpfCliente.equals("")) {
-                cpfCliente = "";
-            }
-            String perAcesso = request.getParameter("perAcesso");
-            if (perAcesso == null || perAcesso.equals("")) {
-                perAcesso = "";
-            }
-            String senhaCliente2 = "";
-        %>
-
+        
     <center><div><h1>Seu Cadastro</h1><p><h3>Você precisa se cadastrar para comprar os nossos produtos</h3></p></div></center>
 
     <form name="form_cadastro_cliente" action="crud/clienteCrud.jsp" method="post" name="form1" >
@@ -90,7 +35,7 @@
             <p><label for="lname">Senha:</label><label for="lname">&emsp;</label><input type="password" name="senha" value="">&emsp;<label for="lname">Reescreva a senha:&emsp;</label><input type="password" name="senha2" value=""></p>
             <p><label for="lname">Telefone 1&emsp;</label><input type="text" name="telefone1" value="Telefone 1"><label for="lname">&emsp;Telefone 2:&emsp;</label><input type="text" name="telefone2" value="Telefone 2"><label for="lname">&emsp;Telefone 3:&emsp;</label><input type="text" name="telefone3" value="Telefone 3"></p>
             <p><label for="lname">CEP:&emsp;</label><input type="text" name="cep" value="CEP"></p>
-            <p><label for="lname">RG:&emsp;</label<p><input type="text" name="rg" value="RG"></p>
+            <p><label for="lname">RG:&emsp;</label><p><input type="text" name="rg" value="RG"></p>
             <p><label for="lname">CPF:&emsp;</label><input type="text" name="cpfCli" value="CPF"></p>
             &emsp; 
             <input type="submit" name="crud" value="Cadastrar" onClick="return senhaCliente.equals(senhaCliente2)"/>
@@ -114,6 +59,6 @@
             <!-- Fim do Rodapé -->
         </div>
     </form>
-</div>
+
 </body>
 </html>
