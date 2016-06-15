@@ -12,7 +12,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alteração de Cliente</title>
+        <title>Alteração dos Dados | Página do Cliente</title>
+                <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
+        <link rel="stylesheet" type="text/css" href="../css/menu_suspenso.css">
+        <link rel="stylesheet" type="text/css" href="../css/formatacao_form.css">
+                 <!-- Menu Suspenso -->
+        <div id='cssmenu'>
+            <ul>
+                <li class='active'><a href='index.html'><span>Início</span></a></li>
+                <li><a href='../pagina/paginaCliente.jsp'><span>MINHA PÁGINA</span></a></li>
+                <li><a href='atencao_cliente.php'><span>Faça o seu pedido</span></a></li>
+                <li><a href='quem_somos.php'><span>Quem somos</span></a></li>
+                <li><a href='deixe_sua_opiniao.php'><span>Deixa a sua opinião</span></a></li>
+                <li><a href='localizacao.html'><span>Como chegar</span></a></li>
+            </ul>
+        </div>
+        <!--FIM DO MENU SUSPENSO -->
     </head>
     <body>
         <%
@@ -66,7 +81,7 @@
 
                
         %>
-        <div><h2>Alteração de Clientes</h2></div>
+        <div><h2>Alteração dos Dados</h2></div>
         <form action="crud/alteraClienteCrud.jsp" method="post" name="form1" >
             <div>Nome: <input type="text" name="nomeCliente" value="<%=nomeCliente%>"/></div><p>
             <div>Endereço: <input type="text" name="enderecoCliente" value="<%=enderecoCliente%>"/> </div><p>

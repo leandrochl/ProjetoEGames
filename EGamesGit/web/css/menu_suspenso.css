@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Capriola);
+@import url(https://fonts.googleapis.com/css?family=Muli);
 
 /* Let's import the lovely google font, please keep this line at the top of your stylesheet */
 
@@ -71,7 +71,7 @@ padding: -70%;
 
 }
 ul li a span{
-	color: red;
+    color: #f2f2f2;
 	font-family: 'Capriola', sans-serif;
 }
 
