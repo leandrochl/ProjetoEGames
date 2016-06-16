@@ -22,7 +22,7 @@ public class TransportadoraDAO {
 
     public String inserir(Transportadora transportadora) {
         String sql = "insert into transportadora ";
-        sql += "values (?,?,?,?,?,?,?,?)";
+        sql += "values (?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);

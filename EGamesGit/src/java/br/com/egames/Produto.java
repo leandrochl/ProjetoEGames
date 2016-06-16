@@ -5,6 +5,8 @@
  */
 package br.com.egames;
 
+import java.io.File;
+
 /**
  *
  * @author Leandro
@@ -15,6 +17,7 @@ public class Produto {
     private Integer qtdeEstoque;
     private Double  preco;
     private Integer idProduto;
+    private File    imagem;
 
     public String getDescricao() {
         return descricao;
@@ -56,4 +59,11 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
+    public File getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(File imagem) {
+        this.imagem = imagem;
+    }
 }

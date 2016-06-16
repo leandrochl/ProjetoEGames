@@ -4,6 +4,7 @@
     Author     : evio
 --%>
 
+<%@page import="java.io.File"%>
 <%@page import="java.util.Date"%>
 <%@page import="br.com.egames.Produto ,br.com.egames.ProdutoDAO"%>
 <%@page import="java.lang.*" %>
@@ -29,6 +30,12 @@
             if(qtdeEstoque == null || qtdeEstoque.equals("")){
                 qtdeEstoque = "";
             }
+            
+       /*     String imagem = request.getParameter("imagem");
+            if(imagem == null || imagem.equals("")){
+                imagem = "";
+            }*/
+          
           
             String preco = request.getParameter("preco");
             if(preco == null || preco.equals("")){
@@ -41,6 +48,8 @@
         Integer iQtdeEstoque = 0;
         Double dPreco = 0.0;
         Date data = new Date();
+        //File fimagem = new File(imagem);
+        
         
         iQtdeEstoque= Integer.parseInt(qtdeEstoque);
         dPreco = Double.parseDouble(preco);
@@ -53,6 +62,7 @@
         produto.setQtdeEstoque(iQtdeEstoque);
         produto.setDataCadastro(data.toString());
         produto.setIdProduto(idProduto);
+       // produto.setImagem(fimagem);
         
         if(crud.equals("Cadastrar"))
         produtod.inserir(produto);

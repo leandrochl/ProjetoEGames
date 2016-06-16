@@ -8,25 +8,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <title>Página inicial | EGames | O Lugar do Gamer na Internet</title>
+        <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
+        <link rel="stylesheet" type="text/css" href="../css/menu_suspenso.css">
+        <link rel="stylesheet" type="text/css" href="../css/formatacao_form.css">
     </head>
+
     <body>
-       
-        <div><h2>Cadastro de Produto</h2></div>
-<form action="crud/produtoCrud.jsp" method="get" name="form1" >
-    <div>Descrição: <input type="text" name="descricao" value=""/></div><p>
-    <div>preco <input type="text" name="preco" value="" /></div><p>
-    <div>Quantidade Inicial <input type="text" name="qtdeEstoque" value=""/></div><p>
-   
-    <div>
-       <!-- <input type="submit" name="crud" value="Sign In"/> -->
-       <input type="submit" name="crud" value="Cadastrar" />
-      <!--  <input type="submit" name="crud" value="Excluir"/>
-        <input type="submit" name="crud" value="Pesquisar"/>
-        <input type="reset" value="Limpar"/> -->
-    </div>
+        <!-- Menu Suspenso -->
+        <div id='cssmenu'>
+            <ul>
+                <li class='active'><a href='../index.html'><span>Início</span></a></li>
+                <li><a href='cadastro/cliente.jsp'><span>Cadastro</span></a></li>
+                <li><a href='atencao_cliente.php'><span>Faça o seu pedido</span></a></li>
+                <li><a href='quem_somos.php'><span>Quem somos</span></a></li>
+                <li><a href='deixe_sua_opiniao.php'><span>Deixa a sua opinião</span></a></li>
+                <li><a href='localizacao.html'><span>Como chegar</span></a></li>
+            </ul>
+        </div>
+        <!--FIM DO MENU SUSPENSO -->
+        
+    <center><div><h1>Seu Cadastro</h1><p><h3>Você precisa se cadastrar para comprar os nossos produtos</h3></p></div></center>
+
+    <form name="form_cadastro_produto" action="crud/produtoCrud.jsp" method="post" name="form1" >
+        &emsp;
+        <div>
+            <label for="fname">Descrição:&emsp;</label><input type="text" name="descricao" value="Descricao">
+            <p><label for="lname">Preco:&emsp;</label><input type="text" name="preco" value="Preço"></p>
+            <p><label for="lname">Quantidade inicial:&emsp;</label><input type="text" name="qtdeEstoque" value="Quantidade"></p>
+         <!--   <p><label for="lname">Imagem:</label><label for="lname">&emsp;</label><input type="file" name="imagem" > -->
+            
+            &emsp; 
+            <input type="submit" name="crud" value="Cadastrar"/>
+            <input type="button" value="Voltar" onClick="history.go(-1)"/>
+
+            <!--<label for="country">State</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>-->
+            <hr color="#6F83B6">
+            <!-- início do rodapé -->
+            <center>
+                <font color="#000000"> 
+                Todos os direitos reservados - 2016 <br>
+                EGames - Loja de Jogos e Artigos Gamer - (61) 3789 7789<br>
+                Projeto elaborado por Evio Fragoso Ferreira Júnior e Leandro Chaves da Silva
+                </font>
+            </center>
+            <!-- Fim do Rodapé -->
+        </div>
     </form>
 
-    </body>
+</body>
 </html>

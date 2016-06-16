@@ -4,6 +4,8 @@
     Author     : evio
 --%>
 
+<%@page import="br.com.egames.TelefoneDAO"%>
+<%@page import="br.com.egames.Telefone"%>
 <%@page import="java.util.Date"%>
 <%@page import="br.com.egames.Fornecedor,br.com.egames.FornecedorDAO"%>
 <%@page import="java.lang.*" %>
@@ -18,24 +20,44 @@
     </head>
     <body>
         <%
-            String nomeForn = request.getParameter("nomeForn");
+            String nomeForn = request.getParameter("nome");
             if (nomeForn == null || nomeForn.equals("")) {
                 nomeForn = "";
             }
-            String enderecoForn = request.getParameter("enderecoForn");
+            String enderecoForn = request.getParameter("endereco");
             if (enderecoForn == null || enderecoForn.equals("")) {
                 enderecoForn = "";
             }
-            String cnpjForn = request.getParameter("cnpjForn");
+            
+            String senhaForn = request.getParameter("senha");
+            if (senhaForn == null || senhaForn.equals("")) {
+                senhaForn = "";
+            }
+            
+            String telefone1 = request.getParameter("telefone1");
+            if (telefone1 == null || telefone1.equals("")) {
+                telefone1 = "";
+            }
+            
+            
+            String telefone2 = request.getParameter("telefone2");
+            if (telefone2 == null || telefone2.equals("")) {
+                telefone2 = "";
+            }
+            
+            String telefone3 = request.getParameter("telefone3");
+            if (telefone3 == null || telefone3.equals("")) {
+                telefone3 = "";
+            }
+            
+            String cnpjForn = request.getParameter("cnpj");
             if (cnpjForn == null || cnpjForn.equals("")) {
                 cnpjForn = "";
             }
            
-            String idTelefone = request.getParameter("idTelefone");
-            if (idTelefone == null || idTelefone.equals("")) {
-                idTelefone = "";
-            }
-            String cepForn = request.getParameter("cepForn");
+            String idTelefone ;
+            
+            String cepForn = request.getParameter("cep");
             if (cepForn == null || cepForn.equals("")) {
                 cepForn = "";
             }
@@ -44,15 +66,22 @@
 
             Fornecedor forn = new Fornecedor();
             FornecedorDAO fornd = new FornecedorDAO();
+            Telefone tel = new Telefone();
+            TelefoneDAO teld = new TelefoneDAO();
 
             forn.setCepForn(cepForn);
             forn.setCnpjForn(cnpjForn);
             forn.setEnderecoForn(enderecoForn);
             forn.setNomeForn(nomeForn);
-            forn.setIdTelefone(idTelefone);
+            tel.setIdTelefone("78");
+            forn.setIdTelefone(tel.getIdTelefone());
+            tel.setTelefone1(telefone1);
+            tel.setTelefone2(telefone2);
+            tel.setTelefone3(telefone3);
 
             if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
+                out.print(teld.inserir(tel));
                 out.print (fornd.inserir(forn));
             }
 

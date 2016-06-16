@@ -11,6 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,32 +24,44 @@ import java.util.List;
 public class ProdutoDAO {
 
     //Método para inserção de dados
-
     public String inserir(Produto produto) {
         String sql = "insert into produto ";
-        sql += "values (?,?,?)";
-        Connection con = Conexao.abrirConexao();
-        try {
-            PreparedStatement pst = con.prepareStatement(sql);
+        sql += "values (?,?,?,?,?)";
 
-            pst.setInt(1, produto.getQtdeEstoque());
-            pst.setString(2, produto.getDescricao());
-            pst.setDouble(3, produto.getPreco());
-            pst.setInt(4, produto.getIdProduto());
-            pst.setString(5, produto.getDataCadastro());
+        
+      Connection con = Conexao.abrirConexao();
+            try {
+                
+                //FileInputStream fis;
+               // fis = new FileInputStream(produto.getImagem());
 
-            if (pst.executeUpdate() > 0) {
-                Conexao.fecharConexao(con);
-                return "Registro inserido com sucesso.";
-            } else {
-                Conexao.fecharConexao(con);
-                return "Erro ao inserir registro.";
-            }
-        } catch (SQLException e) {
-            Conexao.fecharConexao(con);
-            return e.getMessage();
+                PreparedStatement pst = con.prepareStatement(sql);
+
+                pst.setInt(1, produto.getQtdeEstoque());
+                pst.setString(2, produto.getDescricao());
+                pst.setDouble(3, produto.getPreco());
+                pst.setInt(4, produto.getIdProduto());
+                pst.setString(5, produto.getDataCadastro());
+               // pst.setBinaryStream(6, fis, (int) produto.getImagem().length());
+
+                if (pst.executeUpdate() > 0) {
+                    Conexao.fecharConexao(con);
+                    return "Registro inserido com sucesso.";
+                } else {
+                    Conexao.fecharConexao(con);
+                    return "Erro ao inserir registro.";
+                }
+
+            } catch (SQLException e) {
+                Conexao.fecharConexao (con);
+                return e.getMessage();
+           }/*  catch (FileNotFoundException ex) {
+                Conexao.fecharConexao (con);
+                return ex.getMessage();
+
+            }*/
         }
-    }
+    
 
     //Método para alteração de dados
     public String alterar(Produto produto) {
@@ -78,7 +95,6 @@ public class ProdutoDAO {
     }
 
     //Método para excluir dados
-
     public String excluir(Produto produto) {
         String sql = "delete from produto ";
         sql += "where idproduto=?";
