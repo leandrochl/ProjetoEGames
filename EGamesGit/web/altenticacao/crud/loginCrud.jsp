@@ -18,50 +18,30 @@
     </head>
     <body>
         <%
-        String login = request.getParameter("Cpf");
-        String senha = request.getParameter("senha");
-       
-        
-        Login log = new Login();
-        LoginDAO logd = new LoginDAO();
-        
-        Funcionario func = new Funcionario();
-        log.setLogin(Long.parseLong(login));
-        log.setSenha(senha);
-        
+            String login = request.getParameter("Cpf");
+            String senha = request.getParameter("senha");
+
+            Login log = new Login();
+            LoginDAO logd = new LoginDAO();
+
+            Funcionario func = new Funcionario();
+            log.setLogin(Long.parseLong(login));
+            log.setSenha(senha);
+
+            if (logd.verificaCliente(log)) {
+                session.setAttribute("login", login);
+                response.sendRedirect("../../pagina/paginaCliente.jsp");
                 
-        
-        if(logd.verificaCliente(log) )
-        {
-            
-           
-            session.setAttribute("login", login);
-            
-            response.sendRedirect("../../pagina/paginaCliente.jsp");
-     
-            
-        }else if(logd.verificaFuncionario(log) )
-        {
-           // func.setCpfFunc(llogin);
-           
-            session.setAttribute("login", login);
-            
-            response.sendRedirect("../../pagina/paginaFuncionario.jsp");
-            
-            
-        }
-        else if(logd.verificaAdmin(log))
-        {
-           
-            //JOptionPane.showMessageDialog(null, "bora lá"); 
-               
-             // out.println("Senha ou Login Inválidos");
-            session.setAttribute("login", login);
-            
-            response.sendRedirect("pagina/paginaAdmin.jsp");
-        }
-        
-       %>
-      
+            } else if (logd.verificaFuncionario(log)) {
+                session.setAttribute("login", login);
+                response.sendRedirect("../../pagina/paginaFuncionario.jsp");
+
+            } else if (logd.verificaAdmin(log)) {
+                session.setAttribute("login", login);
+                response.sendRedirect("pagina/paginaAdmin.jsp");
+            }
+
+        %>
+
     </body>
 </html>

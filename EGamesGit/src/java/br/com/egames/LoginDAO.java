@@ -31,19 +31,8 @@ public class LoginDAO {
                 Conexao.fecharConexao(con);
                 return false;
 
-            } /*if(rs.next()){
-                    Cliente clienteOBJ = new Cliente();
-                    clienteOBJ.setNomeCliente    (rs.getString(1));
-                    clienteOBJ.setEnderecoCliente(rs.getString(2));
-                    clienteOBJ.setCepCliente     (rs.getInt(3));
-                    clienteOBJ.setRgCliente      (rs.getInt(4));
-                    clienteOBJ.setCpfCliente     (rs.getLong(5));
-                    clienteOBJ.setEmailCliente   (rs.getString(6));
-                    clienteOBJ.setIdTelefone     (rs.getString(7));
-                    clienteOBJ.setDataCadastro   (rs.getString(8));
-             */ else {
+            } else {
                 Conexao.fecharConexao(con);
-
                 return true;
             }
         } catch (SQLException e) {
@@ -57,7 +46,7 @@ public class LoginDAO {
     public Boolean verificaFuncionario(Login login) {
 
         String sql = "select * from funcionario ";
-        sql += "where cpfFunc=? and senhaFunc=?";
+        sql += "where matriculafunc=? and senhafunc=? and peracessfunc=2";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
@@ -81,11 +70,11 @@ public class LoginDAO {
 
         }
     }
-    
+
     public Boolean verificaAdmin(Login login) {
 
         String sql = "select * from funcionario ";
-        sql += "where cpfFunc=? and senhaFunc=? and perAcess=3";
+        sql += "where matriculafunc=? and senhafunc=? and peracessfunc=3";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);

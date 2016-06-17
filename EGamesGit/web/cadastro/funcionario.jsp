@@ -73,7 +73,7 @@
             <p><label for="lname">Senha:</label><label for="lname">&emsp;</label><input type="password" name="senhaFunc" value="">&emsp;<label for="lname">Reescreva a senha:&emsp;</label><input type="password" name="senhaFunc2" value=""></p>
             <p><label for="lname">Telefone 1&emsp;</label><input type="text" name="telefone1" value="Telefone 1"><label for="lname">&emsp;Telefone 2:&emsp;</label><input type="text" name="telefone2" value="Telefone 2"><label for="lname">&emsp;Telefone 3:&emsp;</label><input type="text" name="telefone3" value="Telefone 3"></p>
             <p><label for="lname">CEP:&emsp;</label><input type="text" name="cepFunc" value="CEP"></p>
-            <p><label for="lname">RG:&emsp;</label><p><input type="text" name="rgFunc" value="RG"></p>
+            <p><label for="lname">RG:&emsp;</label><input type="text" name="rgFunc" value="RG"></p>
             <p><label for="lname">CPF:&emsp;</label><input type="text" name="cpfFunc" value="CPF"></p>
             <p><label for="lname">Carteira de Trabalho&emsp;</label><input type="text" name="carteiraFunc" value="Carteira de Trabalho"></p>
             &emsp; 

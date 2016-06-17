@@ -94,14 +94,14 @@
     func.setDataCadastro(data.toString());
     func.setEmailFunc(emailFunc);
     func.setEnderecoFunc(enderecoFunc);
-    tel.setIdTelefone("56");
+    tel.setIdTelefone("70");
     func.setIdTelefone(tel.getIdTelefone());
     tel.setTelefone1(telefone);
     tel.setTelefone2(telefone2);
     tel.setTelefone3(telefone3);
     func.setNomeFunc(nomeFunc);
     func.setNumCarteiraFunc(iCarteiraFunc);
-    func.setMatriculaFunc(2);
+    func.setMatriculaFunc(2016);
     func.setRgFunc(iRgFunc);
     func.setSenhaFunc(senhaFunc);
     //Verificando qual botão foi acionado
