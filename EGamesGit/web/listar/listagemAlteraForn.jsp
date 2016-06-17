@@ -14,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alteração dos Dados | Página do Cliente</title>
-                <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
+        <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
         <link rel="stylesheet" type="text/css" href="../../css/menu_suspenso.css">
         <link rel="stylesheet" type="text/css" href="../../css/formatacao_form.css">
                  <!-- Menu Suspenso -->
@@ -32,7 +32,7 @@
     </head>
     
     <body>
-     <form action="../alteraFornecedor.jsp" method="post">   
+     <form action="../alteracao/alteraFornecedor.jsp" method="post">   
      <select name="valor_selecionado" value=" select...">
         <%
 
@@ -43,14 +43,14 @@
             
             if (session.getAttribute("login") == null) {
                
-                response.sendRedirect("../../altenticacao/login.jsp");
+                response.sendRedirect("../altenticacao/login.jsp");
             }
            
            f = fd.listarTodos();
            for(Fornecedor OBJForn : f ){
            %>
            
-           <option value="<%=OBJForn.getNomeForn()%>"> <%=OBJForn.getNomeForn()%></option>
+           <option value="<%=OBJForn.getCnpjForn()%>"> <%=OBJForn.getNomeForn()%></option>
            
            <%
          }

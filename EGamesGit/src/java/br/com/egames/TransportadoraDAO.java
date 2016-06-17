@@ -133,4 +133,34 @@ public class TransportadoraDAO {
             return null;
         }
     }
+    
+    public Transportadora buscaPorCnpj(String cod){
+        String sql = "select * from transportadora ";
+        sql += "where cnpjtransp=?";
+        Connection con = Conexao.abrirConexao();
+        try{
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, cod);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                Transportadora trans = new Transportadora();
+                
+                trans.setCnpjTransp(rs.getString(1));
+                trans.setEnderecoTransp(rs.getString(2));
+                trans.setNomeTransp(rs.getString(3));
+                trans.setEmailTransp(rs.getString(4));
+                trans.setIdTelefone(rs.getString(5));
+                
+                Conexao.fecharConexao(con);
+                return trans;
+            }else{
+                Conexao.fecharConexao(con);
+                
+                return null;
+            }
+        }catch(SQLException e){
+            Conexao.fecharConexao(con);            
+            return null;
+        }
+    }
 }

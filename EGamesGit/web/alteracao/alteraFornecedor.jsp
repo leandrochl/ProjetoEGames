@@ -48,9 +48,11 @@
                 response.sendRedirect("../altenticacao/login.jsp");
             }
             
+            String cnpj = request.getParameter("valor_selecionado");
             String crud = request.getParameter("crud");
-            String select = request.getParameter("valor_selecionado");
-             f=fd.buscaPorNome(select);
+            
+            
+             f=fd.buscaPorCnpj(cnpj);
             
             if(crud.equals("Deletar")){
                 fd.excluir(f);
@@ -100,6 +102,7 @@
             <label for="fname">Nome :&emsp;</label><input type="text" name="nomeForn" value="<%=nomeForn%>">
             <p><label for="lname">Endereço:&emsp;</label><input type="text" name="enderecoForn" value="<%=enderecoForn%>"></p>
             <p><label for="lname">CEP:&emsp;</label><input type="text" name="cepForn" value="<%=cepForn%>"></p>
+           <input type="hidden" name="cnpjForn" value="<%=f.getCnpjForn()%>">
            
             <div>
                 <!-- <input type="submit" name="crud" value="Sign In"/> -->
