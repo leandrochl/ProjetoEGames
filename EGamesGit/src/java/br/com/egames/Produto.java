@@ -18,6 +18,7 @@ public class Produto {
     private Double  preco;
     private Integer idProduto;
     private File    imagem;
+    private String  categoria;
 
     public String getDescricao() {
         return descricao;
@@ -66,4 +67,13 @@ public class Produto {
     public void setImagem(File imagem) {
         this.imagem = imagem;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
 }

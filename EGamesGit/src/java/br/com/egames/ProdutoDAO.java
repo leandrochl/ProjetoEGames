@@ -14,6 +14,7 @@ import java.util.List;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,45 +25,36 @@ import java.util.logging.Logger;
 public class ProdutoDAO {
 
     //Método para inserção de dados
-    public String inserir(Produto produto) {
+    public String inserir(Produto produto) throws IOException {
         String sql = "insert into produto ";
-        sql += "values (?,?,?,?,?)";
-
-        
-      Connection con = Conexao.abrirConexao();
-            try {
-                
-                //FileInputStream fis;
-               // fis = new FileInputStream(produto.getImagem());
-
-                PreparedStatement pst = con.prepareStatement(sql);
-
-                pst.setInt(1, produto.getQtdeEstoque());
-                pst.setString(2, produto.getDescricao());
-                pst.setDouble(3, produto.getPreco());
-                pst.setInt(4, produto.getIdProduto());
-                pst.setString(5, produto.getDataCadastro());
-               // pst.setBinaryStream(6, fis, (int) produto.getImagem().length());
-
-                if (pst.executeUpdate() > 0) {
-                    Conexao.fecharConexao(con);
-                    return "Registro inserido com sucesso.";
-                } else {
-                    Conexao.fecharConexao(con);
-                    return "Erro ao inserir registro.";
-                }
-
-            } catch (SQLException e) {
-                Conexao.fecharConexao (con);
-                return e.getMessage();
-           }/*  catch (FileNotFoundException ex) {
-                Conexao.fecharConexao (con);
-                return ex.getMessage();
-
-            }*/
+        sql += "values (?,?,?,?,?,?)";
+        Connection con = Conexao.abrirConexao();
+        try {
+            FileInputStream fis = new FileInputStream(produto.getImagem());
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, produto.getQtdeEstoque());
+            pst.setString(2, produto.getDescricao());
+            pst.setDouble(3, produto.getPreco());
+            pst.setInt(4, produto.getIdProduto());
+            pst.setString(5, produto.getDataCadastro());
+            pst.setString(6, produto.getCategoria());
+            pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
+            
+            if (pst.executeUpdate() > 0) {
+                Conexao.fecharConexao(con);
+                return "Registro inserido com sucesso.";
+            } else {
+                Conexao.fecharConexao(con);
+                return "Erro ao inserir registro.";
+            }
+         } catch (SQLException | FileNotFoundException e) {
+            Conexao.fecharConexao(con);
+            return e.getMessage();
         }
+      
+    }
     
-
+    
     //Método para alteração de dados
     public String alterar(Produto produto) {
         String sql = "update produto set ";
@@ -80,7 +72,7 @@ public class ProdutoDAO {
             pst.setDouble(3, produto.getPreco());
             pst.setInt(4, produto.getIdProduto());
             pst.setString(5, produto.getDataCadastro());
-
+            pst.setString(6, produto.getCategoria());
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
                 return "Registro alterado com sucesso.";
@@ -134,6 +126,7 @@ public class ProdutoDAO {
                     c.setPreco(rs.getDouble(3));
                     c.setIdProduto(rs.getInt(4));
                     c.setDataCadastro(rs.getString(5));
+                    c.setCategoria(rs.getString(6));
 
                     lista.add(c);
                 }
@@ -166,6 +159,7 @@ public class ProdutoDAO {
                 c.setPreco(rs.getDouble(3));
                 c.setIdProduto(rs.getInt(4));
                 c.setDataCadastro(rs.getString(5));
+                c.setCategoria(rs.getString(6));
                 Conexao.fecharConexao(con);
                 return c;
             } else {

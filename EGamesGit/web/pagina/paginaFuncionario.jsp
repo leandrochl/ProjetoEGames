@@ -9,21 +9,43 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-            FuncionarioDAO fd = new FuncionarioDAO();
-            Funcionario fun = new Funcionario();
-            
-             if (session.getAttribute("login") == null) {
-                //request.getSession().invalidate();
-                response.sendRedirect("../altenticacao/login.jsp");
-            }
-                 fun = fd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
-        %>
+    FuncionarioDAO fd = new FuncionarioDAO();
+    Funcionario fun = new Funcionario();
+
+    if (session.getAttribute("login") == null) {
+        //request.getSession().invalidate();
+        response.sendRedirect("../altenticacao/login.jsp");
+    }
+    fun = fd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+        <title>Bem Vindo | Página do Funcionário</title>
+        <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
+        <link rel="stylesheet" type="text/css" href="../css/menu_suspenso.css">
+
+    <!-- Menu Suspenso -->
+    <div id='cssmenu'>
+        <ul>
+            <li class='active'><a href='../index.html'><span>Início</span></a></li>
+            <li><a href='paginaCliente.jsp'><span>MINHA PÁGINA</span></a></li>
+            <li><a href='atencao_cliente.php'><span>Faça o seu pedido</span></a></li>
+            <li><a href='quem_somos.php'><span>Quem somos</span></a></li>
+            <li><a href='deixe_sua_opiniao.php'><span>Deixa a sua opinião</span></a></li>
+            <li><a href='localizacao.html'><span>Como chegar</span></a></li>
+        </ul>
+    </div>
+    <!--FIM DO MENU SUSPENSO -->
+</head>
+<body>
+
+    <h1>BEM VINDO À SUA PÁGINA!! </h1>
+    <h3>Escolha uma das opções abaixo
+        <img src="../imagens/cliente2.png"/>     <!--Cliente-->
+        <img src="../imagens/funcionario2.png"/> <!--Funcionário-->
+        Transportadora
+        Produto
+        Fornecedor
+</body>
 </html>
