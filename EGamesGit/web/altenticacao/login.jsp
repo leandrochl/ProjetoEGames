@@ -13,7 +13,7 @@
     </head>
     <body>
         <div><h2>Log In</h2></div>
-<form action="../crud/loginCrud.jsp" method="Post" name="form1" >
+<form action="crud/loginCrud.jsp" method="Post" name="form1" >
     <div>Log in: <input type="text" name="Cpf" value=""/> </div> <p>
     <div>Senha: <input type="password" name="senha" value=""/> </div> <p>
     

@@ -18,6 +18,7 @@
     </head>
     <body>
         <%
+            
             String nomeForn = request.getParameter("nomeForn");
             if (nomeForn == null || nomeForn.equals("")) {
                 nomeForn = "";
@@ -26,15 +27,8 @@
             if (enderecoForn == null || enderecoForn.equals("")) {
                 enderecoForn = "";
             }
-            String cnpjForn = request.getParameter("cnpjForn");
-            if (cnpjForn == null || cnpjForn.equals("")) {
-                cnpjForn = "";
-            }
            
-            String idTelefone = request.getParameter("idTelefone");
-            if (idTelefone == null || idTelefone.equals("")) {
-                idTelefone = "";
-            }
+           
             String cepForn = request.getParameter("cepForn");
             if (cepForn == null || cepForn.equals("")) {
                 cepForn = "";
@@ -44,16 +38,18 @@
 
             Fornecedor forn = new Fornecedor();
             FornecedorDAO fornd = new FornecedorDAO();
+            
+            forn = fornd.buscaPorNome(nomeForn);
 
             forn.setCepForn(cepForn);
-            forn.setCnpjForn(cnpjForn);
+            
             forn.setEnderecoForn(enderecoForn);
             forn.setNomeForn(nomeForn);
-            forn.setIdTelefone(idTelefone);
+            
 
             if (crud.equals("Alterar")) {
                 //Enviando o objeto para o banco
-                out.print (fornd.inserir(forn));
+                out.print (fornd.alterar(forn));
             }
 
         %>

@@ -4,6 +4,8 @@
     Author     : evio
 --%>
 
+<%@page import="br.com.egames.TelefoneDAO"%>
+<%@page import="br.com.egames.Telefone"%>
 <%@page import="java.util.Date"%>
 <%@page import="br.com.egames.Cliente ,br.com.egames.ClienteDAO"%>
 <%@page import="java.lang.*" %>
@@ -13,13 +15,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>funciona droga</title>
     </head>
     <body>
         <%
     //Pegando parâmetro do formulário carg
        Cliente cli = new Cliente();
        ClienteDAO cd = new ClienteDAO();
+    //   Telefone tel = new Telefone();
+      // TelefoneDAO teld = new TelefoneDAO();
    
              cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
     
@@ -35,6 +39,18 @@
             if(emailCliente == null || emailCliente.equals("")){
                 emailCliente = "";
             }
+       /*      String telefone1 = request.getParameter("telefone1");
+            if (telefone1 == null || telefone1.equals("")) {
+                telefone1 = "";
+            }
+            String telefone2 = request.getParameter("telefone2");
+            if (telefone2 == null || telefone2.equals("")) {
+                telefone2 = "";
+            }
+            String telefone3 = request.getParameter("telefone3");
+            if (telefone3 == null || telefone3.equals("")) {
+                telefone3 = "";
+            }*/
           /*  String senhaCliente = request.getParameter("senhaCliente");
             if(senhaCliente == null || senhaCliente.equals("")){
                 senhaCliente = "";
@@ -83,7 +99,10 @@
 
     //Criando objetos das classes Cargo e CargoDAO
  
-    
+   /* tel.setIdTelefone(cli.getIdTelefone());
+    tel.setTelefone1(telefone1);
+    tel.setTelefone2(telefone2);
+    tel.setTelefone3(telefone3);*/
   //  cli.setPerAcesso(1);
     cli.setCepCliente(iCepCliente);
   //  cli.setCpfCliente(lCpfCliente);
@@ -99,7 +118,9 @@
 
 
     if (crud.equals("Alterar")) {
-        out.print(cd.alterar(cli));}
+        //out.print(teld.alterar(tel));
+        out.print(cd.alterar(cli));
+    }
     %>
     </body>
 </html>

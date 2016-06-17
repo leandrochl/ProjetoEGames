@@ -58,6 +58,7 @@ public class FornecedorDAO {
             pst.setString(2, fornecedor.getEnderecoForn());
             pst.setString(3, fornecedor.getCepForn());
             pst.setString(4, fornecedor.getIdTelefone());
+            pst.setString(5, fornecedor.getCnpjForn());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -127,13 +128,13 @@ public class FornecedorDAO {
     
     //Método que retorna um objeto, de acordo
     //com o código
-    public Fornecedor buscaPorCnpj(int cod){
+    public Fornecedor buscaPorNome(String cod){
         String sql = "select * from fornecedor ";
-        sql += "where cnpjforn=?";
+        sql += "where nomeforn=?";
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, cod);
+            pst.setString(1, cod);
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
                 Fornecedor c = new Fornecedor();

@@ -73,7 +73,7 @@
             forn.setCnpjForn(cnpjForn);
             forn.setEnderecoForn(enderecoForn);
             forn.setNomeForn(nomeForn);
-            tel.setIdTelefone("78");
+            tel.setIdTelefone("102");
             forn.setIdTelefone(tel.getIdTelefone());
             tel.setTelefone1(telefone1);
             tel.setTelefone2(telefone2);

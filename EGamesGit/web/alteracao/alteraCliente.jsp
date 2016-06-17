@@ -4,6 +4,8 @@
     Author     : evio
 --%>
 
+<%@page import="br.com.egames.Telefone"%>
+<%@page import="br.com.egames.TelefoneDAO"%>
 <%@page import="br.com.egames.ClienteDAO"%>
 <%@page import="br.com.egames.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -36,19 +38,22 @@
             // teminar session.getAttribute(name)
             ClienteDAO cd = new ClienteDAO();
             Cliente cli = new Cliente();
+           // Telefone tel = new Telefone();
+           // TelefoneDAO teld = new TelefoneDAO();
 
             if (session.getAttribute("login") == null) {
                 //request.getSession().invalidate();
                 response.sendRedirect("../altenticacao/login.jsp");
             }
                  cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
-                
+                 //tel = teld.buscaPorId(cli.getIdTelefone());
                 //if (cli.getPerAcesso() != 1) {
                    // session.invalidate();
                   //  response.sendRedirect("../altenticacao/login.jsp");
 
                 //}
-            
+          //  out.print(tel.getTelefone1());
+                
             String nomeCliente = cli.getNomeCliente();
             if (nomeCliente == null || nomeCliente.equals("")) {
                 nomeCliente = "";
@@ -70,8 +75,20 @@
             if (rgCliente == null) {
                 rgCliente = 0;
             }
-            
-             
+         
+     /*       String telefone1 = tel.getTelefone1();
+            if (telefone1 == null || telefone1.equals("")) {
+                telefone1 = "";
+            }
+            String telefone2 = tel.getTelefone2();
+            if (telefone2 == null || telefone2.equals("")) {
+                telefone2 = "";
+            }
+            String telefone3 = tel.getTelefone3();
+            if (telefone3 == null || telefone3.equals("")) {
+                telefone3 = "";
+            }
+         */    
              //  if(cli.getPerAcesso()!=1){
                //    response.sendRedirect("../altenticacao/login.jsp");
                
@@ -84,13 +101,12 @@
         %>
         <div><h2>Alteração dos Dados</h2></div>
         <form action="crud/alteraClienteCrud.jsp" method="post" name="form1" >
-            <div>Nome: <input type="text" name="nomeCliente" value="<%=nomeCliente%>"/></div><p>
-            <div>Endereço: <input type="text" name="enderecoCliente" value="<%=enderecoCliente%>"/> </div><p>
-            <div>Email: <input type="text" name="emailCliente" value="<%=emailCliente%>"/></div><p>   
-
-            <div>CEP: <input type="text" name="cepCliente" value="<%=cepCliente%>"/></div><p>
-            <div>RG: <input type="text" name="rgCliente" value="<%=rgCliente%>"/></div><p>
-
+            <label for="fname">Nome Completo:&emsp;</label><input type="text" name="nomeCliente" value="<%=nomeCliente%>">
+            <p><label for="lname">Email:&emsp;</label><input type="text" name="emailCliente" value="<%=emailCliente%>"></p>
+            <p><label for="lname">Endereço:&emsp;</label><input type="text" name="enderecoCliente" value="<%=enderecoCliente%>"></p>
+            <p><label for="lname">RG:</label><label for="lname">&emsp;</label><input type="text" name="rgCliente" value="<%=rgCliente%>">
+            <p><label for="lname">CEP:&emsp;</label><input type="text" name="cepCliente" value="<%=cepCliente%>"></p>
+           
             <div>
                 <!-- <input type="submit" name="crud" value="Sign In"/> -->
                 <input type="submit" name="crud" value="Alterar" />
