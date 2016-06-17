@@ -37,7 +37,17 @@
             <label for="fname">Descrição:&emsp;</label><input type="text" name="descricao" value="Descricao">
             <p><label for="lname">Preco:&emsp;</label><input type="text" name="preco" value="Preço"></p>
             <p><label for="lname">Quantidade inicial:&emsp;</label><input type="text" name="qtdeEstoque" value="Quantidade"></p>
-         <!--   <p><label for="lname">Imagem:</label><label for="lname">&emsp;</label><input type="file" name="imagem" > -->
+            <p><label for="lname">Imagem:</label><label for="lname">&emsp;</label><input type="file" name="imagem"  accept="image/x-png, image/gif, image/jpeg"/>
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+                <option value="jogos">Jogos</option>
+                <option value="hardware">Hardware</option>
+                <option value="movel">Móvel</option>
+                <option value="console">Console</option>
+                <option value="computador">Computador</option>
+                <option value="periferico">Periférico</option>
+                <option value="smartphone">Smartphone</option>
+            </select>
             
             &emsp; 
             <input type="submit" name="crud" value="Cadastrar"/>
