@@ -13,54 +13,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>CRUD para Fornecedor</title>
     </head>
     <body>
         <%
-            String nomeTrans = request.getParameter("nomeTrans");
-            if(nomeTrans == null || nomeTrans.equals("")){
-                nomeTrans = "";
+            
+            String nomeForn = request.getParameter("nomeForn");
+            if (nomeForn == null || nomeForn.equals("")) {
+                nomeForn = "";
             }
-            String enderecoTrans = request.getParameter("enderecoTrans");
-            if(enderecoTrans == null || enderecoTrans.equals("")){
-                enderecoTrans = "";
+            String enderecoForn = request.getParameter("enderecoForn");
+            if (enderecoForn == null || enderecoForn.equals("")) {
+                enderecoForn = "";
             }
-            String cnpjTrans = request.getParameter("cnpjTrans");
-            if(cnpjTrans == null || cnpjTrans.equals("")){
-                cnpjTrans = "";
-            }
-          
-            String idTelefone = request.getParameter("idTelefone");
-            if(idTelefone == null || idTelefone.equals("")){
-                idTelefone = "";
+           
+           
+            String cepForn = request.getParameter("cepForn");
+            if (cepForn == null || cepForn.equals("")) {
+                cepForn = "";
             }
             
-            String emailTrans = request.getParameter("emailTrans");
-            if(emailTrans == null || emailTrans.equals("")){
-                emailTrans = "";
+             String cnpjForn = request.getParameter("cnpjForn");
+            if (cnpjForn == null || cnpjForn.equals("")) {
+                cnpjForn = "";
             }
-          /*  String cepTrans = request.getParameter("cepTrans");
-            if(cepTrans == null || cepTrans.equals("")){
-                cepTrans = "";
-            }
-            */
-          String crud = request.getParameter("crud");
-          Transportadora trans = new Transportadora();
-          TransportadoraDAO transd = new TransportadoraDAO();
-          
-          trans.setNomeTransp(nomeTrans);
-          trans.setCnpjTransp(cnpjTrans);
-          trans.setIdTelefone(idTelefone);
-          trans.setEmailTransp(emailTrans);
-          
 
-          
-           if (crud.equals("Alterar")) {
+            String crud = request.getParameter("crud");
+            
+            
+            Fornecedor forn = new Fornecedor();
+            FornecedorDAO fornd = new FornecedorDAO();
+            
+            forn = fornd.buscaPorCnpj(cnpjForn);
+
+           
+            forn.setCepForn(cepForn);
+            
+            forn.setEnderecoForn(enderecoForn);
+            forn.setNomeForn(nomeForn);
+            
+
+            if (crud.equals("Alterar")) {
                 //Enviando o objeto para o banco
-                out.print(transd.inserir(trans));
+                out.print (fornd.alterar(forn));
             }
 
         %>
     </body>
 </html>
-

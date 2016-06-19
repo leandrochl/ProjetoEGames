@@ -1,20 +1,20 @@
 <%-- 
-    Document   : listagemAtelra[
-    Created on : Jun 17, 2016, 12:19:25 PM
+    Document   : listagemAlteraTransp
+    Created on : Jun 17, 2016, 2:14:43 PM
     Author     : evio
 --%>
 
-<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.egames.TransportadoraDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="br.com.egames.Fornecedor"%>
-<%@page import="br.com.egames.FornecedorDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.egames.Transportadora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alteração dos Dados | Página do Cliente</title>
-                <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
+        <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
         <link rel="stylesheet" type="text/css" href="../../css/menu_suspenso.css">
         <link rel="stylesheet" type="text/css" href="../../css/formatacao_form.css">
                  <!-- Menu Suspenso -->
@@ -32,25 +32,25 @@
     </head>
     
     <body>
-     <form action="../alteraFornecedor.jsp" method="post">   
-     <select name="valor_selecionado" value=" select...">
+     <form action="../alteracao/alteraTransportadora.jsp" method="post">   
+     <select name="valor_selecionado" value="">
         <%
 
-           
-            FornecedorDAO fd = new FornecedorDAO();
-            List<Fornecedor> f = new ArrayList();
-          
+            TransportadoraDAO transd= new TransportadoraDAO(); 
+          //  Transportadora trans = new Transportadora();
+            List<Transportadora> list = new ArrayList();
+            
             
             if (session.getAttribute("login") == null) {
                
-                response.sendRedirect("../../altenticacao/login.jsp");
+                response.sendRedirect("../altenticacao/login.jsp");
             }
            
-           f = fd.listarTodos();
-           for(Fornecedor OBJForn : f ){
+           list = transd.listarTodos();
+           for(Transportadora OBJTrans : list ){
            %>
            
-           <option value="<%=OBJForn.getNomeForn()%>"> <%=OBJForn.getNomeForn()%></option>
+           <option value="<%=OBJTrans.getCnpjTransp()%>"> <%=OBJTrans.getNomeTransp()%></option>
            
            <%
          }

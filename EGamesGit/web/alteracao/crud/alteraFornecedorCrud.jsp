@@ -33,14 +33,21 @@
             if (cepForn == null || cepForn.equals("")) {
                 cepForn = "";
             }
+            
+             String cnpjForn = request.getParameter("cnpjForn");
+            if (cnpjForn == null || cnpjForn.equals("")) {
+                cnpjForn = "";
+            }
 
             String crud = request.getParameter("crud");
-
+            
+            
             Fornecedor forn = new Fornecedor();
             FornecedorDAO fornd = new FornecedorDAO();
             
-            forn = fornd.buscaPorNome(nomeForn);
+            forn = fornd.buscaPorCnpj(cnpjForn);
 
+           
             forn.setCepForn(cepForn);
             
             forn.setEnderecoForn(enderecoForn);

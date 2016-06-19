@@ -12,10 +12,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href='../cadastro/fornecedor.jsp'/>cadastro fornecedor</a><p>
-        <a href='../cadastro/transportadora.jsp'/>cadastro Transportadora</a><p>
-        <a href='../cadastro/produto.jsp'/>cadastro produto</a><p>
-        <a href='../alteracao/listagem/listagemAlteraForn.jsp'/>Altera Fornecedor</a><p>
-        <a href='../listar/listarProduto.jsp'/>listar produtos</a><p>
+        <a href='../cadastro/fornecedor.jsp'/>cadastro fornecedor</a>
+        <a href='../cadastro/transportadora.jsp'/>cadastro Transportadora</a>
+        <a href='../cadastro/produto.jsp'/>cadastro produto</a>
+
+        <a href='../alteracao/listagem/listagemAlteraForn.jsp'/>Altera Fornecedor</a>
+        <a href='../alteracao/listagem/listagemAlteraTransp.jsp'/>Altera Transportadora</a>
+
+        <a href='../listar/listarProduto.jsp'/>listar produtos</a>
+
+        
+        
     </body>
 </html>

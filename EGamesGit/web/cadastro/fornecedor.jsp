@@ -30,7 +30,7 @@
         </div>
         <!--FIM DO MENU SUSPENSO -->
         
-    <center><div><h1>Seu Cadastro</h1><p><h3>Você precisa se cadastrar para comprar os nossos produtos</h3></p></div></center>
+    <center><div><h1>Cadastro de Fornecedores</h1><p><h3></h3></p></div></center>
 
     <form name="form_cadastro_cliente" action="crud/fornecedorCrud.jsp" method="post" name="form1" >
         &emsp;

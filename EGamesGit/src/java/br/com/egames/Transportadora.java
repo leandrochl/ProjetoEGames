@@ -14,9 +14,6 @@ public class Transportadora {
     private String enderecoTransp;
     private String nomeTransp;
     private String emailTransp;
-    private Integer cpfCliente;
-    private String idNota;
-    private String idPedido;
     private String idTelefone;
 
     public String getCnpjTransp() {
@@ -51,30 +48,7 @@ public class Transportadora {
         this.emailTransp = emailTransp;
     }
 
-    public Integer getCpfCliente() {
-        return cpfCliente;
-    }
-
-    public void setCpfCliente(Integer cpfCliente) {
-        this.cpfCliente = cpfCliente;
-    }
-
-    public String getIdNota() {
-        return idNota;
-    }
-
-    public void setIdNota(String idNota) {
-        this.idNota = idNota;
-    }
-
-    public String getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(String idPedido) {
-        this.idPedido = idPedido;
-    }
-
+   
     public String getIdTelefone() {
         return idTelefone;
     }
