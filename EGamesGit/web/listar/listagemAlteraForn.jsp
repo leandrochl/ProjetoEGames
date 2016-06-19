@@ -46,7 +46,7 @@
                 <td width='10%'><b>Telefone 1</b></td>
                 <td width='10%'><b>Telefone 2</b></td>
                 <td width='10%'><b>Telefone 3</b></td>
-                <td width='10%'><b>Excluir</b></td>
+                <td width='10%'><b>Ação</b></td>
                 <td width='10%'><b>Alterar</b></td>
             </tr>
 
@@ -74,8 +74,8 @@
             <td width='10%'><b>vazio</b></td>
             <td width='10%'><b>vazio</b></td>
             <td width='10%'><b>vazio</b></td>
-            <td width='10%'><input type="button" onclick="<%=fd.excluir(OBJForn)%>" value="Excluir"/></td>
-            <td width='10%'><input src="../imagens/alterar.png" width="50" height="50"/></td>
+            <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
+            <td width='10%'><input type="button" value="Alterar"/></td>
             </tr>
 
             <%
