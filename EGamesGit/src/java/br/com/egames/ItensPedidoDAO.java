@@ -26,7 +26,7 @@ public class ItensPedidoDAO {
             PreparedStatement pst = con.prepareStatement(sql);
             
             pst.setInt(1, itenspedido.getQtdeProdutoPedido());
-            pst.setString(2, itenspedido.getIdPedido());
+            pst.setInt(2, itenspedido.getIdPedido());
             pst.setInt(3, itenspedido.getIdProduto());
             
             if(pst.executeUpdate() > 0){
@@ -50,7 +50,7 @@ public class ItensPedidoDAO {
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setString(1, itenspedido.getIdPedido());
+            pst.setInt(1, itenspedido.getIdPedido());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -76,7 +76,7 @@ public class ItensPedidoDAO {
             if(rs != null){
                 while(rs.next()){
                     ItensPedido c = new ItensPedido();
-                    c.setIdPedido(rs.getString(1));
+                    c.setIdPedido(rs.getInt(1));
                     c.setIdProduto(rs.getInt(2));
                     c.setQtdeProdutoPedido(rs.getInt(3));
                     

@@ -35,7 +35,7 @@ CREATE TABLE forneceproduto
 (
   idproduto INT NOT NULL,
   cnpjforn character varying(20) NOT NULL,
-  precounitario character varying(20) NOT NULL,
+  precounitario numeric(7,0) NOT NULL,
   CONSTRAINT fornece_produto_cnpj_fornecedor_fkey FOREIGN KEY (cnpjforn) 
 	REFERENCES fornecedor (cnpjforn),
   CONSTRAINT fornece_produto_id_produto FOREIGN KEY (idproduto)

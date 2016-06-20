@@ -19,23 +19,22 @@ public class FuncionarioDAO {
     //Método para inserção de dados
     public String inserir(Funcionario funcionario){
         String sql = "insert into funcionario ";
-        sql += "values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        sql += "values (?,?,?,?,?,?,?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
             pst.setString(1, funcionario.getNomeFunc());
             pst.setString(2, funcionario.getEnderecoFunc());
-            pst.setInt   (3, funcionario.getCepFunc());
-            pst.setInt   (4, funcionario.getRgFunc());
+            pst.setString  (3, funcionario.getCepFunc());
+            pst.setString   (4, funcionario.getRgFunc());
             pst.setInt   (5, funcionario.getPerAcessFunc());
-            pst.setLong   (6, funcionario.getCpfFunc());
-            pst.setInt   (7, funcionario.getNumCarteiraFunc());
+            pst.setString   (6, funcionario.getCpfFunc());
+            pst.setString   (7, funcionario.getNumCarteiraFunc());
             pst.setInt   (8, funcionario.getMatriculaFunc());
             pst.setString(9, funcionario.getEmailFunc());
             pst.setString(10, funcionario.getSenhaFunc());
-            pst.setString(11, funcionario.getIdTelefone());
-            pst.setString(12, funcionario.getDataCadastro());
+            pst.setString(11, funcionario.getDataCadastro());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -59,7 +58,8 @@ public class FuncionarioDAO {
                 + "rgfunc=?,"
                 + "cpffunc=?,"
                 + "numcarteirafunc=?,"
-                + "emailfunc=?";
+                + "emailfunc=?"
+                + "senhafunc=?";
         sql += " where matriculafunc=?";
         Connection con = Conexao.abrirConexao();
         try{
@@ -67,16 +67,15 @@ public class FuncionarioDAO {
             
             pst.setString(1, funcionario.getNomeFunc());
             pst.setString(2, funcionario.getEnderecoFunc());
-            pst.setInt   (3, funcionario.getCepFunc());
-            pst.setInt   (4, funcionario.getRgFunc());
-            pst.setInt   (5, funcionario.getPerAcessFunc());
-            pst.setLong   (6, funcionario.getCpfFunc());
-            pst.setInt   (7, funcionario.getNumCarteiraFunc());
-            pst.setInt   (8, funcionario.getMatriculaFunc());
-            pst.setString(9, funcionario.getEmailFunc());
-            pst.setString(10, funcionario.getSenhaFunc());
-            pst.setString(11, funcionario.getIdTelefone());
-            pst.setString(12, funcionario.getDataCadastro());
+            pst.setString   (3, funcionario.getCepFunc());
+            pst.setString   (4, funcionario.getRgFunc());
+          //  pst.setInt   (5, funcionario.getPerAcessFunc());
+            pst.setString   (5, funcionario.getCpfFunc());
+            pst.setString   (6, funcionario.getNumCarteiraFunc()); 
+            pst.setString(7, funcionario.getEmailFunc());
+            pst.setString(8, funcionario.getSenhaFunc());
+            pst.setInt   (9, funcionario.getMatriculaFunc());
+          
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -125,14 +124,18 @@ public class FuncionarioDAO {
                 while(rs.next()){
                     Funcionario c = new Funcionario();
                     
-                    c.setMatriculaFunc  (rs.getInt(1));
-                    c.setNomeFunc       (rs.getString(2));
-                    c.setCepFunc        (rs.getInt(3));
-                    c.setRgFunc         (rs.getInt(4));
-                    c.setCpfFunc        (rs.getLong(5));
-                    c.setNumCarteiraFunc(rs.getInt(6));
-                    c.setEmailFunc      (rs.getString(7));
-                    c.setDataCadastro   (rs.getString(8));
+                    
+                    c.setNomeFunc       (rs.getString(1));
+                    c.setEnderecoFunc   (rs.getString(2));
+                    c.setCepFunc        (rs.getString(3));
+                    c.setRgFunc         (rs.getString(4));
+                    c.setPerAcessFunc   (rs.getInt(5));
+                    c.setCpfFunc        (rs.getString(6));
+                    c.setNumCarteiraFunc(rs.getString(7));
+                    c.setMatriculaFunc  (rs.getInt(8));
+                    c.setEmailFunc      (rs.getString(9));
+                    c.setSenhaFunc      (rs.getString(10));
+                    c.setDataCadastro   (rs.getString(11));
                     
                     lista.add(c);
                 }
@@ -159,18 +162,23 @@ public class FuncionarioDAO {
             
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
-                    Funcionario funcOBJ = new Funcionario();
-                    funcOBJ.setMatriculaFunc  (rs.getInt(1));
-                    funcOBJ.setNomeFunc       (rs.getString(2));
-                    funcOBJ.setCepFunc        (rs.getInt(3));
-                    funcOBJ.setRgFunc         (rs.getInt(4));
-                    funcOBJ.setCpfFunc        (rs.getLong(5));
-                    funcOBJ.setNumCarteiraFunc(rs.getInt(6));
-                    funcOBJ.setEmailFunc      (rs.getString(7));
-                    funcOBJ.setDataCadastro   (rs.getString(8));
+                   Funcionario c = new Funcionario();
+                    
+                    
+                    c.setNomeFunc       (rs.getString(1));
+                    c.setEnderecoFunc   (rs.getString(2));
+                    c.setCepFunc        (rs.getString(3));
+                    c.setRgFunc         (rs.getString(4));
+                    c.setPerAcessFunc   (rs.getInt(5));
+                    c.setCpfFunc        (rs.getString(6));
+                    c.setNumCarteiraFunc(rs.getString(7));
+                    c.setMatriculaFunc  (rs.getInt(8));
+                    c.setEmailFunc      (rs.getString(9));
+                    c.setSenhaFunc      (rs.getString(10));
+                    c.setDataCadastro   (rs.getString(11));
                     
                 Conexao.fecharConexao(con);
-                return funcOBJ;
+                return c;
             }else{
                 Conexao.fecharConexao(con);
                 

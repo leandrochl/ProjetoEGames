@@ -22,21 +22,21 @@ public class ClienteDAO {
     //Método para inserção de dados
     public String inserir(Cliente cliente){
         String sql = "insert into cliente ";
-        sql += "values (?,?,?,?,?,?,?,?,?,?)";
+        sql += "values (?,?,?,?,?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setString(1, cliente.getNomeCliente());
-            pst.setString(2, cliente.getEnderecoCliente());
-            pst.setInt   (3, cliente.getCepCliente());
-            pst.setInt   (4, cliente.getRgCliente());
-            pst.setLong   (5, cliente.getCpfCliente());
-            pst.setString(6, cliente.getEmailCliente());
-            pst.setString(7, cliente.getSenhaCliente());
+            pst.setString   (1, cliente.getNomeCliente());
+            pst.setString   (2, cliente.getEnderecoCliente());
+            pst.setString   (3, cliente.getCepCliente());
+            pst.setString   (4, cliente.getRgCliente());
+            pst.setString   (5, cliente.getCpfCliente());
+            pst.setString   (6, cliente.getEmailCliente());
+            pst.setString   (7, cliente.getSenhaCliente());
             pst.setInt   (8, cliente.getPerAcesso());
-            pst.setString(9,cliente.getIdTelefone());
-            pst.setString(10,cliente.getDataCadastro());
+            
+            pst.setString(9,cliente.getDataCadastro());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -61,12 +61,12 @@ public class ClienteDAO {
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setString(1, cliente.getNomeCliente());
-            pst.setString(2, cliente.getEnderecoCliente());
-            pst.setInt   (3, cliente.getCepCliente());
-            pst.setInt   (4, cliente.getRgCliente());
-            pst.setString(5, cliente.getEmailCliente());
-            pst.setLong(6, cliente.getCpfCliente());
+            pst.setString   (1, cliente.getNomeCliente());
+            pst.setString   (2, cliente.getEnderecoCliente());
+            pst.setString   (3, cliente.getCepCliente());
+            pst.setString   (4, cliente.getRgCliente());
+            pst.setString   (5, cliente.getEmailCliente());
+            pst.setString   (6, cliente.getCpfCliente());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -88,7 +88,7 @@ public class ClienteDAO {
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setLong(1, cliente.getCpfCliente());
+            pst.setString(1, cliente.getCpfCliente());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -119,12 +119,13 @@ public class ClienteDAO {
                     Cliente clienteOBJ = new Cliente();
                     clienteOBJ.setNomeCliente    (rs.getString(1));
                     clienteOBJ.setEnderecoCliente(rs.getString(2));
-                    clienteOBJ.setCepCliente     (rs.getInt(3));
-                    clienteOBJ.setRgCliente      (rs.getInt(4));
-                    clienteOBJ.setCpfCliente     (rs.getLong(5));
+                    clienteOBJ.setCepCliente     (rs.getString(3));
+                    clienteOBJ.setRgCliente      (rs.getString(4));
+                    clienteOBJ.setCpfCliente     (rs.getString(5));
                     clienteOBJ.setEmailCliente   (rs.getString(6));
-                    clienteOBJ.setIdTelefone     (rs.getString(7));
-                    clienteOBJ.setDataCadastro   (rs.getString(8));
+                    clienteOBJ.setSenhaCliente   (rs.getString(7));
+                    clienteOBJ.setPerAcesso      (rs.getInt(8));
+                    clienteOBJ.setDataCadastro   (rs.getString(9));
                     lista.add(clienteOBJ);
                 }
                 Conexao.fecharConexao(con);
@@ -152,15 +153,16 @@ public class ClienteDAO {
             
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
-                    Cliente clienteOBJ = new Cliente();
+                     Cliente clienteOBJ = new Cliente();
                     clienteOBJ.setNomeCliente    (rs.getString(1));
                     clienteOBJ.setEnderecoCliente(rs.getString(2));
-                    clienteOBJ.setCepCliente     (rs.getInt(3));
-                    clienteOBJ.setRgCliente      (rs.getInt(4));
-                    clienteOBJ.setCpfCliente     (rs.getLong(5));
+                    clienteOBJ.setCepCliente     (rs.getString(3));
+                    clienteOBJ.setRgCliente      (rs.getString(4));
+                    clienteOBJ.setCpfCliente     (rs.getString(5));
                     clienteOBJ.setEmailCliente   (rs.getString(6));
-                    clienteOBJ.setIdTelefone     (rs.getString(7));
-                    clienteOBJ.setDataCadastro   (rs.getString(8));
+                    clienteOBJ.setSenhaCliente   (rs.getString(7));
+                    clienteOBJ.setPerAcesso      (rs.getInt(8));
+                    clienteOBJ.setDataCadastro   (rs.getString(9));
                     
                 Conexao.fecharConexao(con);
                 return clienteOBJ;

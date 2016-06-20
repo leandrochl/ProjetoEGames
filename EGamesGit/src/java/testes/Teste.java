@@ -17,7 +17,7 @@ public class Teste {
        Telefone tel = new Telefone();
        TelefoneDAO teld = new TelefoneDAO();
        
-       tel=teld.buscaPorId("201601");
+   
        
         System.out.println(tel.getTelefone1());
         System.out.println(tel.getTelefone2());

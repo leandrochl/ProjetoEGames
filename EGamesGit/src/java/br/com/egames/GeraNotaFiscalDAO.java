@@ -25,9 +25,9 @@ public class GeraNotaFiscalDAO {
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setString(1, geranota.getIdNota());
-            pst.setInt(2, geranota.getCpfCliente());
-            pst.setString(3, geranota.getIdPedido());
+            pst.setInt(1, geranota.getIdNota());
+            pst.setString(2, geranota.getCpfCliente());
+            pst.setInt(3, geranota.getIdPedido());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);

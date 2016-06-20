@@ -14,7 +14,7 @@ package br.com.egames;
 public class ForneceProduto {
         
     private String cnpjForn;
-    private String precoUnitario;
+    private Double precoUnitario;
     private Integer idProduto;
 
     public Integer getIdProduto() {
@@ -33,11 +33,11 @@ public class ForneceProduto {
         this.cnpjForn = cnpjForn;
     }
 
-    public String getPrecoUnitario() {
+    public Double getPrecoUnitario() {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(String precoUnitario) {
+    public void setPrecoUnitario(Double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
     

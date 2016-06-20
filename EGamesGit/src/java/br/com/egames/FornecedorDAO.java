@@ -29,8 +29,9 @@ public class FornecedorDAO {
             pst.setString(1, fornecedor.getCnpjForn());
             pst.setString(2, fornecedor.getNomeForn());
             pst.setString(3, fornecedor.getEnderecoForn());
-            pst.setString(4, fornecedor.getCepForn());
-            pst.setString(5, fornecedor.getIdTelefone());
+            pst.setString(4, fornecedor.getEmailForn());
+            pst.setString(5, fornecedor.getCepForn());
+          
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -48,7 +49,7 @@ public class FornecedorDAO {
     //Método para alteração de dados
     public String alterar(Fornecedor fornecedor){
         String sql = "update fornecedor set ";
-        sql += "nomeforn=?, enderecoforn=?, cepforn=?";
+        sql += "nomeforn=?, enderecoforn=?, cepforn=?, emailforn=?";
         sql += " where cnpjforn=?";
         Connection con = Conexao.abrirConexao();
         try{
@@ -57,8 +58,9 @@ public class FornecedorDAO {
             pst.setString(1, fornecedor.getNomeForn());
             pst.setString(2, fornecedor.getEnderecoForn());
             pst.setString(3, fornecedor.getCepForn());
+            pst.setString(4, fornecedor.getEmailForn());
             
-            pst.setString(4, fornecedor.getCnpjForn());
+            pst.setString(5, fornecedor.getCnpjForn());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -109,8 +111,9 @@ public class FornecedorDAO {
                     c.setCnpjForn    (rs.getString(1));
                     c.setNomeForn    (rs.getString(2));
                     c.setEnderecoForn(rs.getString(3));
-                    c.setCepForn     (rs.getString(4));
-                    c.setIdTelefone  (rs.getString(5));
+                    c.setEmailForn   (rs.getString(4));
+                    c.setCepForn     (rs.getString(5));
+                   
                     
                     lista.add(c);
                 }
@@ -137,13 +140,13 @@ public class FornecedorDAO {
             pst.setString(1, cod);
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
-                Fornecedor c = new Fornecedor();
                 
-                c.setCnpjForn      (rs.getString(1));
-                c.setNomeForn      (rs.getString(2));
-                c.setEnderecoForn  (rs.getString(3));
-                c.setCepForn       (rs.getString(4));
-                c.setIdTelefone    (rs.getString(5));
+                Fornecedor c = new Fornecedor();
+                    c.setCnpjForn    (rs.getString(1));
+                    c.setNomeForn    (rs.getString(2));
+                    c.setEnderecoForn(rs.getString(3));
+                    c.setEmailForn   (rs.getString(4));
+                    c.setCepForn     (rs.getString(5));
                 
                 Conexao.fecharConexao(con);
                 return c;
@@ -168,12 +171,11 @@ public class FornecedorDAO {
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
                 Fornecedor c = new Fornecedor();
-                
-                c.setCnpjForn      (rs.getString(1));
-                c.setNomeForn      (rs.getString(2));
-                c.setEnderecoForn  (rs.getString(3));
-                c.setCepForn       (rs.getString(4));
-                c.setIdTelefone    (rs.getString(5));
+                    c.setCnpjForn    (rs.getString(1));
+                    c.setNomeForn    (rs.getString(2));
+                    c.setEnderecoForn(rs.getString(3));
+                    c.setEmailForn   (rs.getString(4));
+                    c.setCepForn     (rs.getString(5));
                 
                 Conexao.fecharConexao(con);
                 return c;

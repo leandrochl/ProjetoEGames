@@ -25,8 +25,8 @@ public class FazPedidoDAO {
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setInt   (1, fazpedido.getCpfCliente());
-            pst.setString(2, fazpedido.getIdPedido());
+            pst.setString  (1, fazpedido.getCpfCliente());
+            pst.setInt(2, fazpedido.getIdPedido());
             pst.setString(3, fazpedido.getData());
             
             if(pst.executeUpdate() > 0){
@@ -53,8 +53,8 @@ public class FazPedidoDAO {
             if(rs != null){
                 while(rs.next()){
                     FazPedido c = new FazPedido();
-                    c.setCpfCliente(rs.getInt(1));
-                    c.setIdPedido  (rs.getString(2));
+                    c.setCpfCliente(rs.getString(1));
+                    c.setIdPedido  (rs.getInt(2));
                     c.setData      (rs.getString(3));
                     lista.add(c);
                 }
