@@ -13,14 +13,13 @@ import java.util.Date;
 public class Cliente {
     private String  nomeCliente;
     private String  enderecoCliente;
+    private String  cepCliente;
+    private String  rgCliente;
+    private String  cpfCliente;
     private String  emailCliente;
     private String  senhaCliente;
-    private String  idTelefone;
+    private String  perAcesso;
     private String  dataCadastro;
-    private Integer cepCliente;
-    private Integer rgCliente;
-    private Long    cpfCliente;
-    private Integer perAcesso;
 
     public String getNomeCliente() {
         return nomeCliente;
@@ -38,27 +37,27 @@ public class Cliente {
         this.enderecoCliente = enderecoCliente;
     }
 
-    public Integer getCepCliente() {
+    public String getCepCliente() {
         return cepCliente;
     }
 
-    public void setCepCliente(Integer cepCliente) {
+    public void setCepCliente(String cepCliente) {
         this.cepCliente = cepCliente;
     }
 
-    public Integer getRgCliente() {
+    public String getRgCliente() {
         return rgCliente;
     }
 
-    public void setRgCliente(Integer rgCliente) {
+    public void setRgCliente(String rgCliente) {
         this.rgCliente = rgCliente;
     }
 
-    public Long getCpfCliente() {
+    public String getCpfCliente() {
         return cpfCliente;
     }
 
-    public void setCpfCliente(Long cpfCliente) {
+    public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
 
@@ -78,20 +77,12 @@ public class Cliente {
         this.senhaCliente = senhaCliente;
     }
 
-    public Integer getPerAcesso() {
+    public String getPerAcesso() {
         return perAcesso;
     }
 
-    public void setPerAcesso(Integer perAcesso) {
+    public void setPerAcesso(String perAcesso) {
         this.perAcesso = perAcesso;
-    }
-
-    public String getIdTelefone() {
-        return idTelefone;
-    }
-
-    public void setIdTelefone(String idTelefone) {
-        this.idTelefone = idTelefone;
     }
 
     public String getDataCadastro() {
@@ -101,7 +92,4 @@ public class Cliente {
     public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
-    
-    
-    
 }
