@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author Leandro
+ * @author Leandro chaves
  */
 public class FornecedorDAO {
     //Método para inserção de dados
