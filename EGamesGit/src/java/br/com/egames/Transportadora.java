@@ -13,8 +13,8 @@ public class Transportadora {
     private String cnpjTransp;
     private String enderecoTransp;
     private String nomeTransp;
+    private String cepTransp;
     private String emailTransp;
-    private String idTelefone;
 
     public String getCnpjTransp() {
         return cnpjTransp;
@@ -40,20 +40,19 @@ public class Transportadora {
         this.nomeTransp = nomeTransp;
     }
 
+    public String getCepTransp() {
+        return cepTransp;
+    }
+
+    public void setCepTransp(String cepTransp) {
+        this.cepTransp = cepTransp;
+    }
+
     public String getEmailTransp() {
         return emailTransp;
     }
 
     public void setEmailTransp(String emailTransp) {
         this.emailTransp = emailTransp;
-    }
-
-   
-    public String getIdTelefone() {
-        return idTelefone;
-    }
-
-    public void setIdTelefone(String idTelefone) {
-        this.idTelefone = idTelefone;
     }
 }

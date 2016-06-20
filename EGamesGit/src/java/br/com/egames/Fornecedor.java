@@ -17,8 +17,9 @@ public class Fornecedor {
     private String cnpjForn;
     private String nomeForn;
     private String enderecoForn;
+    private String emailForn; //NOVO CAMPO 
     private String cepForn;
-    private String idTelefone;
+    //private String idTelefone; NAO EXISTE MAIS
 
     public String getCnpjForn() {
         return cnpjForn;
@@ -44,6 +45,14 @@ public class Fornecedor {
         this.enderecoForn = enderecoForn;
     }
 
+    public String getEmailForn() {
+        return emailForn;
+    }
+
+    public void setEmailForn(String emailForn) {
+        this.emailForn = emailForn;
+    }
+
     public String getCepForn() {
         return cepForn;
     }
@@ -52,13 +61,5 @@ public class Fornecedor {
         this.cepForn = cepForn;
     }
 
-    public String getIdTelefone() {
-        return idTelefone;
-    }
-
-    public void setIdTelefone(String idTelefone) {
-        this.idTelefone = idTelefone;
-    }
-    
-    
+   
 }

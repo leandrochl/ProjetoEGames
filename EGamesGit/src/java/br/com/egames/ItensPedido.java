@@ -10,15 +10,15 @@ package br.com.egames;
  * @author Leandro
  */
 public class ItensPedido {
-    private String  idPedido;
+    private Integer idPedido;
     private Integer qtdeProdutoPedido;
     private Integer idProduto;
 
-    public String getIdPedido() {
+    public Integer getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(String idPedido) {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
 

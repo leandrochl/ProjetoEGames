@@ -14,16 +14,15 @@ package br.com.egames;
 public class Funcionario {
     private String nomeFunc;
     private String enderecoFunc;
+    private String cepFunc;
+    private String rgFunc;
+    private Integer perAcessFunc;
+    private String cpfFunc;
+    private String numCarteiraFunc;
+    private Integer matriculaFunc;
     private String emailFunc;
     private String senhaFunc;
-    private String idTelefone;
     private String dataCadastro;
-    private Integer cepFunc;
-    private Integer rgFunc;
-    private Integer perAcessFunc;
-    private Long cpfFunc;
-    private Integer numCarteiraFunc;
-    private Integer matriculaFunc;
 
     public String getNomeFunc() {
         return nomeFunc;
@@ -39,6 +38,54 @@ public class Funcionario {
 
     public void setEnderecoFunc(String enderecoFunc) {
         this.enderecoFunc = enderecoFunc;
+    }
+
+    public String getCepFunc() {
+        return cepFunc;
+    }
+
+    public void setCepFunc(String cepFunc) {
+        this.cepFunc = cepFunc;
+    }
+
+    public String getRgFunc() {
+        return rgFunc;
+    }
+
+    public void setRgFunc(String rgFunc) {
+        this.rgFunc = rgFunc;
+    }
+
+    public Integer getPerAcessFunc() {
+        return perAcessFunc;
+    }
+
+    public void setPerAcessFunc(Integer perAcessFunc) {
+        this.perAcessFunc = perAcessFunc;
+    }
+
+    public String getCpfFunc() {
+        return cpfFunc;
+    }
+
+    public void setCpfFunc(String cpfFunc) {
+        this.cpfFunc = cpfFunc;
+    }
+
+    public String getNumCarteiraFunc() {
+        return numCarteiraFunc;
+    }
+
+    public void setNumCarteiraFunc(String numCarteiraFunc) {
+        this.numCarteiraFunc = numCarteiraFunc;
+    }
+
+    public Integer getMatriculaFunc() {
+        return matriculaFunc;
+    }
+
+    public void setMatriculaFunc(Integer matriculaFunc) {
+        this.matriculaFunc = matriculaFunc;
     }
 
     public String getEmailFunc() {
@@ -57,68 +104,12 @@ public class Funcionario {
         this.senhaFunc = senhaFunc;
     }
 
-    public String getIdTelefone() {
-        return idTelefone;
-    }
-
-    public void setIdTelefone(String idTelefone) {
-        this.idTelefone = idTelefone;
-    }
-
     public String getDataCadastro() {
         return dataCadastro;
     }
 
     public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
-    }
-
-    public Integer getCepFunc() {
-        return cepFunc;
-    }
-
-    public void setCepFunc(Integer cepFunc) {
-        this.cepFunc = cepFunc;
-    }
-
-    public Integer getRgFunc() {
-        return rgFunc;
-    }
-
-    public void setRgFunc(Integer rgFunc) {
-        this.rgFunc = rgFunc;
-    }
-
-    public Integer getPerAcessFunc() {
-        return perAcessFunc;
-    }
-
-    public void setPerAcessFunc(Integer perAcessFunc) {
-        this.perAcessFunc = perAcessFunc;
-    }
-
-    public Long getCpfFunc() {
-        return cpfFunc;
-    }
-
-    public void setCpfFunc(Long cpfFunc) {
-        this.cpfFunc = cpfFunc;
-    }
-
-    public Integer getNumCarteiraFunc() {
-        return numCarteiraFunc;
-    }
-
-    public void setNumCarteiraFunc(Integer numCarteiraFunc) {
-        this.numCarteiraFunc = numCarteiraFunc;
-    }
-
-    public Integer getMatriculaFunc() {
-        return matriculaFunc;
-    }
-
-    public void setMatriculaFunc(Integer matriculaFunc) {
-        this.matriculaFunc = matriculaFunc;
     }
     
     

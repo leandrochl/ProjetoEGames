@@ -10,33 +10,33 @@ package br.com.egames;
  * @author Leandro
  */
 public class GeraNotaFiscal {
-    private String idNota;
-    private String idPedido;
-    private Integer cpfCliente;
+    private Integer idNota;
+    private Integer idPedido;
+    private String cpfCliente;
 
-    public String getIdNota() {
+    public Integer getIdNota() {
         return idNota;
     }
 
-    public void setIdNota(String idNota) {
+    public void setIdNota(Integer idNota) {
         this.idNota = idNota;
     }
 
-    public String getIdPedido() {
+    public Integer getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(String idPedido) {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
 
-    public Integer getCpfCliente() {
+    public String getCpfCliente() {
         return cpfCliente;
     }
 
-    public void setCpfCliente(Integer cpfCliente) {
+    public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
-    
-    
+
+   
 }

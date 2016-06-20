@@ -14,15 +14,15 @@ package br.com.egames;
  */
 public class FazPedido {
     
-    private String  idPedido;
+    private Integer  idPedido;
     private String  data;
-    private Integer cpfCliente;
+    private String cpfCliente;
 
-    public String getIdPedido() {
+    public Integer getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(String idPedido) {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
 
@@ -34,11 +34,11 @@ public class FazPedido {
         this.data = data;
     }
 
-    public Integer getCpfCliente() {
+    public String getCpfCliente() {
         return cpfCliente;
     }
 
-    public void setCpfCliente(Integer cpfCliente) {
+    public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
 
