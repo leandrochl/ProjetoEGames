@@ -23,7 +23,7 @@ public class LoginDAO {
         try {
             PreparedStatement pst = con.prepareStatement(sql);
 
-            pst.setLong(1, login.getLogin());
+            pst.setString(1, login.getLogin());
             pst.setString(2, login.getSenha());
 
             ResultSet rs = pst.executeQuery();
@@ -51,8 +51,8 @@ public class LoginDAO {
         try {
             PreparedStatement pst = con.prepareStatement(sql);
 
-            pst.setLong(1, login.getLogin());
-            pst.setString(2, login.getSenha());
+            pst.setInt     (1, Integer.parseInt(login.getLogin()));
+            pst.setString  (2, login.getSenha());
 
             ResultSet rs = pst.executeQuery();
             if (!rs.isBeforeFirst()) {
@@ -79,8 +79,8 @@ public class LoginDAO {
         try {
             PreparedStatement pst = con.prepareStatement(sql);
 
-            pst.setLong(1, login.getLogin());
-            pst.setString(2, login.getSenha());
+            pst.setInt     (1, Integer.parseInt(login.getLogin()));
+            pst.setString  (2, login.getSenha());
 
             ResultSet rs = pst.executeQuery();
             if (!rs.isBeforeFirst()) {

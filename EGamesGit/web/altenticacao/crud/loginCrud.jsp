@@ -25,7 +25,7 @@
             LoginDAO logd = new LoginDAO();
 
             Funcionario func = new Funcionario();
-            log.setLogin(Long.parseLong(login));
+            log.setLogin(login);
             log.setSenha(senha);
 
             if (logd.verificaCliente(log)) {

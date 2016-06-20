@@ -141,14 +141,14 @@ public class ClienteDAO {
     
     //Método que retorna um objeto, de acordo
     //com o código
-    public Cliente buscaPorCPF(Long cpf){
+    public Cliente buscaPorCPF(String cpf){
         String sql = "select * from cliente ";
         sql += "where cpfcliente=?";
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setLong(1, cpf);
+            pst.setString(1, cpf);
             
             ResultSet rs = pst.executeQuery();
             if(rs.next()){

@@ -25,7 +25,7 @@
     //   Telefone tel = new Telefone();
       // TelefoneDAO teld = new TelefoneDAO();
    
-             cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
+             cli = cd.buscaPorCPF(session.getAttribute("login").toString());
     
             String nomeCliente = request.getParameter("nomeCliente");
             if(nomeCliente == null || nomeCliente.equals("")){
@@ -82,15 +82,13 @@
            
     String crud = request.getParameter("crud");
    
-    Integer iCepCliente = 0;
-    Integer iRgCliente = 0;
+
    
   
     
   //  if (!crud.equals("Pesquisar")) {
         //Convertendo dados
-        iCepCliente = Integer.parseInt(cepCliente);
-        iRgCliente = Integer.parseInt(rgCliente);
+        
     //    lCpfCliente = Long.parseLong();
         
 
@@ -104,14 +102,14 @@
     tel.setTelefone2(telefone2);
     tel.setTelefone3(telefone3);*/
   //  cli.setPerAcesso(1);
-    cli.setCepCliente(iCepCliente);
+    cli.setCepCliente(cepCliente);
   //  cli.setCpfCliente(lCpfCliente);
     cli.setEmailCliente(emailCliente);
     cli.setEnderecoCliente(enderecoCliente);
    // cli.setIdTelefone(idTelefone);
     cli.setNomeCliente(nomeCliente);
     
-    cli.setRgCliente(iRgCliente);
+    cli.setRgCliente(rgCliente);
   //  cli.setSenhaCliente(senhaCliente);
 
 

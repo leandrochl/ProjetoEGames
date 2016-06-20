@@ -15,7 +15,7 @@
                 //request.getSession().invalidate();
                 response.sendRedirect("../altenticacao/login.jsp");
             }
-                 cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
+                 cli = cd.buscaPorCPF(session.getAttribute("login").toString());
         %>
 <html>
     <head>

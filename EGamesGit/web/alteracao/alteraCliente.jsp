@@ -45,7 +45,7 @@
                 //request.getSession().invalidate();
                 response.sendRedirect("../altenticacao/login.jsp");
             }
-                 cli = cd.buscaPorCPF(Long.parseLong(session.getAttribute("login").toString()));
+                 cli = cd.buscaPorCPF(session.getAttribute("login").toString());
                  //tel = teld.buscaPorId(cli.getIdTelefone());
                 //if (cli.getPerAcesso() != 1) {
                    // session.invalidate();
@@ -67,13 +67,13 @@
                 emailCliente = "";
             }
 
-            Integer cepCliente = cli.getCepCliente();
+            String cepCliente = cli.getCepCliente();
             if (cepCliente == null) {
-                cepCliente = 0;
+                cepCliente = "";
             }
-            Integer rgCliente = cli.getRgCliente();
+            String rgCliente = cli.getRgCliente();
             if (rgCliente == null) {
-                rgCliente = 0;
+                rgCliente = "";
             }
          
      /*       String telefone1 = tel.getTelefone1();

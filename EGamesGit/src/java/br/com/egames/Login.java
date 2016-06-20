@@ -10,13 +10,13 @@ package br.com.egames;
  * @author evio
  */
 public class Login {
-    private Long login;
+    private String login;
 
-    public Long getLogin() {
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(Long login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 
