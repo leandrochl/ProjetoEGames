@@ -37,7 +37,6 @@
 <body>
     <form action="../alteracao/alteraFornecedor.jsp" method="post">   
         <table border = '0' width = '100%'>
-
             <tr bgcolor='gray' height='35'>
                 <td width='3%'><b>CNPJ</b></td>
                 <td width='10%'><b>Nome</b></td>
