@@ -18,7 +18,7 @@ public class Cliente {
     private String  cpfCliente;
     private String  emailCliente;
     private String  senhaCliente;
-    private int  perAcesso;
+    private Integer perAcesso;
     private String  dataCadastro;
 
     public String getNomeCliente() {
@@ -77,11 +77,11 @@ public class Cliente {
         this.senhaCliente = senhaCliente;
     }
 
-    public int getPerAcesso() {
+    public Integer getPerAcesso() {
         return perAcesso;
     }
 
-    public void setPerAcesso(int perAcesso) {
+    public void setPerAcesso(Integer perAcesso) {
         this.perAcesso = perAcesso;
     }
 

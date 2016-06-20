@@ -62,16 +62,8 @@
             }
           
             String crud = request.getParameter("crud");
-
-            
-         
-
             //  if (!crud.equals("Pesquisar")) {
             //Convertendo dados
-           
-            
-         
-
             // }
             //Criando objetos das classes Cargo e CargoDAO
             Cliente cli = new Cliente();
@@ -87,10 +79,15 @@
             cli.setEmailCliente(email);
             cli.setEnderecoCliente(endereco);
           
+            /*
             tel.setIdTelCliente(cli.getCpfCliente());
+            tel.setIdTelFornecedor("null");
+            tel.setIdTelFuncionario(12);
+            tel.setIdTelTransportadora("null");
             tel.setTelefone1(telefone1);
             tel.setTelefone2(telefone2);
             tel.setTelefone3(telefone3);
+            */
             cli.setNomeCliente(nome);
             cli.setPerAcesso(1); //PERMISSÃO DE ACESSO DE CLIENTE É SEMPRE 1
             cli.setRgCliente(rg);
@@ -98,8 +95,9 @@
             //Verificando qual botão foi acionado
             if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
-                out.print(teld.inserir(tel)); //INSERE O ID NA TABLE TELEFONE PRIMEIRO E DEPOIS A TABELA CLIENTE USA O ID TELEFONE 
                 out.print(clid.inserir(cli));
+                //out.print(teld.inserir(tel)); 
+                
             }
           
         %>
