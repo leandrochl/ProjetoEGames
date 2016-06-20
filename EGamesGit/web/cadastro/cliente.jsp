@@ -38,7 +38,7 @@
             <p><label for="lname">RG:&emsp;</label><p><input type="text" name="rg" value="RG"></p>
             <p><label for="lname">CPF:&emsp;</label><input type="text" name="cpfCli" value="CPF"></p>
             &emsp; 
-            <input type="submit" name="crud" value="Cadastrar" onClick="return senhaCliente.equals(senhaCliente2)"/>
+            <input type="submit" name="crud" value="Cadastrar"/>
             <input type="button" value="Voltar" onClick="history.go(-1)"/>
 
             <!--<label for="country">State</label>
