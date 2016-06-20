@@ -19,18 +19,20 @@ import java.util.List;
 public class TelefoneDAO {
 
     //Método para inserção de dados
-
     public String inserir(Telefone telefone) {
         String sql = "insert into telefone ";
-        sql += "values (?,?,?,?)";
+        sql += "values (?,?,?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
 
-            pst.setString(1, telefone.getIdTelefone());
-            pst.setString(2, telefone.getTelefone1());
-            pst.setString(3, telefone.getTelefone2());
-            pst.setString(4, telefone.getTelefone3());
+            pst.setString(1, telefone.getIdTelCliente());
+            pst.setString(2, telefone.getIdTelFornecedor());
+            pst.setInt(3, telefone.getIdTelFuncionario());
+            pst.setString(4, telefone.getIdTelTransportadora());
+            pst.setString(5, telefone.getTelefone1());
+            pst.setString(6, telefone.getTelefone2());
+            pst.setString(7, telefone.getTelefone3());
 
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
@@ -46,21 +48,107 @@ public class TelefoneDAO {
     }
 
     //Método para alteração de dados
-    public String alterar(Telefone telefone) {
+    public String alterarCliente(Telefone telefone) {
         String sql = "update telefone set ";
-        sql += "telefone1=?,"
+        sql    += "telefone1=?,"
                 + "telefone2=?,"
                 + "telefone3=?";
-        sql += " where idtelefone=?";
+        sql += " where idtelcliente=?";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            
-            pst.setString(1, telefone.getTelefone1());
-            pst.setString(2, telefone.getTelefone2());
-            pst.setString(3, telefone.getTelefone3());
-            pst.setString(4, telefone.getIdTelefone());
-            
+
+            pst.setString(1, telefone.getIdTelCliente());
+ 
+            pst.setString(2, telefone.getTelefone1());
+            pst.setString(3, telefone.getTelefone2());
+            pst.setString(4, telefone.getTelefone3());
+
+            if (pst.executeUpdate() > 0) {
+                Conexao.fecharConexao(con);
+                return "Registro alterado com sucesso.";
+            } else {
+                Conexao.fecharConexao(con);
+                return "Erro ao alterar registro.";
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return e.getMessage();
+        }
+    }
+    
+        public String alterarFuncionario(Telefone telefone) {
+        String sql = "update telefone set ";
+        sql    += "telefone1=?,"
+                + "telefone2=?,"
+                + "telefone3=?";
+        sql += " where idtelfuncionario=?";
+        Connection con = Conexao.abrirConexao();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setInt(1, telefone.getIdTelFuncionario());
+ 
+            pst.setString(2, telefone.getTelefone1());
+            pst.setString(3, telefone.getTelefone2());
+            pst.setString(4, telefone.getTelefone3());
+
+            if (pst.executeUpdate() > 0) {
+                Conexao.fecharConexao(con);
+                return "Registro alterado com sucesso.";
+            } else {
+                Conexao.fecharConexao(con);
+                return "Erro ao alterar registro.";
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return e.getMessage();
+        }
+    }
+    public String alterarFornecedor(Telefone telefone) {
+        String sql = "update telefone set ";
+        sql    += "telefone1=?,"
+                + "telefone2=?,"
+                + "telefone3=?";
+        sql += " where idtelfornecedor=?";
+        Connection con = Conexao.abrirConexao();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, telefone.getIdTelFornecedor());
+ 
+            pst.setString(2, telefone.getTelefone1());
+            pst.setString(3, telefone.getTelefone2());
+            pst.setString(4, telefone.getTelefone3());
+
+            if (pst.executeUpdate() > 0) {
+                Conexao.fecharConexao(con);
+                return "Registro alterado com sucesso.";
+            } else {
+                Conexao.fecharConexao(con);
+                return "Erro ao alterar registro.";
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return e.getMessage();
+        }
+    }
+    public String alterarTransportadora(Telefone telefone) {
+        String sql = "update telefone set ";
+        sql    += "telefone1=?,"
+                + "telefone2=?,"
+                + "telefone3=?";
+        sql += " where idteltransportadora=?";
+        Connection con = Conexao.abrirConexao();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, telefone.getIdTelTransportadora());
+ 
+            pst.setString(2, telefone.getTelefone1());
+            pst.setString(3, telefone.getTelefone2());
+            pst.setString(4, telefone.getTelefone3());
+
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
                 return "Registro alterado com sucesso.";
@@ -75,16 +163,15 @@ public class TelefoneDAO {
     }
 
     //Método para excluir dados
-
-    public String excluir(Telefone telefone) {
+    public String excluirCliente(Telefone telefone) {
         String sql = "delete from telefone ";
-        sql += "where idtelefone=?";
+        sql += "where idtelcliente=?";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            
-            pst.setString(1, telefone.getIdTelefone());
-            
+
+            pst.setString(1, telefone.getIdTelCliente());
+
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
                 return "Registro excluído com sucesso.";
@@ -97,33 +184,72 @@ public class TelefoneDAO {
             return e.getMessage();
         }
     }
-    
-    
-     public Telefone buscaPorId(String cod) {
-        String sql = "select * from telefone ";
-        sql += "where idtelefone=?";
+    //Método para excluir dados
+    public String excluirFornecedor(Telefone telefone) {
+        String sql = "delete from telefone ";
+        sql += "where idtelfornecedor=?";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, cod);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                Telefone tel = new Telefone();
-                tel.setIdTelefone(rs.getString(1));
-                tel.setTelefone1(rs.getString(2));
-                tel.setTelefone2(rs.getString(3));
-                tel.setTelefone3(rs.getString(4));
-                
+
+            pst.setString(1, telefone.getIdTelFornecedor());
+
+            if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
-                return tel;
+                return "Registro excluído com sucesso.";
             } else {
                 Conexao.fecharConexao(con);
-
-                return null;
+                return "Erro ao excluir registro.";
             }
         } catch (SQLException e) {
             Conexao.fecharConexao(con);
-            return null;
+            return e.getMessage();
         }
     }
+    //Método para excluir dados
+    public String excluirFuncionario(Telefone telefone) {
+        String sql = "delete from telefone ";
+        sql += "where idtelfuncionario=?";
+        Connection con = Conexao.abrirConexao();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setInt(1, telefone.getIdTelFuncionario());
+
+            if (pst.executeUpdate() > 0) {
+                Conexao.fecharConexao(con);
+                return "Registro excluído com sucesso.";
+            } else {
+                Conexao.fecharConexao(con);
+                return "Erro ao excluir registro.";
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return e.getMessage();
+        }
+    }
+    //Método para excluir dados
+    public String excluirTransportadora(Telefone telefone) {
+        String sql = "delete from telefone ";
+        sql += "where idteltransportadora=?";
+        Connection con = Conexao.abrirConexao();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, telefone.getIdTelTransportadora());
+
+            if (pst.executeUpdate() > 0) {
+                Conexao.fecharConexao(con);
+                return "Registro excluído com sucesso.";
+            } else {
+                Conexao.fecharConexao(con);
+                return "Erro ao excluir registro.";
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return e.getMessage();
+        }
+    }
+
+    
 }

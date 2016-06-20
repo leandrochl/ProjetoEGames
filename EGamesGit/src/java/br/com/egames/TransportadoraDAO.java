@@ -29,9 +29,10 @@ public class TransportadoraDAO {
 
             pst.setString(1, transportadora.getCnpjTransp());
             pst.setString(2, transportadora.getEnderecoTransp());
-            pst.setString(3, transportadora.getNomeTransp());
-            pst.setString(4, transportadora.getEmailTransp());
-            pst.setString(5, transportadora.getIdTelefone());
+            pst.setString(3, transportadora.getCepTransp());
+            pst.setString(4, transportadora.getNomeTransp());
+            pst.setString(5, transportadora.getEmailTransp());
+            
 
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
@@ -51,9 +52,9 @@ public class TransportadoraDAO {
         String sql = "update cargo set ";
         sql += "cnpjtransp=?,"
              + "enderecotransp=?,"
+             + "ceptransp=?,"
              + "nometransp=?,"
-             + "emailtransp=?,"
-             + "idtelefone=?";
+             + "emailtransp=?";
         sql += " where cnpjtransportadora=?";
         Connection con = Conexao.abrirConexao();
         try {
@@ -63,7 +64,7 @@ public class TransportadoraDAO {
             pst.setString(2, transportadora.getEnderecoTransp());
             pst.setString(3, transportadora.getNomeTransp());
             pst.setString(4, transportadora.getEmailTransp());
-            pst.setString(5, transportadora.getIdTelefone());
+            pst.setString(5, transportadora.getCepTransp());
             
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
@@ -118,7 +119,7 @@ public class TransportadoraDAO {
                     c.setEnderecoTransp(rs.getString(2));
                     c.setNomeTransp    (rs.getString(3));
                     c.setEmailTransp   (rs.getString(4));
-                    c.setIdTelefone    (rs.getString(5));
+                    c.setCepTransp     (rs.getString(5));
                     
                     lista.add(c);
                 }
@@ -149,7 +150,7 @@ public class TransportadoraDAO {
                 trans.setEnderecoTransp(rs.getString(2));
                 trans.setNomeTransp(rs.getString(3));
                 trans.setEmailTransp(rs.getString(4));
-                trans.setIdTelefone(rs.getString(5));
+                trans.setCepTransp(rs.getString(5));
                 
                 Conexao.fecharConexao(con);
                 return trans;

@@ -27,9 +27,9 @@ public class NotaFiscalDAO {
             
             pst.setDouble(1, notafiscal.getPrecoTotal());
             pst.setString(2, notafiscal.getData());
-            pst.setString(3, notafiscal.getIdNota());
-            pst.setString(4, notafiscal.getIdPedido());
-            pst.setInt   (5, notafiscal.getCpfCliente());
+            pst.setInt(3, notafiscal.getIdNota());
+            pst.setInt(4, notafiscal.getIdPedido());
+            pst.setString(5, notafiscal.getCpfCliente());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);
@@ -58,9 +58,9 @@ public class NotaFiscalDAO {
                     
                     c.setPrecoTotal(rs.getDouble(1));
                     c.setData      (rs.getString(2));
-                    c.setIdNota    (rs.getString(3));
-                    c.setIdPedido  (rs.getString(4));
-                    c.setCpfCliente(rs.getInt(5));
+                    c.setIdNota    (rs.getInt(3));
+                    c.setIdPedido  (rs.getInt(4));
+                    c.setCpfCliente(rs.getString(5));
                     
                     lista.add(c);
                 }
