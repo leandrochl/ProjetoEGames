@@ -27,10 +27,6 @@
             if (qtdeEstoque == null || qtdeEstoque.equals("")) {
                 qtdeEstoque = "";
             }
-            String imagem = request.getParameter("imagem");
-            if (imagem == null || imagem.equals("")) {
-                imagem = "vazio";
-            }
             String preco = request.getParameter("preco");
             if (preco == null || preco.equals("")) {
                 preco = "";
@@ -50,7 +46,7 @@
             Integer iQtdeEstoque = 0;
             Double dPreco = 0.0;
             Date data = new Date();
-            File fimagem = new File(imagem);
+
                        
             iQtdeEstoque = Integer.parseInt(qtdeEstoque);
             dPreco = Double.parseDouble(preco);
@@ -62,9 +58,8 @@
             produto.setPreco(dPreco);
             produto.setQtdeEstoque(iQtdeEstoque);
             produto.setDataCadastro(data.toString());
-            produto.setIdProduto(999);
+            produto.setIdProduto(990);
             produto.setCategoria(categoria);
-            produto.setImagem(fimagem);
 
             if (crud.equals("Cadastrar")) {
                 produtod.inserir(produto);
