@@ -21,8 +21,7 @@ import java.util.Date;
 public class ClienteDAO {
     //Método para inserção de dados
     public String inserir(Cliente cliente){
-        String sql = "insert into cliente ";
-        sql += "values (?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into cliente values (?,?,?,?,?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
