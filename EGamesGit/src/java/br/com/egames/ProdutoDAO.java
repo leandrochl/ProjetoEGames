@@ -25,20 +25,21 @@ import java.util.logging.Logger;
 public class ProdutoDAO {
 
     //Método para inserção de dados
-    public String inserir(Produto produto) throws IOException {
+    public String inserir(Produto produto)  {
         String sql = "insert into produto ";
         sql += "values (?,?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try {
-            FileInputStream fis = new FileInputStream(produto.getImagem());
+            
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, produto.getQtdeEstoque());
             pst.setString(2, produto.getDescricao());
             pst.setDouble(3, produto.getPreco());
-            pst.setInt(4, produto.getIdProduto());
+            pst.setInt(4, produto.getIdProduto());        
             pst.setString(5, produto.getDataCadastro());
             pst.setString(6, produto.getCategoria());
-            pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
+            pst.setString(7, produto.getImagem());
+            
             
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
@@ -47,7 +48,7 @@ public class ProdutoDAO {
                 Conexao.fecharConexao(con);
                 return "Erro ao inserir registro.";
             }
-         } catch (SQLException | FileNotFoundException e) {
+         } catch (SQLException e ) {
             Conexao.fecharConexao(con);
             return e.getMessage();
         }
