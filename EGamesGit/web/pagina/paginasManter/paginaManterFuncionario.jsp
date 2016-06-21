@@ -53,7 +53,7 @@
     <h3>Aqui você poderá adicionar novos funcionários no sistema, além de listar os funcionários já cadastrados para alterações</h3><p>
     <h3>Escolha uma ação</h3><p>
         <a href="../../cadastro/funcionario.jsp"><img src="../../imagens/add1.png" height="80" width="80"/></a>     <!--Cliente-->
-        <a href="../../listar/listarCliente.jsp"><img src="../../imagens/Data-List-icon.png" height="80" width="80"/></a> <p>
+        <a href="../../listar/listagemFuncionario.jsp"><img src="../../imagens/Data-List-icon.png" height="80" width="80"/></a> <p>
         <input type="button" value="Voltar" onClick="history.go(-1)"/>
 </body>
 </html>

@@ -51,11 +51,11 @@
             if(emailTrans == null || emailTrans.equals("")){
                 emailTrans = "";
             }
-          /*  String cepTrans = request.getParameter("cepTrans");
+            String cepTrans = request.getParameter("cep");
             if(cepTrans == null || cepTrans.equals("")){
                 cepTrans = "";
             }
-            */
+            
           String crud = request.getParameter("crud");
           Transportadora trans = new Transportadora();
           TransportadoraDAO transd = new TransportadoraDAO();
@@ -64,22 +64,22 @@
           
           trans.setNomeTransp(nomeTrans);
           trans.setCnpjTransp(cnpjTrans);
+          trans.setEnderecoTransp(enderecoTrans);
+          trans.setEmailTransp(emailTrans);
+          trans.setCepTransp(cepTrans);
+          
+          /*
           tel.setIdTelefone("789");
           trans.setIdTelefone(tel.getIdTelefone());
-          trans.setEmailTransp(emailTrans);
           tel.setTelefone1(telefone1);
           tel.setTelefone2(telefone2);
           tel.setTelefone3(telefone3);
-          trans.setEnderecoTransp(enderecoTrans);
-          
-
-          
-           if (crud.equals("Cadastrar")) {
+          */
+          if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
-                out.print(teld.inserir(tel));
+                //out.print(teld.inserir(tel));
                 out.print(transd.inserir(trans));
             }
-
         %>
     </body>
 </html>

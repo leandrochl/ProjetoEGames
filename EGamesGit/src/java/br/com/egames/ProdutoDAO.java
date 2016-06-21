@@ -39,7 +39,7 @@ public class ProdutoDAO {
             pst.setString(5, produto.getDataCadastro());
             pst.setString(6, produto.getCategoria());
             pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
-            
+
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
                 return "Registro inserido com sucesso.";
@@ -47,14 +47,13 @@ public class ProdutoDAO {
                 Conexao.fecharConexao(con);
                 return "Erro ao inserir registro.";
             }
-         } catch (SQLException | FileNotFoundException e) {
+        } catch (SQLException | FileNotFoundException e) {
             Conexao.fecharConexao(con);
             return e.getMessage();
         }
-      
+
     }
-    
-    
+
     //Método para alteração de dados
     public String alterar(Produto produto) {
         String sql = "update produto set ";
@@ -120,14 +119,12 @@ public class ProdutoDAO {
             if (rs != null) {
                 while (rs.next()) {
                     Produto c = new Produto();
-
                     c.setQtdeEstoque(rs.getInt(1));
                     c.setDescricao(rs.getString(2));
                     c.setPreco(rs.getDouble(3));
                     c.setIdProduto(rs.getInt(4));
                     c.setDataCadastro(rs.getString(5));
                     c.setCategoria(rs.getString(6));
-
                     lista.add(c);
                 }
                 Conexao.fecharConexao(con);
@@ -142,8 +139,7 @@ public class ProdutoDAO {
         }
     }
 
-    //Método que retorna um objeto, de acordo
-    //com o código
+    //Método que retorna um objeto, de acordo com o código
     public Produto buscaPorCodigo(int cod) {
         String sql = "select * from produto ";
         sql += "where idproduto=?";
@@ -152,6 +148,7 @@ public class ProdutoDAO {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, cod);
             ResultSet rs = pst.executeQuery();
+
             if (rs.next()) {
                 Produto c = new Produto();
                 c.setQtdeEstoque(rs.getInt(1));
@@ -165,6 +162,44 @@ public class ProdutoDAO {
             } else {
                 Conexao.fecharConexao(con);
 
+                return null;
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @param categoria
+     * @return
+     */
+    public List<Produto> listarPorCategoria(String categoria) {
+        String sql;
+        sql = "select * from produto where categoria=?";
+        Connection con = Conexao.abrirConexao();
+        List<Produto> lista = new ArrayList<>();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, categoria);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    Produto c = new Produto();
+                    c.setQtdeEstoque(rs.getInt(1));
+                    c.setDescricao(rs.getString(2));
+                    c.setPreco(rs.getDouble(3));
+                    c.setIdProduto(rs.getInt(4));
+                    c.setDataCadastro(rs.getString(5));
+                    c.setCategoria(rs.getString(6));
+                    lista.add(c);
+                }
+                Conexao.fecharConexao(con);
+                return lista;
+            } else {
+                Conexao.fecharConexao(con);
                 return null;
             }
         } catch (SQLException e) {
