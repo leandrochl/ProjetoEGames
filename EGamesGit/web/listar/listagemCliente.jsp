@@ -1,11 +1,9 @@
 <%-- 
-    Document   : listagemAlteraTransp
-    Created on : Jun 17, 2016, 2:14:43 PM
-    Author     : evio
+    Document   : listagemCliente
+    Created on : 20/06/2016, 17:34:55
+    Author     : Leandro
 --%>
 
-<%@page import="br.com.egames.Transportadora"%>
-<%@page import="br.com.egames.TransportadoraDAO"%>
 <%@page import="br.com.egames.ClienteDAO"%>
 <%@page import="br.com.egames.Cliente"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,20 +40,22 @@
     <form action="" method="post">   
         <table border = '0' width = '100%'>
             <tr bgcolor='gray' height='35'>
-                <td width='3%'><b>CNPJ</b></td>
-                <td width='10%'><b>Nome</b></td>
+                <td width='3%'><b>Nome</b></td>
                 <td width='10%'><b>Endereço</b></td>
                 <td width='10%'><b>CEP</b></td>
+                <td width='10%'><b>RG</b></td>
+                <td width='10%'><b>CPF</b></td>
                 <td width='10%'><b>Email</b></td>
+                <td width='10%'><b>Data de Cadastro</b></td>
                 <td width='10%'><b>Ação</b></td>
             </tr>
 
             <%
 
-                TransportadoraDAO fd = new TransportadoraDAO();
-                Transportadora fo = new Transportadora();
+                ClienteDAO fd = new ClienteDAO();
+                Cliente fo = new Cliente();
                 
-                List<Transportadora> f = new ArrayList();
+                List<Cliente> f = new ArrayList();
 
                 if (session.getAttribute("login") == null) {
 
@@ -63,16 +63,18 @@
                 }
 
                 f = fd.listarTodos();
-                for (Transportadora OBJForn : f) {
+                for (Cliente OBJForn : f) {
             %>
 
             <tr>
-            <td width='10%'><b><%= OBJForn.getCnpjTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getNomeTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEnderecoTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCepTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
-            <td width='10%'><input type="button" onclick="" value="Alterar"/></td>
+            <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
+            <td width='10%'><b><%= OBJForn.getEnderecoCliente()%></b></td>
+            <td width='10%'><b><%= OBJForn.getCepCliente()%></b></td>
+            <td width='10%'><b><%= OBJForn.getRgCliente()%></b></td>
+            <td width='10%'><b><%= OBJForn.getCpfCliente()%></b></td>
+            <td width='10%'><b><%= OBJForn.getEmailCliente()%></b></td>
+            <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
+            <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
             
             </tr>
 
@@ -87,3 +89,4 @@
     </form>   
 </body>
 </html>
+

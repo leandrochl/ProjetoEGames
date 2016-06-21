@@ -37,7 +37,7 @@
             <label for="fname">Nome :&emsp;</label><input type="text" name="nome" value="Nome">
            <!-- <p><label for="lname">Email:&emsp;</label><input type="text" name="email" value="Email"></p>-->
             <p><label for="lname">Endereço:&emsp;</label><input type="text" name="endereco" value="Endereço"></p>
-         <!--   <p><label for="lname">Senha:</label><label for="lname">&emsp;</label><input type="password" name="senha" value="">&emsp;<label for="lname">Reescreva a senha:&emsp;</label><input type="password" name="senha2" value=""></p> -->
+            <p><label for="lname">CEP:</label><label for="lname">&emsp;</label><input type="text" name="cep" value="">
             <p><label for="lname">Telefone 1&emsp;</label><input type="text" name="telefone1" value="Telefone 1"><label for="lname">&emsp;Telefone 2:&emsp;</label><input type="text" name="telefone2" value="Telefone 2"><label for="lname">&emsp;Telefone 3:&emsp;</label><input type="text" name="telefone3" value="Telefone 3"></p>
             <p><label for="lname">CNPJ: &emsp;</label><input type="text" name="cnpj" value="CNPJ"></p>
             <p><label for="lname">Email: &emsp;</label><input type="text" name="email" value="Email"></p>

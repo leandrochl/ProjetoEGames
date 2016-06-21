@@ -61,6 +61,11 @@
             if (cepForn == null || cepForn.equals("")) {
                 cepForn = "";
             }
+            String emailForn = request.getParameter("email");
+            if (emailForn == null || emailForn.equals("")) {
+                emailForn = "";
+            }
+
 
             String crud = request.getParameter("crud");
 
@@ -73,15 +78,18 @@
             forn.setCnpjForn(cnpjForn);
             forn.setEnderecoForn(enderecoForn);
             forn.setNomeForn(nomeForn);
+            forn.setEmailForn(emailForn);
+            
+            /*
             tel.setIdTelefone("102");
             forn.setIdTelefone(tel.getIdTelefone());
             tel.setTelefone1(telefone1);
             tel.setTelefone2(telefone2);
             tel.setTelefone3(telefone3);
-
+            */
             if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
-                out.print(teld.inserir(tel));
+                //out.print(teld.inserir(tel));
                 out.print (fornd.inserir(forn));
             }
 

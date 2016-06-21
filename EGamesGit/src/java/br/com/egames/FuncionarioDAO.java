@@ -26,12 +26,12 @@ public class FuncionarioDAO {
             
             pst.setString(1, funcionario.getNomeFunc());
             pst.setString(2, funcionario.getEnderecoFunc());
-            pst.setString  (3, funcionario.getCepFunc());
-            pst.setString   (4, funcionario.getRgFunc());
-            pst.setInt   (5, funcionario.getPerAcessFunc());
-            pst.setString   (6, funcionario.getCpfFunc());
-            pst.setString   (7, funcionario.getNumCarteiraFunc());
-            pst.setInt   (8, funcionario.getMatriculaFunc());
+            pst.setString(3, funcionario.getCepFunc());
+            pst.setString(4, funcionario.getRgFunc());
+            pst.setInt(5, funcionario.getPerAcessFunc());
+            pst.setString(6, funcionario.getCpfFunc());
+            pst.setString(7, funcionario.getNumCarteiraFunc());
+            pst.setInt(8, funcionario.getMatriculaFunc());
             pst.setString(9, funcionario.getEmailFunc());
             pst.setString(10, funcionario.getSenhaFunc());
             pst.setString(11, funcionario.getDataCadastro());
