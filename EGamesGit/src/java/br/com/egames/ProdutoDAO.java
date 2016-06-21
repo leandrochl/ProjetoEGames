@@ -30,7 +30,7 @@ public class ProdutoDAO {
         sql += "values (?,?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try {
-            FileInputStream fis = new FileInputStream(produto.getImagem());
+            //FileInputStream fis = new FileInputStream(produto.getImagem());
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, produto.getQtdeEstoque());
             pst.setString(2, produto.getDescricao());
@@ -38,7 +38,7 @@ public class ProdutoDAO {
             pst.setInt(4, produto.getIdProduto());
             pst.setString(5, produto.getDataCadastro());
             pst.setString(6, produto.getCategoria());
-            pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
+            //pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
 
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
@@ -47,14 +47,13 @@ public class ProdutoDAO {
                 Conexao.fecharConexao(con);
                 return "Erro ao inserir registro.";
             }
-        } catch (SQLException | FileNotFoundException e) {
+        } catch (SQLException e) {
             Conexao.fecharConexao(con);
             return e.getMessage();
         }
-
     }
+//Método para alteração de dados
 
-    //Método para alteração de dados
     public String alterar(Produto produto) {
         String sql = "update produto set ";
         sql += "qtdeestoque=?,"
