@@ -14,7 +14,7 @@
 CREATE TABLE fazpedido
 (
   cpfcliente varchar(20) NOT NULL,
-  idpedido serial NOT NULL,
+  idpedido int NOT NULL,
   data varchar(35) NOT NULL,
   CONSTRAINT faz_pedido_cpfcliente_fkey FOREIGN KEY (cpfcliente) 
 	REFERENCES cliente (cpfcliente),
@@ -83,8 +83,8 @@ CREATE TABLE notafiscal
 (
   precototal numeric(9,6) NOT NULL,
   data varchar(35) NOT NULL,
-  idnota int NOT NULL,
-  idpedido int,
+  idnota serial NOT NULL,
+  idpedido int not null,
   cpfcliente varchar(20) NOT NULL,
   CONSTRAINT nota_fiscal_pkey PRIMARY KEY (idnota),
   CONSTRAINT nota_fiscal_cpfcliente_fkey FOREIGN KEY (cpfcliente)
@@ -97,7 +97,7 @@ CREATE TABLE pedido
 (
   data varchar(35) NOT NULL,
   valortotal numeric(8,5) NOT NULL,
-  idpedido int NOT NULL,
+  idpedido serial NOT NULL,
   cpfcliente varchar(20) NOT NULL,
   CONSTRAINT pedido_pkey PRIMARY KEY (idpedido),
   CONSTRAINT pedido_cpfcliente_fkey FOREIGN KEY (cpfcliente)
@@ -109,7 +109,7 @@ CREATE TABLE produto
   qtdeestoque numeric(5,0) NOT NULL,
   descricao character varying(100) NOT NULL,
   preco numeric(8,5) NOT NULL,
-  idproduto int NOT NULL,
+  idproduto serial NOT NULL,
   datacadastro character varying(35) NOT NULL,
   categoria character varying(30),
   imagem bytea,
@@ -130,26 +130,43 @@ CREATE TABLE solicitatransporte
   CONSTRAINT transportadora_id_pedido_fkey FOREIGN KEY (idpedido)
       REFERENCES pedido (idpedido)
 )
-CREATE TABLE telefone
+CREATE TABLE telefoneCliente
 (
-  idtelcliente varchar(20) not null,
-  idtelfornecedor varchar(20) not null,
-  idtelfuncionario int not null,
-  idteltranportadora varchar(20) not null,
+  idcliente varchar(20) not null,
   telefone1 varchar(20) NOT NULL,
   telefone2 varchar(20) NOT NULL,
   telefone3 varchar(20),
-  
-  CONSTRAINT CLIENTE_ID_TELEFONE_fkey FOREIGN KEY (idtelcliente)
-      REFERENCES cliente (cpfcliente),
-  CONSTRAINT FORNECEDOR_ID_TELEFONE_fkey FOREIGN KEY (idtelfornecedor)
-      REFERENCES fornecedor (cnpjforn),
-  CONSTRAINT FUNCIONARIO_ID_TELEFONE_fkey FOREIGN KEY (idtelfuncionario)
-      REFERENCES funcionario (matriculafunc),
-  CONSTRAINT TRANSPORTADORA_ID_TELEFONE_fkey FOREIGN KEY (idteltranportadora)
-      REFERENCES transportadora (cnpjtransp)
+  CONSTRAINT CLIENTE_ID_TELEFONE_fkey FOREIGN KEY (idcliente)
+  REFERENCES cliente (cpfcliente)
 )
-
+CREATE TABLE telefoneFuncionario
+(
+  idfuncionario int not null,
+  telefone1 varchar(20) NOT NULL,
+  telefone2 varchar(20) NOT NULL,
+  telefone3 varchar(20),
+  CONSTRAINT FUNCIONARIO_ID_TELEFONE_fkey FOREIGN KEY (idfuncionario)
+  REFERENCES funcionario (matriculafunc) 
+)
+CREATE TABLE telefoneFornecedor
+(
+  idfornecedor varchar(20) not null,
+  telefone1 varchar(20) NOT NULL,
+  telefone2 varchar(20) NOT NULL,
+  telefone3 varchar(20),
+  CONSTRAINT FORNECEDOR_ID_TELEFONE_fkey FOREIGN KEY (idfornecedor)
+  REFERENCES fornecedor (cnpjforn)
+)
+CREATE TABLE telefoneTransportadora
+(
+  idtransportadora varchar(20) not null,
+  telefone1 varchar(20) NOT NULL,
+  telefone2 varchar(20) NOT NULL,
+  telefone3 varchar(20),
+  CONSTRAINT TRANSPORTADORA_ID_TELEFONE_fkey FOREIGN KEY (idtransportadora)
+  REFERENCES transportadora (cnpjtransp)
+)
+drop table telefoneTransportadora;
 CREATE TABLE transportadora
 (
   cnpjtransp character varying(20) NOT NULL,

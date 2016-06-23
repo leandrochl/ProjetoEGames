@@ -59,7 +59,7 @@
                 ProdutoDAO fd = new ProdutoDAO();
                 Produto fo = new Produto();
                 List<Produto> f = new ArrayList();
-                f = fd.listarPorCategoria("movel");
+                f = fd.listarPorCategoria("hardware");
                 for (Produto OBJForn : f) {
             %>
             <tr width='10%'>

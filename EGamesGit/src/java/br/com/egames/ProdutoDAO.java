@@ -26,8 +26,8 @@ public class ProdutoDAO {
 
     //Método para inserção de dados
     public String inserir(Produto produto) throws IOException {
-        String sql = "insert into produto ";
-        sql += "values (?,?,?,?,?,?)";
+        String sql = "insert into produto (qtdeestoque,descricao,preco,datacadastro,categoria)";
+        sql += "values (?,?,?,?,?)";
         Connection con = Conexao.abrirConexao();
         try {
             //FileInputStream fis = new FileInputStream(produto.getImagem());
@@ -35,9 +35,9 @@ public class ProdutoDAO {
             pst.setInt(1, produto.getQtdeEstoque());
             pst.setString(2, produto.getDescricao());
             pst.setDouble(3, produto.getPreco());
-            pst.setInt(4, produto.getIdProduto());
-            pst.setString(5, produto.getDataCadastro());
-            pst.setString(6, produto.getCategoria());
+            //pst.setInt(4, produto.getIdProduto());
+            pst.setString(4, produto.getDataCadastro());
+            pst.setString(5, produto.getCategoria());
             //pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
 
             if (pst.executeUpdate() > 0) {

@@ -58,7 +58,7 @@
             produto.setPreco(dPreco);
             produto.setQtdeEstoque(iQtdeEstoque);
             produto.setDataCadastro(data.toString());
-            produto.setIdProduto(990);
+           // produto.setIdProduto();
             produto.setCategoria(categoria);
 
             if (crud.equals("Cadastrar")) {
