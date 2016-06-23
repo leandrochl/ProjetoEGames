@@ -19,6 +19,11 @@
     </head>
     <body>
         <%
+            String imagepath = request.getParameter("imagem");
+            if (imagepath == null || imagepath.equals("")) {
+                imagepath = "";
+            }
+            
             String descricao = request.getParameter("descricao");
             if (descricao == null || descricao.equals("")) {
                 descricao = "";
@@ -31,6 +36,11 @@
             if (preco == null || preco.equals("")) {
                 preco = "";
             }
+            
+            String idproduto = request.getParameter("idproduto");
+            if (idproduto == null || idproduto.equals("")) {
+                idproduto = "";
+            }
             String dataCadastro = request.getParameter("dataCadastro");
             if (dataCadastro == null || dataCadastro.equals("")) {
                 dataCadastro = "";
@@ -42,7 +52,7 @@
 
             String crud = request.getParameter("crud");
 
-            Integer idProduto = 0;
+            Integer iidproduto = 0;
             Integer iQtdeEstoque = 0;
             Double dPreco = 0.0;
             Date data = new Date();
@@ -50,12 +60,14 @@
                        
             iQtdeEstoque = Integer.parseInt(qtdeEstoque);
             dPreco = Double.parseDouble(preco);
+            iidproduto = Integer.parseInt(idproduto);
 
             Produto produto = new Produto();
             ProdutoDAO produtod = new ProdutoDAO();
 
             produto.setDescricao(descricao);
             produto.setPreco(dPreco);
+            produto.setIdProduto(iidproduto);
             produto.setQtdeEstoque(iQtdeEstoque);
             produto.setDataCadastro(data.toString());
            // produto.setIdProduto();

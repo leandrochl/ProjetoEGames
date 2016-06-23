@@ -17,7 +17,7 @@ public class Produto {
     private Integer qtdeEstoque;
     private Double  preco;
     private Integer idProduto;
-    private File    imagem;
+    private String    imagem;
     private String  categoria;
 
     public String getDescricao() {
@@ -60,11 +60,11 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public File getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(File imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 
