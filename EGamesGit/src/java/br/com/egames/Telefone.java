@@ -11,44 +11,44 @@ package br.com.egames;
  */
 public class Telefone {
 
-    private String idTelCliente;
-    private String idTelFornecedor;
-    private Integer idTelFuncionario;
-    private String idTelTransportadora;
-    private String Telefone1;
-    private String Telefone2;
-    private String Telefone3;
+    private String  idCliente;
+    private String  idFornecedor;
+    private Integer idFuncionario;
+    private String  idTransportadora;
+    private String  Telefone1;
+    private String  Telefone2;
+    private String  Telefone3;
 
-    public String getIdTelCliente() {
-        return idTelCliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdTelCliente(String idTelCliente) {
-        this.idTelCliente = idTelCliente;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public String getIdTelFornecedor() {
-        return idTelFornecedor;
+    public String getIdFornecedor() {
+        return idFornecedor;
     }
 
-    public void setIdTelFornecedor(String idTelFornecedor) {
-        this.idTelFornecedor = idTelFornecedor;
+    public void setIdFornecedor(String idFornecedor) {
+        this.idFornecedor = idFornecedor;
     }
 
-    public Integer getIdTelFuncionario() {
-        return idTelFuncionario;
+    public Integer getIdFuncionario() {
+        return idFuncionario;
     }
 
-    public void setIdTelFuncionario(Integer idTelFuncionario) {
-        this.idTelFuncionario = idTelFuncionario;
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
-    public String getIdTelTransportadora() {
-        return idTelTransportadora;
+    public String getIdTransportadora() {
+        return idTransportadora;
     }
 
-    public void setIdTelTransportadora(String idTelTransportadora) {
-        this.idTelTransportadora = idTelTransportadora;
+    public void setIdTransportadora(String idTransportadora) {
+        this.idTransportadora = idTransportadora;
     }
 
     public String getTelefone1() {

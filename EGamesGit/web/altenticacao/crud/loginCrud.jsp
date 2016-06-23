@@ -38,7 +38,7 @@
 
             } else if (logd.verificaAdmin(log)) {
                 session.setAttribute("login", login);
-                response.sendRedirect("pagina/paginaAdmin.jsp");
+                response.sendRedirect("../../pagina/paginaAdmin.jsp");
             }
 
         %>

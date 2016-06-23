@@ -17,7 +17,7 @@ public class Produto {
     private Integer qtdeEstoque;
     private Double  preco;
     private Integer idProduto;
-    private String    imagem;
+    private String  imagem;
     private String  categoria;
 
     public String getDescricao() {

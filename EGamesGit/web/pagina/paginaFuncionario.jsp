@@ -39,7 +39,7 @@
     <!--FIM DO MENU SUSPENSO -->
 </head>
 <body>
-    
+
     <table width="100%">
         <td>
             <h1>PÁGINA INICIAL - BEM VINDO À SUA PÁGINA!! </h1>
@@ -50,11 +50,11 @@
     </table>
 
     <h3>Aqui você poderá executar ações de cadastro, alteração, exclusão e listagem das entidades abaixo se assim a sua permissão de funcionário permitir</h3>
-        <h3>Escolha uma das opções abaixo</h3><p>
-            <a href="paginasManter/paginaManterCliente.jsp"><img src="../imagens/cliente2.png" height="128" width="128"/></a>     <!--Cliente-->
-            <a href="paginasManter/paginaManterFuncionario.jsp"><img src="../imagens/funcionario2.png" height="128"/></a>             <!--Funcionário-->
-            <a href="paginasManter/paginaManterTransportadora.jsp"><img src="../imagens/63_128x128.png" height="128" width="128"/></a>   <!--Transportadora-->
-            <a href="paginasManter/paginaManterProduto.jsp"><img src="../imagens/produto.png" height="128" width="128"/></a>      <!--Produto-->
-            <a href="paginasManter/paginaManterFornecedor.jsp"><img src="../imagens/NknoBaE.png" height="128" width="128"/></a>      <!--Fornecedor-->
-            </body>
-            </html>
+    <h3>Escolha uma das opções abaixo</h3><p>
+        <a href="paginasManter/paginaManterCliente.jsp"><img src="../imagens/cliente2.png" height="128" width="128"/></a>     <!--Cliente-->
+        <a href="paginasManter/paginaManterFuncionario.jsp"><img src="../imagens/funcionario2.png" height="128"/></a>             <!--Funcionário-->
+        <a href="paginasManter/paginaManterTransportadora.jsp"><img src="../imagens/63_128x128.png" height="128" width="128"/></a>   <!--Transportadora-->
+        <a href="paginasManter/paginaManterProduto.jsp"><img src="../imagens/produto.png" height="128" width="128"/></a>      <!--Produto-->
+        <a href="paginasManter/paginaManterFornecedor.jsp"><img src="../imagens/NknoBaE.png" height="128" width="128"/></a>      <!--Fornecedor-->
+</body>
+</html>

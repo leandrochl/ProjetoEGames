@@ -68,6 +68,7 @@
             //Criando objetos das classes Cargo e CargoDAO
             Cliente cli = new Cliente();
             ClienteDAO clid = new ClienteDAO();
+            
             Telefone tel = new Telefone();
             TelefoneDAO teld = new TelefoneDAO();
             Date data = new Date();
@@ -78,16 +79,11 @@
             cli.setDataCadastro(data.toString());
             cli.setEmailCliente(email);
             cli.setEnderecoCliente(endereco);
-          
-            /*
-            tel.setIdTelCliente(cli.getCpfCliente());
-            tel.setIdTelFornecedor("null");
-            tel.setIdTelFuncionario(12);
-            tel.setIdTelTransportadora("null");
+            tel.setIdCliente(cli.getCpfCliente());
             tel.setTelefone1(telefone1);
             tel.setTelefone2(telefone2);
             tel.setTelefone3(telefone3);
-            */
+          
             cli.setNomeCliente(nome);
             cli.setPerAcesso(1); //PERMISSÃO DE ACESSO DE CLIENTE É SEMPRE 1
             cli.setRgCliente(rg);
@@ -96,7 +92,7 @@
             if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
                 out.print(clid.inserir(cli));
-                //out.print(teld.inserir(tel)); 
+                out.print(teld.inserirCliente(tel)); 
                 
             }
           

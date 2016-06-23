@@ -47,6 +47,9 @@
                 <td width='10%'><b>CPF</b></td>
                 <td width='10%'><b>Email</b></td>
                 <td width='10%'><b>Data de Cadastro</b></td>
+                <td width='10%'><b>Telefone 1</b></td>
+                <td width='10%'><b>Telefone 2</b></td>
+                <td width='10%'><b>Telefone 3</b></td>
                 <td width='10%'><b>Ação</b></td>
             </tr>
 
@@ -54,8 +57,11 @@
 
                 ClienteDAO fd = new ClienteDAO();
                 Cliente fo = new Cliente();
-                
                 List<Cliente> f = new ArrayList();
+
+                TelefoneDAO td = new TelefoneDAO();
+                Telefone t = new Telefone();
+                //Telefone tel = new ArrayList();
 
                 if (session.getAttribute("login") == null) {
 
@@ -67,15 +73,24 @@
             %>
 
             <tr>
-            <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEnderecoCliente()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCepCliente()%></b></td>
-            <td width='10%'><b><%= OBJForn.getRgCliente()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCpfCliente()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEmailCliente()%></b></td>
-            <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
-            <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
+                <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEnderecoCliente()%></b></td>
+                <td width='10%'><b><%= OBJForn.getCepCliente()%></b></td>
+                <td width='10%'><b><%= OBJForn.getRgCliente()%></b></td>
+                <td width='10%'><b><%= OBJForn.getCpfCliente()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEmailCliente()%></b></td>
+                <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
+            <%
+            t = td.listarCliente(OBJForn.getCpfCliente());
             
+            %>
+                <td width='10%'><b><%= t.getTelefone1()%></b></td>
+                <td width='10%'><b><%= t.getTelefone2()%></b></td>
+                <td width='10%'><b><%= t.getTelefone3()%></b></td>
+
+                
+                <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
+
             </tr>
 
             <%
