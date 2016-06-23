@@ -70,7 +70,8 @@
             produto.setIdProduto(iidproduto);
             produto.setQtdeEstoque(iQtdeEstoque);
             produto.setDataCadastro(data.toString());
-           // produto.setIdProduto();
+            produto.setImagem(imagepath);
+            
             produto.setCategoria(categoria);
 
             if (crud.equals("Cadastrar")) {
