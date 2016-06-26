@@ -80,17 +80,17 @@
             forn.setNomeForn(nomeForn);
             forn.setEmailForn(emailForn);
             
-            /*
-            tel.setIdTelefone("102");
-            forn.setIdTelefone(tel.getIdTelefone());
+            
+            tel.setIdFornecedor(forn.getCnpjForn());
             tel.setTelefone1(telefone1);
             tel.setTelefone2(telefone2);
             tel.setTelefone3(telefone3);
-            */
+           
             if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
-                //out.print(teld.inserir(tel));
+                
                 out.print (fornd.inserir(forn));
+                out.print(teld.inserirFornecedor(tel));
             }
 
         %>

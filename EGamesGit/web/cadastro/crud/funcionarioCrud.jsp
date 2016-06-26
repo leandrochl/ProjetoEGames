@@ -4,6 +4,10 @@
     Author     : evio
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="br.com.egames.Conexao"%>
 <%@page import="br.com.egames.TelefoneDAO"%>
 <%@page import="br.com.egames.Telefone"%>
 <%@page import="java.util.Date"%>
@@ -35,9 +39,9 @@
             if (senhaFunc == null || senhaFunc.equals("")) {
                 senhaFunc = "";
             }
-            String telefone = request.getParameter("telefone1");
-            if (telefone == null || telefone.equals("")) {
-                telefone = "";
+            String telefone1 = request.getParameter("telefone1");
+            if (telefone1 == null || telefone1.equals("")) {
+                telefone1 = "";
             }
 
             String telefone2 = request.getParameter("telefone2");
@@ -80,25 +84,30 @@
             func.setDataCadastro(data.toString());
             func.setEmailFunc(emailFunc);
             func.setEnderecoFunc(enderecoFunc);
-            
-            /*
-            tel.setIdTelefone("70");
-            func.setIdTelefone(tel.getIdTelefone());
-            tel.setTelefone1(telefone);
-            tel.setTelefone2(telefone2);
-            tel.setTelefone3(telefone3);
-           */
+
             func.setNomeFunc(nomeFunc);
             func.setNumCarteiraFunc(carteiraFunc);
-            func.setMatriculaFunc(2016);
+            //func.setMatriculaFunc();
             func.setRgFunc(rgFunc);
             func.setSenhaFunc(senhaFunc);
             //Verificando qual botão foi acionado
             if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
-                //out.print(teld.inserir(tel));
                 out.print(funcd.inserir(func));
+                
+                String sql = "select MAX(matriculafunc) FROM funcionario";
+                Connection con = Conexao.abrirConexao();
+                PreparedStatement pst = con.prepareStatement(sql);
+                ResultSet rs= pst.executeQuery();
+                
+                tel.setIdFuncionario(Integer.parseInt(sql));
+                tel.setTelefone1(telefone1);
+                tel.setTelefone2(telefone2);
+                tel.setTelefone3(telefone3);
+                
+                out.print(teld.inserirFuncionario(tel));
             }
+
         %>
     </body>
 </html>

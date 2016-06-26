@@ -18,8 +18,11 @@ import java.util.List;
 public class FuncionarioDAO {
     //Método para inserção de dados
     public String inserir(Funcionario funcionario){
-        String sql = "insert into funcionario ";
-        sql += "values (?,?,?,?,?,?,?,?,?,?,?)";
+                
+         String sql = "insert into funcionario (nomefunc,enderecofunc,cepfunc,rgfunc,peracessfunc,cpffunc,numcarteirafunc,emailfunc,senhafunc,datacadastro)";
+        sql += "values (?,?,?,?,?,?,?,?,?,?)";
+        
+        
         Connection con = Conexao.abrirConexao();
         try{
             PreparedStatement pst = con.prepareStatement(sql);
@@ -31,10 +34,10 @@ public class FuncionarioDAO {
             pst.setInt(5, funcionario.getPerAcessFunc());
             pst.setString(6, funcionario.getCpfFunc());
             pst.setString(7, funcionario.getNumCarteiraFunc());
-            pst.setInt(8, funcionario.getMatriculaFunc());
-            pst.setString(9, funcionario.getEmailFunc());
-            pst.setString(10, funcionario.getSenhaFunc());
-            pst.setString(11, funcionario.getDataCadastro());
+            //pst.setInt(8, funcionario.getMatriculaFunc());
+            pst.setString(8, funcionario.getEmailFunc());
+            pst.setString(9, funcionario.getSenhaFunc());
+            pst.setString(10, funcionario.getDataCadastro());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);

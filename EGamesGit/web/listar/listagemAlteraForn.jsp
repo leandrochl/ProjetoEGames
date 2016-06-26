@@ -24,7 +24,7 @@
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='../../index.html'><span>Início</span></a></li>
-            <li><a href='../pagina/paginaCliente.jsp'><span>MINHA PÁGINA</span></a></li>
+            <li><a href='../pagina/paginaCliente.jsp'><span>lol</span></a></li>
             <li><a href='atencao_cliente.php'><span>Faça o seu pedido</span></a></li>
             <li><a href='quem_somos.php'><span>Quem somos</span></a></li>
             <li><a href='deixe_sua_opiniao.php'><span>Deixa a sua opinião</span></a></li>
@@ -38,6 +38,7 @@
     <form action="../alteracao/alteraFornecedor.jsp" method="post">   
         <table border = '0' width = '100%'>
             <tr bgcolor='gray' height='35'>
+                <td width='3%'><b>Nº</b></td>
                 <td width='3%'><b>CNPJ</b></td>
                 <td width='10%'><b>Nome</b></td>
                 <td width='10%'><b>Endereco</b></td>
@@ -53,31 +54,38 @@
 
                 FornecedorDAO fd = new FornecedorDAO();
                 Fornecedor fo = new Fornecedor();
-                
+                TelefoneDAO td = new TelefoneDAO();
+                Telefone t = new Telefone();
                 List<Fornecedor> f = new ArrayList();
 
                 if (session.getAttribute("login") == null) {
 
                     response.sendRedirect("../altenticacao/login.jsp");
                 }
-
+                int i = 1;
                 f = fd.listarTodos();
                 for (Fornecedor OBJForn : f) {
             %>
 
             <tr>
-            <td width='10%'><b><%= OBJForn.getCnpjForn()%></b></td>
-            <td width='10%'><b><%= OBJForn.getNomeForn()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEnderecoForn()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCepForn()%></b></td>
-            <td width='10%'><b>vazio</b></td>
-            <td width='10%'><b>vazio</b></td>
-            <td width='10%'><b>vazio</b></td>
-            <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
-            <td width='10%'><input type="button" value="Alterar"/></td>
+                <td width='10%'><b><% out.print(i);%></b></td>
+                <td width='10%'><b><%= OBJForn.getCnpjForn()%></b></td>
+                <td width='10%'><b><%= OBJForn.getNomeForn()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEnderecoForn()%></b></td>
+                <td width='10%'><b><%= OBJForn.getCepForn()%></b></td>
+                        <%
+                            t = td.listarFornecedor(OBJForn.getCnpjForn());
+                        %>
+                <td width='10%'><b><%= t.getTelefone1()%></b></td>
+                <td width='10%'><b><%= t.getTelefone2()%></b></td>
+                <td width='10%'><b><%= t.getTelefone3()%></b></td>
+
+                <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
+                <td width='10%'><input type="button" value="Alterar"/></td>
             </tr>
 
             <%
+                    i++;
                 }
             %>
         </table>

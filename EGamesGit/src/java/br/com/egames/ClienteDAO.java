@@ -34,7 +34,7 @@ public class ClienteDAO {
             pst.setString   (6, cliente.getEmailCliente());
             pst.setString   (7, cliente.getSenhaCliente());
             pst.setInt      (8, cliente.getPerAcesso());
-            pst.setString(9,cliente.getDataCadastro());
+            pst.setString   (9,cliente.getDataCadastro());
             
             if(pst.executeUpdate() > 0){
                 Conexao.fecharConexao(con);

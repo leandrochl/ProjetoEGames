@@ -40,7 +40,8 @@
     <form action="" method="post">   
         <table border = '0' width = '100%'>
             <tr bgcolor='gray' height='35'>
-                <td width='3%'><b>Nome</b></td>
+                <td width='1%'><b>Nº</b></td>
+                <td width='10%'><b>Nome</b></td>
                 <td width='10%'><b>Endereço</b></td>
                 <td width='10%'><b>CEP</b></td>
                 <td width='10%'><b>RG</b></td>
@@ -58,21 +59,23 @@
                 ClienteDAO fd = new ClienteDAO();
                 Cliente fo = new Cliente();
                 List<Cliente> f = new ArrayList();
-
-                TelefoneDAO td = new TelefoneDAO();
+ TelefoneDAO td = new TelefoneDAO();
                 Telefone t = new Telefone();
-                //Telefone tel = new ArrayList();
 
+                //Telefone tel = new ArrayList();
+                HttpServletResponse resp; 
                 if (session.getAttribute("login") == null) {
 
                     response.sendRedirect("../altenticacao/login.jsp");
                 }
-
+                int i=1;
                 f = fd.listarTodos();
                 for (Cliente OBJForn : f) {
+
             %>
 
             <tr>
+                <td width='10%'><b><% out.print(i); %></b></td>
                 <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
                 <td width='10%'><b><%= OBJForn.getEnderecoCliente()%></b></td>
                 <td width='10%'><b><%= OBJForn.getCepCliente()%></b></td>
@@ -80,20 +83,20 @@
                 <td width='10%'><b><%= OBJForn.getCpfCliente()%></b></td>
                 <td width='10%'><b><%= OBJForn.getEmailCliente()%></b></td>
                 <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
-            <%
-            t = td.listarCliente(OBJForn.getCpfCliente());
-            
-            %>
+                        <%
+                            t = td.listarCliente(OBJForn.getCpfCliente());
+                        %>
                 <td width='10%'><b><%= t.getTelefone1()%></b></td>
                 <td width='10%'><b><%= t.getTelefone2()%></b></td>
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
 
-                
-                <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
+
+                <td width='10%'><input type="button" onclick="" value="Excluir" onclick="location.href = 'cadastro/cliente.jsp'"/></td>
 
             </tr>
 
             <%
+                    i++;
                 }
             %>
         </table>

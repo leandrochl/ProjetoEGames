@@ -4,6 +4,8 @@
     Author     : Leandro
 --%>
 
+<%@page import="br.com.egames.Telefone"%>
+<%@page import="br.com.egames.TelefoneDAO"%>
 <%@page import="br.com.egames.Funcionario"%>
 <%@page import="br.com.egames.FuncionarioDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -39,6 +41,7 @@
     <form action="" method="post">   
         <table border = '0' width = '100%'>
             <tr bgcolor='gray' height='35'>
+                <td width='1%'><b>Nº</b></td>
                 <td width='3%'><b>Nome</b></td>
                 <td width='10%'><b>Endereço</b></td>
                 <td width='10%'><b>CEP</b></td>
@@ -48,46 +51,57 @@
                 <td width='10%'><b>Matricula</b></td>
                 <td width='10%'><b>Email</b></td>
                 <td width='10%'><b>Data de Cadastro</b></td>
-               
+                <td width='10%'><b>Telefone 1</b></td>
+                <td width='10%'><b>Telefone 2</b></td>
+                <td width='10%'><b>Telefone 3</b></td>
+
             </tr>
 
             <%
 
                 FuncionarioDAO fd = new FuncionarioDAO();
                 Funcionario fo = new Funcionario();
-                
                 List<Funcionario> f = new ArrayList();
-
+                TelefoneDAO td = new TelefoneDAO();
+                Telefone t = new Telefone();
+                
                 if (session.getAttribute("login") == null) {
 
                     response.sendRedirect("../altenticacao/login.jsp");
                 }
-
+                int i = 1;
                 f = fd.listarTodos();
                 for (Funcionario OBJForn : f) {
             %>
 
             <tr>
-            <td width='10%'><b><%= OBJForn.getNomeFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEnderecoFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCepFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getRgFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCpfFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getNumCarteiraFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getMatriculaFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEmailFunc()%></b></td>
-            <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
-            
+                <td width='10%'><b><% out.print(i);%></b></td>
+                <td width='10%'><b><%= OBJForn.getNomeFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEnderecoFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getCepFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getRgFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getCpfFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getNumCarteiraFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getMatriculaFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEmailFunc()%></b></td>
+                <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
+                        <%
+                            t = td.listarFuncionario(OBJForn.getMatriculaFunc());
+                        %>
+                <td width='10%'><b><%= t.getTelefone1()%></b></td>
+                <td width='10%'><b><%= t.getTelefone2()%></b></td>
+                <td width='10%'><b><%= t.getTelefone3()%></b></td>
             </tr>
 
             <%
+                    i++;
                 }
             %>
         </table>
 
-        <div>
-            <input type="button" name="voltar" value="Voltar" onclick="history.go(-1)" />
-        </div>
+            <div>
+                <input type="button" name="voltar" value="Voltar" onclick="history.go(-1)" />
+            </div>
     </form>   
 </body>
 </html>
