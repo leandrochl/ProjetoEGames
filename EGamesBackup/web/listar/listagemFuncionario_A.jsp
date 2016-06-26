@@ -89,7 +89,7 @@
                 <td width='10%'><b><%= OBJForn.getEmailFunc()%></b></td>
                 <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
                         <%
-                            //t = td.listarFuncionario(OBJForn.getMatriculaFunc());
+                            t = td.listarFuncionario(OBJForn.getMatriculaFunc());
                         %>
                 <td width='10%'><b><%= t.getTelefone1()%></b></td>
                 <td width='10%'><b><%= t.getTelefone2()%></b></td>
