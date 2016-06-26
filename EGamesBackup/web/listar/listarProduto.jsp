@@ -14,7 +14,6 @@
     Pedido carrinho = new Pedido();
     carrinho = (Pedido)session.getAttribute("carrinho");
 
-
 %>
 <html>
     <head>
@@ -80,16 +79,16 @@
                 <th rowspan="2" width='10'><a href="listarProduto.jsp?comprou=<%=OBJForn.getIdProduto().toString()%>" title="Comprar">
                 <img class="thumb" src="../imagens/1386061027_shopcartapply_128x128.png" width="100%" height="30%"  alt=""/></a></th>
                 
-                <td><font size="6" color="#6F83B6"><b><%= OBJForn.getDescricao()%></b></font></td>
+                <td><font size="6" color="#6F83B6"><b><%=OBJForn.getDescricao()%></b></font></td>
 
             </tr>
             <tr width='10%'>
-                <td><font size="5"><b>Preço:</b> R$ <%= OBJForn.getPreco()%></font></td>
+                <td><font size="5"><b>Preço:</b> R$ <%=OBJForn.getPreco()%></font></td>
             </tr>
             <%
                 }
 
-                Produto p1 = new Produto();
+               Produto p1 = new Produto();
                Integer i = Integer.parseInt(request.getAttribute("comprou").toString());
                p1=fd.buscaPorCodigo(i);
                carrinho.adiciona(p1, 1);
