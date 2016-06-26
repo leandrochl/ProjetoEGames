@@ -37,7 +37,10 @@
     
     <body>
         <%
-
+            request.getParameter("acao");
+            
+            
+            
             // teminar session.getAttribute(name)
             Transportadora trans = new Transportadora();
             TransportadoraDAO transd = new TransportadoraDAO();

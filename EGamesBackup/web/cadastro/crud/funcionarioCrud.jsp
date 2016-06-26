@@ -105,6 +105,7 @@
                 tel.setTelefone2(telefone2);
                 tel.setTelefone3(telefone3);
                 }
+                
                 out.print(teld.inserirFuncionario(tel));
             }
 

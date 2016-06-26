@@ -19,7 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Página do Funcionário</title>
+        <title>ADMINISTRADOR</title>
         <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
         <link rel="stylesheet" type="text/css" href="../css/menu_suspenso.css">
         <link rel="stylesheet" type="text/css" href="../css/formatacao_form.css">
