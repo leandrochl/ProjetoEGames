@@ -42,11 +42,15 @@
     <form action="" method="post">   
         <table border = '0' width = '100%'>
             <tr bgcolor='gray' height='35'>
-                <td width='3%'><b>CNPJ</b></td>
+                <td width='3%'><b>Nº</b></td>
+                <td width='10%'><b>CNPJ</b></td>
                 <td width='10%'><b>Nome</b></td>
                 <td width='10%'><b>Endereço</b></td>
                 <td width='10%'><b>CEP</b></td>
                 <td width='10%'><b>Email</b></td>
+                <td width='10%'><b>Telefone 1</b></td>
+                <td width='10%'><b>Telefone 2</b></td>
+                <td width='10%'><b>Telefone 3</b></td>
                 <td width='10%'><b>Ação</b></td>
             </tr>
 
@@ -54,29 +58,43 @@
 
                 TransportadoraDAO fd = new TransportadoraDAO();
                 Transportadora fo = new Transportadora();
-                
+                TelefoneDAO  td = new TelefoneDAO();
+                Telefone  t = new Telefone();
                 List<Transportadora> f = new ArrayList();
 
                 if (session.getAttribute("login") == null) {
 
                     response.sendRedirect("../altenticacao/login.jsp");
                 }
-
+                int i = 1;
                 f = fd.listarTodos();
                 for (Transportadora OBJForn : f) {
             %>
 
             <tr>
-            <td width='10%'><b><%= OBJForn.getCnpjTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getNomeTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEnderecoTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getCepTransp()%></b></td>
-            <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
-            <td width='10%'><input type="button" onclick="" value="Alterar"/></td>
-            
+                <td width='10%'><b><% out.print(i);%></b></td>
+                <td width='10%'><b><%= OBJForn.getCnpjTransp()%></b></td>
+                <td width='10%'><b><%= OBJForn.getNomeTransp()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEnderecoTransp()%></b></td>
+                <td width='10%'><b><%= OBJForn.getCepTransp()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
+                <%
+                
+                                       
+                            t = td.listarTransportadora(OBJForn.getCnpjTransp());
+                        
+                
+                %>
+                <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
+                <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
+                
+                <td width='10%'><input type="button" onclick="" value="Alterar"/></td>
+
             </tr>
 
             <%
+                    i++;
                 }
             %>
         </table>
