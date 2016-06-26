@@ -176,3 +176,60 @@ CREATE TABLE transportadora
   emailtransp character varying(40) NOT NULL,
   CONSTRAINT transportadora_pk PRIMARY KEY (cnpjtransp)
 )
+
+--trigger cliente
+CREATE OR REPLACE FUNCTION deleta_cliente_telefone() RETURNS TRIGGER AS $_$
+BEGIN
+DELETE FROM telefonecliente WHERE idcliente = old.cpfcliente ;
+RETURN old;
+END $_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER deleta_tudo_cliente
+BEFORE DELETE ON cliente
+FOR EACH ROW EXECUTE PROCEDURE deleta_cliente_telefone();
+
+Drop trigger deleta_tudo_cliente on cliente;
+
+--trigger funcionario
+CREATE OR REPLACE FUNCTION deleta_funcionario_telefone() RETURNS TRIGGER AS $_$
+BEGIN
+DELETE FROM telefonefuncionario WHERE idfuncionario = old.matriculafunc ;
+RETURN old;
+END $_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER deleta_tudo_func
+BEFORE DELETE ON funcionario
+FOR EACH ROW EXECUTE PROCEDURE deleta_funcionario_telefone();
+
+--trigger transportadora
+CREATE OR REPLACE FUNCTION deleta_transportadora_telefone() RETURNS TRIGGER AS $_$
+BEGIN
+DELETE FROM telefonetransportadora WHERE idtransportadora = old.cnpjtransp ;
+RETURN old;
+END $_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER deleta_tudo_transp
+BEFORE DELETE ON transportadora
+FOR EACH ROW EXECUTE PROCEDURE deleta_transportadora_telefone();
+
+--trigger fornecedor
+CREATE OR REPLACE FUNCTION deleta_fornecedor_telefone() RETURNS TRIGGER AS $_$
+BEGIN
+DELETE FROM telefonefornecedor WHERE idfornecedor = old.cnpjforn ;
+RETURN old;
+END $_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER deleta_tudo_forn
+BEFORE DELETE ON fornecedor
+FOR EACH ROW EXECUTE PROCEDURE deleta_fornecedor_telefone();
+
+--trigger itens pedido
+CREATE OR REPLACE FUNCTION deleta_ip_pedido() RETURNS TRIGGER AS $_$
+BEGIN
+DELETE FROM itenspedido WHERE idpedido = old.idpedido ;
+RETURN old;
+END $_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER deleta_tudo_ip
+BEFORE DELETE ON pedido
+FOR EACH ROW EXECUTE PROCEDURE deleta_ip_pedido();

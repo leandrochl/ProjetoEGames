@@ -13,11 +13,11 @@ import java.util.List;
  * @author Leandro
  */
 public class Pedido {
-    private String  data;
-    private Integer  idPedido;
+
+    private String data;
+    private Integer idPedido;
     private Double valorTotal;
     private String cpfCliente;
-    //adicionar ao der
     private List<ItensPedido> itens = new ArrayList<ItensPedido>();
 
     public String getData() {
@@ -51,31 +51,20 @@ public class Pedido {
     public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
-    
-            
-         
-  
-         
-  
-        public void adiciona(Produto p, int qtde){
-            
-            
-            ItensPedido ip = new ItensPedido();
-            ProdutoDAO pd = new ProdutoDAO();
-            
-           ip.setIdPedido(this.getIdPedido());
-           ip.setIdProduto(p.getIdProduto());
-           ip.setQtdeProdutoPedido(qtde);
-            itens.add(ip);
-            valorTotal += p.getPreco() * ip.getQtdeProdutoPedido();
-            
-            }
-                    
-        public Integer getNumeroDeItens(){
-            return itens.size();
-        }
-        
-        
-        }
-    
 
+    public void adiciona(Produto p, int qtde) {
+
+        ItensPedido ip = new ItensPedido();
+        
+        ip.setIdPedido(this.getIdPedido());
+        ip.setIdProduto(p.getIdProduto());
+        ip.setQtdeProdutoPedido(qtde);
+        this.itens.add(ip);
+        this.valorTotal += p.getPreco() * ip.getQtdeProdutoPedido();
+    }
+
+    public Integer getNumeroDeItens() {
+        return this.itens.size();
+    }
+
+}
