@@ -40,7 +40,7 @@
 <form action="listaProduto.jsp" method="post">
 <input type="hidden" value="" name="categoria">
 <!--<input type="submit" value="submit"></input>-->
-</form>
+
 
 <table width="100%">
     <tr>

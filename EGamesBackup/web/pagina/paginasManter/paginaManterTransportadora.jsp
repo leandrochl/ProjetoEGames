@@ -53,7 +53,7 @@
     <h3>Aqui você poderá adicionar novas transportadoras no sistema, além de listar as transportadoras já cadastrados para alterações</h3><p>
     <h3>Escolha uma ação</h3><p>
         <a href="../../cadastro/transportadora.jsp"><img src="../../imagens/add1.png" height="80" width="80"/></a>     <!--Cliente-->
-        <a href="../../listar/listagemAlteraTransp.jsp"><img src="../../imagens/Data-List-icon.png" height="80" width="80"/></a> <p>
+        <a href="../../listar/listagemAlteraTransp_A.jsp"><img src="../../imagens/Data-List-icon.png" height="80" width="80"/></a> <p>
         <input type="button" value="Voltar" onClick="history.go(-1)"/>
 </body>
 </html>

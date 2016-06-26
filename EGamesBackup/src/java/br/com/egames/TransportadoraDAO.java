@@ -81,14 +81,14 @@ public class TransportadoraDAO {
 
     //Método para excluir dados
 
-    public String excluir(Transportadora transportadora) {
+    public String excluir(String transportadora) {
         String sql = "delete from transportadora ";
         sql += "where cnpjtransp=?";
         Connection con = Conexao.abrirConexao();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             
-            pst.setString(1, transportadora.getCnpjTransp());
+            pst.setString(1, transportadora);
             
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
