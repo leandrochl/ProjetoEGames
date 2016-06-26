@@ -37,8 +37,6 @@
             <label for="fname">Descrição:&emsp;</label><input type="text" name="descricao" value="Descricao">
             <p><label for="lname">Preco:&emsp;</label><input type="text" name="preco" value="Preço"></p>
             <p><label for="lname">Quantidade inicial:&emsp;</label><input type="text" name="qtdeEstoque" value="Quantidade"></p>
-            <p><label for="lname">Imagem:&emsp;</label><input type="text" name="imagem" value="Caminho da imagem"></p>
-            <p><label for="lname">ID do Produto:&emsp;</label><input type="text" name="idproduto" value="..."></p>
             <label for="categoria">Categoria</label>
             <select id="categoria" name="categoria">
                 <option value="jogos">Jogos</option>

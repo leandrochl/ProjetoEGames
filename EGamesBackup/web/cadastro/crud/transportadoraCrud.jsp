@@ -68,17 +68,16 @@
           trans.setEmailTransp(emailTrans);
           trans.setCepTransp(cepTrans);
           
-          /*
-          tel.setIdTelefone("789");
-          trans.setIdTelefone(tel.getIdTelefone());
+          tel.setIdTransportadora(trans.getCnpjTransp());
           tel.setTelefone1(telefone1);
           tel.setTelefone2(telefone2);
           tel.setTelefone3(telefone3);
-          */
+          
           if (crud.equals("Cadastrar")) {
                 //Enviando o objeto para o banco
-                //out.print(teld.inserir(tel));
+                
                 out.print(transd.inserir(trans));
+                out.print(teld.inserirTransportadora(tel));
             }
         %>
     </body>

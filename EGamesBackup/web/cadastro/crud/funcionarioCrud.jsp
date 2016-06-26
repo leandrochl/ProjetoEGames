@@ -98,7 +98,7 @@
                 String sql = "select MAX(matriculafunc) FROM funcionario";
                 Connection con = Conexao.abrirConexao();
                 PreparedStatement pst = con.prepareStatement(sql);
-                ResultSet rs= pst.executeQuery();
+                ResultSet rs = pst.executeQuery();
                 
                 tel.setIdFuncionario(Integer.parseInt(sql));
                 tel.setTelefone1(telefone1);

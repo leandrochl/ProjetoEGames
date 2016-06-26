@@ -319,6 +319,34 @@ public class TelefoneDAO {
             return null;
         }
     } 
+       //Método para listar todos os cargos
+    public Telefone listarTransportadora(String telefone){
+        String sql = "select telefone1, telefone2, telefone3 from telefonetransportadora where idtransportadora=?";
+        Connection con = Conexao.abrirConexao();
+       // List<Telefone> lista = new ArrayList<>();
+        
+        try{
+           PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, telefone);
+            ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+                    Telefone telefoneOBJ = new Telefone();
+                    telefoneOBJ.setTelefone1(rs.getString(1));
+                    telefoneOBJ.setTelefone2(rs.getString(2));
+                    telefoneOBJ.setTelefone3(rs.getString(3));
+                 //   lista.add(telefoneOBJ);
+                
+                Conexao.fecharConexao(con);
+                return telefoneOBJ;
+            }else{
+                Conexao.fecharConexao(con);
+                return null;
+            }
+        }catch(SQLException e){
+            Conexao.fecharConexao(con);
+            return null;
+        }
+    } 
     
     
     

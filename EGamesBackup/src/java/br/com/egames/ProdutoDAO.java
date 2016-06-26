@@ -37,11 +37,9 @@ public class ProdutoDAO {
             pst.setInt(1, produto.getQtdeEstoque());
             pst.setString(2, produto.getDescricao());
             pst.setDouble(3, produto.getPreco());
-            //pst.setInt(4, produto.getIdProduto());
             pst.setString(4, produto.getDataCadastro());
             pst.setString(5, produto.getCategoria());
-            //pst.setBinaryStream(7, fis, (int) produto.getImagem().length());
-   
+               
             if (pst.executeUpdate() > 0) {
                 Conexao.fecharConexao(con);
                 return "Registro inserido com sucesso.";
