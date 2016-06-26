@@ -4,6 +4,7 @@
     Author     : evio
 --%>
 
+<%@page import="br.com.egames.Pedido"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="br.com.egames.Funcionario"%>
 <%@page import="br.com.egames.Cliente"%>
@@ -27,10 +28,13 @@
             Funcionario func = new Funcionario();
             log.setLogin(login);
             log.setSenha(senha);
+            
+         
 
             if (logd.verificaCliente(log)) {
                 session.setAttribute("login", login);
                 response.sendRedirect("../../pagina/paginaCliente.jsp");
+               
                 
             } else if (logd.verificaFuncionario(log)) {
                 session.setAttribute("login", login);

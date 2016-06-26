@@ -5,6 +5,9 @@
  */
 package br.com.egames;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Leandro
@@ -14,6 +17,8 @@ public class Pedido {
     private Integer  idPedido;
     private Double valorTotal;
     private String cpfCliente;
+    //adicionar ao der
+    private List<ItensPedido> itens = new ArrayList<ItensPedido>();
 
     public String getData() {
         return data;
@@ -46,6 +51,31 @@ public class Pedido {
     public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
-
     
-}
+            
+         
+  
+         
+  
+        public void adiciona(Produto p, int qtde){
+            
+            
+            ItensPedido ip = new ItensPedido();
+            ProdutoDAO pd = new ProdutoDAO();
+            
+           ip.setIdPedido(this.getIdPedido());
+           ip.setIdProduto(p.getIdProduto());
+           ip.setQtdeProdutoPedido(qtde);
+            itens.add(ip);
+            valorTotal += p.getPreco() * ip.getQtdeProdutoPedido();
+            
+            }
+                    
+        public Integer getNumeroDeItens(){
+            return itens.size();
+        }
+        
+        
+        }
+    
+

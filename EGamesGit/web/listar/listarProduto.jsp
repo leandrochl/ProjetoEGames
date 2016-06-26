@@ -3,12 +3,19 @@
     Created on : 16/06/2016, 12:44:20
     Author     : Leandro
 --%>
+<%@page import="br.com.egames.Pedido"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.egames.Produto"%>
 <%@page import="br.com.egames.ProdutoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    Pedido carrinho = new Pedido();
+    carrinho = (Pedido)session.getAttribute("carrinho");
+
+
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,43 +35,51 @@
             <li><a href='localizacao.html'><span>Como chegar</span></a></li>
         </ul>
     </div>
+    
     <!--FIM DO MENU SUSPENSO -->
 </head>
+<form action="listaProduto.jsp" method="post">
+<input type="hidden" value="" name="categoria">
+<!--<input type="submit" value="submit"></input>-->
+</form>
 
 <table width="100%">
     <tr>
-        <td><a href="listarProduto.jsp" title="Jogos em Mídia Física">
+        <td><a href="listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física">
                 <img class="thumb" src="../imagens/index_midia_fisica.png" width="100%" height="30%" alt=""/></a></td>
-        <td><a href="listarProduto.jsp" title="Consoles">
+        <td><a href="listarProduto.jsp?categoria=console" title="Consoles">
                 <img class="thumb" src="../imagens/index_consoles.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp" title="Hardware">
+        <td><a href="listarProduto.jsp?categoria=hardware" title="Hardware">
                 <img class="thumb" src="../imagens/index_hardware.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp" title="Computadores">
+        <td><a href="listarProduto.jsp?categoria=computador" title="Computadores">
                 <img class="thumb" src="../imagens/index_computadores.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp" title="Periféricos">
+        <td><a href="listarProduto.jsp?categoria=periferico" title="Periféricos">
                 <img class="thumb" src="../imagens/index_perifericos.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp" title="Smartphones">
+        <td><a href="listarProduto.jsp?categoria=smartphone" title="Smartphones">
                 <img class="thumb" src="../imagens/index_smartphone.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp" title="Mesas e Cadeiras Gamer">
+        <td><a href="listarProduto.jsp?categoria=movel" title="Mesas e Cadeiras Gamer">
                 <img class="thumb" src="../imagens/index_mesas_cadeiras.png" width="100%" height="30%"  alt=""/></a></td>
     </tr>
 
 </table>
 
-
+</form>
 <body>
-    <form action="" method="post">   
+    <form action="listarProduto.jsp" method="post">   
+        <input type="hidden" name="comprou" value="">
         <table border = '0' width = '100%'>
             <%
                 ProdutoDAO fd = new ProdutoDAO();
                 Produto fo = new Produto();
                 List<Produto> f = new ArrayList();
-                f = fd.listarPorCategoria("movel");
+                f = fd.listarPorCategoria(request.getParameter("categoria"));
                 for (Produto OBJForn : f) {
             %>
             <tr width='10%'>
                 <th rowspan="2" bgcolor="#894AB0"><font color="white">Foto</font></th>
-                <th rowspan="2" width='10'><input type="button" value="Comprar!" name="comprar"></th>
+                <th rowspan="2" width='10'><a href="listarProduto.jsp?comprou=<%=OBJForn.getIdProduto()%>" title="Comprar">
+                <img class="thumb" src="../imagens/1386061027_shopcartapply_128x128.png" width="100%" height="30%"  alt=""/></a></th>
+                
                 <td><font size="6" color="#6F83B6"><b><%= OBJForn.getDescricao()%></b></font></td>
 
             </tr>
@@ -73,6 +88,11 @@
             </tr>
             <%
                 }
+
+                Produto p1 = new Produto();
+               Integer i = Integer.parseInt(request.getAttribute("comprou").toString());
+               p1=fd.buscaPorCodigo(i);
+               carrinho.adiciona(p1, 1);
             %>
         </table>
     </form> 

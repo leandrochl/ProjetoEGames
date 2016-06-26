@@ -19,10 +19,11 @@
     </head>
     <body>
         <%
-            String imagepath = request.getParameter("imagem");
+            /*String imagepath = request.getParameter("imagem");
             if (imagepath == null || imagepath.equals("")) {
                 imagepath = "";
             }
+                */
             
             String descricao = request.getParameter("descricao");
             if (descricao == null || descricao.equals("")) {
@@ -52,7 +53,7 @@
 
             String crud = request.getParameter("crud");
 
-            Integer iidproduto = 0;
+            Integer iidproduto = 3;
             Integer iQtdeEstoque = 0;
             Double dPreco = 0.0;
             Date data = new Date();
@@ -70,7 +71,7 @@
             produto.setIdProduto(iidproduto);
             produto.setQtdeEstoque(iQtdeEstoque);
             produto.setDataCadastro(data.toString());
-            produto.setImagem(imagepath);
+            //produto.setImagem(imagepath);
             
             produto.setCategoria(categoria);
 

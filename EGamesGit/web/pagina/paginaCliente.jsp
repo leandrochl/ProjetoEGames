@@ -3,6 +3,7 @@
     Created on : Jun 13, 2016, 11:47:42 AM
     Author     : evio
 --%>
+<%@page import="br.com.egames.Pedido"%>
 <%@page import="br.com.egames.Cliente"%>
 <%@page import="br.com.egames.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,12 +11,14 @@
   <%
             ClienteDAO cd = new ClienteDAO();
             Cliente cli = new Cliente();
+            Pedido pe = new Pedido();
             
              if (session.getAttribute("login") == null) {
                 //request.getSession().invalidate();
                 response.sendRedirect("../altenticacao/login.jsp");
             }
                  cli = cd.buscaPorCPF(session.getAttribute("login").toString());
+               
         %>
 <html>
     <head>
