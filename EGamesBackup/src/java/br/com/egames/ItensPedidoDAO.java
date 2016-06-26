@@ -3,6 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/*
+package br.com.egames;
+
+
+public class ItensPedido {
+    private Integer idPedido;
+    private Integer qtdeProdutoPedido;
+    private Integer idProduto;
+
+    public Integer getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(Integer idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public Integer getQtdeProdutoPedido() {
+        return qtdeProdutoPedido;
+    }
+
+    public void setQtdeProdutoPedido(Integer qtdeProdutoPedido) {
+        this.qtdeProdutoPedido = qtdeProdutoPedido;
+    }
+
+    public Integer getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
+    }
+    
+    
+}
+
+
+
+*/
 package br.com.egames;
 
 
