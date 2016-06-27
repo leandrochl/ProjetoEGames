@@ -1,8 +1,9 @@
 <%-- 
-    Document   : listarProduto
-    Created on : 16/06/2016, 12:44:20
-    Author     : Leandro
+    Document   : paginaCarrinho
+    Created on : Jun 27, 2016, 5:45:17 PM
+    Author     : evio
 --%>
+
 <%@page import="br.com.egames.Pedido"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -11,8 +12,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-   // Pedido carrinho = new Pedido();
- //   carrinho = (Pedido)session.getAttribute("carrinho");
+    Pedido carrinho = new Pedido();
+    carrinho = (Pedido)session.getAttribute("carrinho");
 
 %>
 <html>
@@ -37,9 +38,10 @@
     
     <!--FIM DO MENU SUSPENSO -->
 </head>
+<!--
 <form action="listaProduto.jsp" method="post">
 <input type="hidden" value="" name="categoria">
-<!--<input type="submit" value="submit"></input>-->
+
 
 
 <table width="100%">
@@ -62,21 +64,20 @@
 
 </table>
 
-</form>
+</form>-->
 <body>
     <form action="listarProduto.jsp method="post" value>   
         <input type="hidden" name="crud">
         <table border = '0' width = '100%'>
             <%
-                ProdutoDAO fd = new ProdutoDAO();
-                Produto fo = new Produto();
-                List<Produto> f = new ArrayList();
+                
+              
                 f = fd.listarPorCategoria(request.getParameter("categoria"));
                 for (Produto OBJForn : f) {
             %>
             <tr width='10%'>
                 <th rowspan="2" bgcolor="#894AB0"><font color="white">Foto</font></th>
-                <th rowspan="2" width='10'>  <a href="listarProduto.jsp?crud=<%=OBJForn.getIdProduto()%>"><img src="../imagens/cliente2.png" height="128" width="128"/></a>
+                <th rowspan="2" width='10'>  <a href="../pagina/listarProduto.jsp?crud=<%=OBJForn.getIdProduto()%>"><img src="../imagens/cliente2.png" height="128" width="128"/></a>
                 
                 <td><font size="6" color="#6F83B6"><b><%=OBJForn.getDescricao()%></b></font></td>
 
@@ -88,10 +89,10 @@
                 }
 
 
-              
-              //  Integer i = Integer.parseInt(request.getParameter("crud"));
-                //fo=fd.buscaPorCodigo(i);
-                //carrinho.adiciona(fo, 1);
+               //Produto p1 = new Produto();
+                //Integer i = Integer.parseInt(request.getAttribute("crud").toString());
+                //p1=fd.buscaPorCodigo(i);
+               //carrinho.adiciona(p1, 1);
             %>
         </table>
     </form> 

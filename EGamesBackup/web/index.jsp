@@ -6,9 +6,9 @@
 <%@page import="br.com.egames.Pedido"%>
 <%
     Pedido pe = new Pedido();
-    
-    session.setAttribute("carrinho", pe);
-
+    if(session.getAttribute("carrinho")==null){
+        session.setAttribute("carrinho", pe);
+    }
 
 %>
 <html>

@@ -63,7 +63,7 @@
                 Telefone t = new Telefone();
 
                 //Telefone tel = new ArrayList();
-                HttpServletResponse resp; 
+               // HttpServletResponse resp; 
                 if (session.getAttribute("login") == null) {
 
                     response.sendRedirect("../altenticacao/login.jsp");
@@ -92,7 +92,7 @@
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
 
 
-               ilujukuj <td width='10%'><input type="button" name="crud" value="Excluir" onclick="location.href = 'listar/listagemCliente.jsp?id=<%=OBJForn.getCpfCliente()%>'"/></td>
+                <td width='10%'><input type="button" name="crud" value="Excluir" onclick="location.href = 'listar/listagemCliente.jsp?id=<%=OBJForn.getCpfCliente()%>'"/></td>
 
             </tr>
 
@@ -100,9 +100,7 @@
                 
                     i++;
                 }
-                if(request.getParameter("crud").equalsIgnoreCase("Excluir")){
-                    
-                    fd.excluir(fd.buscaPorCPF(request.getParameter("id")));
+                
                 }
             %>
         </table>
