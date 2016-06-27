@@ -53,9 +53,10 @@
  
 <!--FIM DA AREA DE LOGIN-->
 <!-- Imagens das seções-->
+<form action ="listar/listarProduto.jsp?categoria=jogos" method="post">
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
     <tr>
-        <td><p align="left"><a href="listar/listarProduto.jsp" title="Jogos em Mídia Física"><img class="thumb" src="imagens/index_midia_fisica.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="listar/listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física"><img class="thumb" src="imagens/index_midia_fisica.png" width="20%" height="20%"  alt=""/></a></p></td>
     </tr>
     <tr>
         <td><p align="left"><a href="" title="Consoles"><img class="thumb" src="imagens/index_consoles.png" width="20%" height="20%"  alt=""/></a></p></td>
@@ -76,6 +77,7 @@
         <td><p align="left"><a href="listar/listarProduto.jsp" title="Mesas e Cadeiras Gamer"><img class="thumb" src="imagens/index_mesas_cadeiras.png" width="20%" height="20%"  alt=""/></a></p></td>
     </tr>
 </table>
+</form>    
 <hr color="#6F83B6">
 
 

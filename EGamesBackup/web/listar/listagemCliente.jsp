@@ -59,7 +59,7 @@
                 ClienteDAO fd = new ClienteDAO();
                 Cliente fo = new Cliente();
                 List<Cliente> f = new ArrayList();
- TelefoneDAO td = new TelefoneDAO();
+                TelefoneDAO td = new TelefoneDAO();
                 Telefone t = new Telefone();
 
                 //Telefone tel = new ArrayList();
@@ -73,7 +73,8 @@
                 for (Cliente OBJForn : f) {
 
             %>
-
+<form action="listar/listagemCliente.jsp">
+    <input type="hidden" name="id">
             <tr>
                 <td width='10%'><b><% out.print(i); %></b></td>
                 <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
@@ -91,16 +92,21 @@
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
 
 
-                <td width='10%'><input type="button" onclick="" value="Excluir" onclick="location.href = 'cadastro/cliente.jsp'"/></td>
+               ilujukuj <td width='10%'><input type="button" name="crud" value="Excluir" onclick="location.href = 'listar/listagemCliente.jsp?id=<%=OBJForn.getCpfCliente()%>'"/></td>
 
             </tr>
 
             <%
+                
                     i++;
+                }
+                if(request.getParameter("crud").equalsIgnoreCase("Excluir")){
+                    
+                    fd.excluir(fd.buscaPorCPF(request.getParameter("id")));
                 }
             %>
         </table>
-
+</form>
         <div>
             <input type="button" name="voltar" value="Voltar" onclick="history.go(-1)" />
         </div>

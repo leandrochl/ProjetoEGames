@@ -64,8 +64,8 @@
 
 </form>
 <body>
-    <form action="listarProduto.jsp" method="post">   
-        <input type="hidden" name="comprou" value="">
+    <form action="listarProduto.jsp method="post" value>   
+        <input type="hidden" name="crud">
         <table border = '0' width = '100%'>
             <%
                 ProdutoDAO fd = new ProdutoDAO();
@@ -76,8 +76,7 @@
             %>
             <tr width='10%'>
                 <th rowspan="2" bgcolor="#894AB0"><font color="white">Foto</font></th>
-                <th rowspan="2" width='10'><a href="listarProduto.jsp?comprou=<%=OBJForn.getIdProduto().toString()%>" title="Comprar">
-                <img class="thumb" src="../imagens/1386061027_shopcartapply_128x128.png" width="100%" height="30%"  alt=""/></a></th>
+                <th rowspan="2" width='10'>  <a href="listarProduto.jsp?crud=<%=OBJForn.getIdProduto()%>"><img src="../imagens/cliente2.png" height="128" width="128"/></a>
                 
                 <td><font size="6" color="#6F83B6"><b><%=OBJForn.getDescricao()%></b></font></td>
 
@@ -88,10 +87,11 @@
             <%
                 }
 
-               Produto p1 = new Produto();
-               Integer i = Integer.parseInt(request.getAttribute("comprou").toString());
-               p1=fd.buscaPorCodigo(i);
-               carrinho.adiciona(p1, 1);
+
+               //Produto p1 = new Produto();
+                //Integer i = Integer.parseInt(request.getAttribute("crud").toString());
+                //p1=fd.buscaPorCodigo(i);
+               //carrinho.adiciona(p1, 1);
             %>
         </table>
     </form> 
