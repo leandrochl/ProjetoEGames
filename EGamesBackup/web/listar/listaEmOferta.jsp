@@ -31,19 +31,19 @@
             <li><a href='localizacao.html'><span>Como chegar</span></a></li>
         </ul>
     </div>
-    
+
     <!--FIM DO MENU SUSPENSO -->
 </head>
 <form action="listaProduto.jsp" method="post">
-<input type="hidden" value="" name="categoria">
-<!--<input type="submit" value="submit"></input>-->
+    <input type="hidden" value="" name="categoria">
+    <!--<input type="submit" value="submit"></input>-->
 
 
 
 </form>
 <body>
-    <form action="listarProduto.jsp method="post" value>   
-        <input type="hidden" name="crud">
+    <form action="listarProduto.jsp" method="post">   
+          <input type="hidden" name="crud">
         <table border = '0' width = '100%'>
             <%
                 ProdutoDAO fd = new ProdutoDAO();
@@ -55,7 +55,7 @@
             <tr width='10%'>
                 <th rowspan="2" bgcolor="#894AB0"><font color="white">Foto</font></th>
                 <th rowspan="2" width='10'>  <a href="listaEmOferta.jsp"><img src="../imagens/cliente2.png" height="128" width="128"/></a>
-                
+
                 <td><font size="6" color="#6F83B6"><b><%=OBJForn.getDescricao()%></b></font></td>
 
             </tr>
@@ -64,9 +64,6 @@
             </tr>
             <%
                 }
-
-
-              
             %>
         </table>
     </form> 
