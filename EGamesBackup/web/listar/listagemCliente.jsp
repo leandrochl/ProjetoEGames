@@ -59,11 +59,11 @@
                 ClienteDAO fd = new ClienteDAO();
                 Cliente fo = new Cliente();
                 List<Cliente> f = new ArrayList();
- TelefoneDAO td = new TelefoneDAO();
+                TelefoneDAO td = new TelefoneDAO();
                 Telefone t = new Telefone();
 
                 //Telefone tel = new ArrayList();
-                HttpServletResponse resp; 
+               // HttpServletResponse resp; 
                 if (session.getAttribute("login") == null) {
 
                     response.sendRedirect("../altenticacao/login.jsp");
@@ -73,8 +73,13 @@
                 for (Cliente OBJForn : f) {
 
             %>
+<<<<<<< HEAD
 <form action="../pagina/excluido_sucesso.jsp">
     <input type = "hidden" name="cpfcli">
+=======
+<form action="listar/listagemCliente.jsp">
+    <input type="hidden" name="id">
+>>>>>>> origin/master
             <tr>
                 <td width='10%'><b><% out.print(i); %></b></td>
                 <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
@@ -92,14 +97,18 @@
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
                 <td width='10%'><a href="../pagina/excluido_sucesso.jsp?cpfcli=<%= OBJForn.getCpfCliente() %>&crud=Excluir_cli"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
 
+
             </tr>
 
             <%
+                
                     i++;
+                }
+                
                 }
             %>
         </table>
-
+</form>
         <div>
             <input type="button" name="voltar" value="Voltar" onclick="history.go(-1)" />
         </div>

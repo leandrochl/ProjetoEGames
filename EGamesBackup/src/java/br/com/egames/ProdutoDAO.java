@@ -207,4 +207,94 @@ public class ProdutoDAO {
             return null;
         }
     }
+    
+      public List<Produto> verificaBaixoEstoque() {
+        String sql = "select * from estoqueBaixoProduto";
+        Connection con = Conexao.abrirConexao();
+        List<Produto> lista = new ArrayList<>();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    Produto c = new Produto();
+                    c.setQtdeEstoque(rs.getInt(1));
+                    c.setDescricao(rs.getString(2));
+                    c.setPreco(rs.getDouble(3));
+                    c.setIdProduto(rs.getInt(4));
+                    c.setDataCadastro(rs.getString(5));
+                    c.setCategoria(rs.getString(6));
+                    lista.add(c);
+                }
+                Conexao.fecharConexao(con);
+                return lista;
+            } else {
+                Conexao.fecharConexao(con);
+                return null;
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return null;
+        }
+    }
+      
+        public List<Produto> verificaALiquidar() {
+        String sql = "select * from prodFazerPromo";
+        Connection con = Conexao.abrirConexao();
+        List<Produto> lista = new ArrayList<>();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    Produto c = new Produto();
+                    c.setQtdeEstoque(rs.getInt(1));
+                    c.setDescricao(rs.getString(2));
+                    c.setPreco(rs.getDouble(3));
+                    c.setIdProduto(rs.getInt(4));
+                    c.setDataCadastro(rs.getString(5));
+                    c.setCategoria(rs.getString(6));
+                    lista.add(c);
+                }
+                Conexao.fecharConexao(con);
+                return lista;
+            } else {
+                Conexao.fecharConexao(con);
+                return null;
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return null;
+        }
+    }
+        
+          public List<Produto> verificaBarato() {
+        String sql = "select * from ofertaProduto";
+        Connection con = Conexao.abrirConexao();
+        List<Produto> lista = new ArrayList<>();
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    Produto c = new Produto();
+                    c.setQtdeEstoque(rs.getInt(1));
+                    c.setDescricao(rs.getString(2));
+                    c.setPreco(rs.getDouble(3));
+                    c.setIdProduto(rs.getInt(4));
+                    c.setDataCadastro(rs.getString(5));
+                    c.setCategoria(rs.getString(6));
+                    lista.add(c);
+                }
+                Conexao.fecharConexao(con);
+                return lista;
+            } else {
+                Conexao.fecharConexao(con);
+                return null;
+            }
+        } catch (SQLException e) {
+            Conexao.fecharConexao(con);
+            return null;
+        }
+    }
 }

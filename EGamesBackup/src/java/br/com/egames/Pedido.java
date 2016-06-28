@@ -60,7 +60,7 @@ public class Pedido {
         ip.setIdProduto(p.getIdProduto());
         ip.setQtdeProdutoPedido(qtde);
         this.itens.add(ip);
-        this.valorTotal += p.getPreco() * ip.getQtdeProdutoPedido();
+        this.valorTotal += p.getPreco() * qtde;
     }
 
     public Integer getNumeroDeItens() {
