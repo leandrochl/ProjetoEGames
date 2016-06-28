@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.Date"%>
-<%@page import="br.com.egames.Produto ,br.com.egames.ProdutoDAO"%>
+<%@page import="br.com.egames.Produto,br.com.egames.ProdutoDAO"%>
 <%@page import="java.lang.*" %>
 <%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,44 +18,41 @@
     <body>
         <%
             String descricao = request.getParameter("descricao");
-            if(descricao == null || descricao.equals("")){
+            if (descricao == null || descricao.equals("")) {
                 descricao = "";
             }
-        /*    String dataCadastro = request.getParameter("dataCadastro");
-            if(dataCadastro == null || dataCadastro.equals("")){
-                dataCadastro = "";
-            }*/
+            String idproduto = request.getParameter("idproduto");
+            if (idproduto == null || idproduto.equals("")) {
+                idproduto = "";
+            }
             String qtdeEstoque = request.getParameter("qtdeEstoque");
-            if(qtdeEstoque == null || qtdeEstoque.equals("")){
+            if (qtdeEstoque == null || qtdeEstoque.equals("")) {
                 qtdeEstoque = "";
             }
-          
             String preco = request.getParameter("preco");
-            if(preco == null || preco.equals("")){
+            if (preco == null || preco.equals("")) {
                 preco = "";
             }
-            
-        String crud = request.getParameter("crud");
-    
-        Integer idProduto = 0;
-        Integer iQtdeEstoque = 0;
-        Double dPreco = 0.0;
-        Date data = new Date();
-        
-        iQtdeEstoque= Integer.parseInt(qtdeEstoque);
-        dPreco = Double.parseDouble(preco);
-        
-        Produto produto = new Produto();
-        ProdutoDAO produtod = new ProdutoDAO();
-        
-        produto.setDescricao(descricao);
-        produto.setPreco(dPreco);
-        produto.setQtdeEstoque(iQtdeEstoque);
-        produto.setDataCadastro(data.toString());
-        produto.setIdProduto(idProduto);
+            String crud = request.getParameter("crud");
 
-        if(crud.equals("Alterar"))
-        produtod.alterar(produto);
+            Integer idProduto = 0;
+            Integer iQtdeEstoque = 0;
+            Double dPreco = 0.0;
+            Date data = new Date();
+
+            iQtdeEstoque = Integer.parseInt(qtdeEstoque);
+            dPreco = Double.parseDouble(preco);
+            Produto produto = new Produto();
+            ProdutoDAO produtod = new ProdutoDAO();
+
+            produto.setDescricao(descricao);
+            produto.setPreco(dPreco);
+            produto.setQtdeEstoque(iQtdeEstoque);
+            produto.setIdProduto(idProduto);
+
+            if (crud.equals("Alterar")) {
+                produtod.alterar(produto);
+            }
 
         %>
     </body>

@@ -17,42 +17,35 @@
             // teminar session.getAttribute(name)
             ProdutoDAO pd = new ProdutoDAO();
             Produto prod = new Produto();
-           
+
             String descricao = request.getParameter("descricao");
-            if(descricao == null || descricao.equals("")){
+            if (descricao == null || descricao.equals("")) {
                 descricao = "";
             }
-            /*String dataCadastro = request.getParameter("dataCadastro");
-            if(dataCadastro == null || dataCadastro.equals("")){
-                dataCadastro = "";
-            }*/
-            String qtdEstoque = request.getParameter("qtdEstoque");
-            if(qtdEstoque == null || qtdEstoque.equals("")){
-                qtdEstoque = "";
+
+            String qtdeEstoque = request.getParameter("qtdeEstoque");
+            if (qtdeEstoque == null || qtdeEstoque.equals("")) {
+                qtdeEstoque = "";
             }
             String preco = request.getParameter("preco");
-            if(preco == null || preco.equals("")){
+            if (preco == null || preco.equals("")) {
                 preco = "";
             }
-            /*  String idProduto = request.getParameter("idProduto");
-            if(idProduto == null || idProduto.equals("")){
-                idProduto = "";
+            String idproduto = request.getParameter("idproduto");
+            if (idproduto == null || idproduto.equals("")) {
+                idproduto = "";
             }
-            */
+
         %>
         <div><h2>Cadastro de Produto</h2></div>
-<form action="crud/alteraProdutoCrud.jsp" method="get" name="form1" >
-    <div>Descrição: <input type="text" name="descricao" value="<%=descricao%>"/></div><p>
-    <div>preco <input type="text" name="preco" value="<%=preco%>" /></div><p>
-    <div>Quantidade Inicial <input type="text" name="qtdeEstoque" value="<%=qtdEstoque%>"/></div><p>
-</form>
-    <div>
-       <!-- <input type="submit" name="crud" value="Sign In"/> -->
-       <input type="submit" name="crud" value="Alterar" />
-      <!--  <input type="submit" name="crud" value="Excluir"/>
-        <input type="submit" name="crud" value="Pesquisar"/>
-        <input type="reset" value="Limpar"/> -->
+        <form action="crud/alteraProdutoCrud.jsp" method="get" name="form1" >
+            <div>Descrição: <input type="text" name="descricao" value="<%=descricao%>"/></div><p>
+            <div>preco <input type="text" name="preco" value="<%=preco%>" /></div><p>
+            <div>Quantidade Estoque <input type="text" name="qtdeEstoque" value="<%=qtdeEstoque%>"/></div><p>
+            <div>
+                <input type="submit" name="crud" value="Alterar"/>
+        </form>
     </div>
-    </form>
-    </body>
+</form>
+</body>
 </html>

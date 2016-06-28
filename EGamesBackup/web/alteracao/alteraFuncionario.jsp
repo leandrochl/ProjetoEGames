@@ -26,18 +26,6 @@
             if(emailFunc == null || emailFunc.equals("")){
                 emailFunc = "";
             }
-            String senhaFunc = request.getParameter("senhaFunc");
-            if(senhaFunc == null || senhaFunc.equals("")){
-                senhaFunc = "";
-            }
-            String idTelefone = request.getParameter("idTelefone");
-            if(idTelefone == null || idTelefone.equals("")){
-                idTelefone = "";
-            }
-            String dataCadastro = request.getParameter("dataCadastro");
-            if(dataCadastro == null || dataCadastro.equals("")){
-                dataCadastro = "";
-            }
             String cepFunc = request.getParameter("cepFunc");
             if(cepFunc == null || cepFunc.equals("")){
                 cepFunc = "";
@@ -50,11 +38,8 @@
             if(cpfFunc == null || cpfFunc.equals("")){
                 cpfFunc = "";
             }
-            String perAcesso = request.getParameter("perAcesso");
-            if(perAcesso == null || perAcesso.equals("")){
-                perAcesso = "";
-            }
-            String senhaFunc2="";
+
+            
         %>
     <div><h2>Cadastro de Funcionarios</h2></div>
     <form action="crud/alteraFuncionarioCrud.jsp" method="get" name="form1" >

@@ -76,7 +76,7 @@
                 <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
                 <td width='10%'><b><%= OBJForn.getCategoria()%></b></td>
                 
-                <td width='10%'><a href="../alteracao/alteraProduto.jsp?idproduto=<%=OBJForn.getIdProduto()%>&crud=Alterar"><img src="../imagens/alterar.png" height="40px" heigth="40px"></a></td>
+                <td width='10%'><a href="../alteracao/alterarProduto.jsp?idproduto=<%=OBJForn.getIdProduto()%>&descricao=<%=OBJForn.getDescricao()%>&preco=<%=OBJForn.getPreco()%>&qtdeEstoque=<%=OBJForn.getQtdeEstoque()%>&crud=Alterar"><img src="../imagens/alterar.png" height="40px" heigth="40px"></a></td>
                 <td width='10%'><a href="../pagina/excluido_sucesso.jsp?idproduto=<%=OBJForn.getIdProduto()%>&crud=Excluir_produto"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
             </tr>
             <%

@@ -29,18 +29,6 @@
             if (emailFunc == null || emailFunc.equals("")) {
                 emailFunc = "";
             }
-            String senhaFunc = request.getParameter("senhaFunc");
-            if (senhaFunc == null || senhaFunc.equals("")) {
-                senhaFunc = "";
-            }
-            String idTelefone = request.getParameter("idTelefone");
-            if (idTelefone == null || idTelefone.equals("")) {
-                idTelefone = "";
-            }
-            String dataCadastro = request.getParameter("dataCadastro");
-            if (dataCadastro == null || dataCadastro.equals("")) {
-                dataCadastro = "";
-            }
             String cepFunc = request.getParameter("cepFunc");
             if (cepFunc == null || cepFunc.equals("")) {
                 cepFunc = "";
@@ -53,31 +41,14 @@
             if (cpfFunc == null || cpfFunc.equals("")) {
                 cpfFunc = "";
             }
-            String perAcesso = request.getParameter("perAcesso");
-            if (perAcesso == null || perAcesso.equals("")) {
-                perAcesso = "";
-            }
 
             String crud = request.getParameter("crud");
-
-            Integer iCepFunc = 0;
-            Integer iRgFunc = 0;
-            Integer iCpfFunc = 0;
-
             Date data = new Date();
-  //  if (!crud.equals("Pesquisar")) {
-            //Convertendo dados
-            iCepFunc = Integer.parseInt(cepFunc);
-            iRgFunc = Integer.parseInt(rgFunc);
-            iCpfFunc = Integer.parseInt(cpfFunc);
-
             Funcionario func = new Funcionario();
             FuncionarioDAO funcd = new FuncionarioDAO();
 
-            func.setPerAcessFunc(2);
             func.setCepFunc(cepFunc);
             func.setCpfFunc(cpfFunc);
-            func.setDataCadastro(data.toString());
             func.setEmailFunc(emailFunc);
             func.setEnderecoFunc(enderecoFunc);
             func.setNomeFunc(nomeFunc);
