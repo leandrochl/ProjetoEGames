@@ -56,5 +56,7 @@
         <a href="paginasManter/paginaManterTransportadora.jsp"><img src="../imagens/63_128x128.png" height="128" width="128"/></a>   <!--Transportadora-->
         <a href="paginasManter/paginaManterProduto.jsp"><img src="../imagens/produto.png" height="128" width="128"/></a>      <!--Produto-->
         <a href="paginasManter/paginaManterFornecedor.jsp"><img src="../imagens/NknoBaE.png" height="128" width="128"/></a>      <!--Fornecedor-->
+        <a href="../listar/listaALiquidar.jsp"><img src="../imagens/burn.png" height="128" width="128"/></a>      <!--alto estoque-->
+        <a href="../listar/listaBaixoEstoque.jsp"><img src="../imagens/iconeEstoquebanner.png" height="128" width="128"/></a>      <!--Estoque biaxo-->
 </body>
 </html>

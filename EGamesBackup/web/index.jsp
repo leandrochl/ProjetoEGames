@@ -22,11 +22,11 @@
         
 
     <body>
-    <center><img class="thumb" src="imagens/imagem_cabecalho_index.png" width="70%" height="20%"  alt=""/></center>
+    <center><img class="thumb" src="imagens/imagem_cabecalho_index.png" width="70%" height="50%"  alt=""/></center>
         <!-- Menu Suspenso -->
         <div id='cssmenu'>
             <ul>
-                <li class='active'><a href='index.html'><span>Início</span></a></li>
+                <li class='active'><a href='index.jsp'><span>Início</span></a></li>
                 <li><a href='cadastro/cliente.jsp'><span>Cadastro</span></a></li>
                 <li><a href='atencao_cliente.php'><span>Faça o seu pedido</span></a></li>
                 <li><a href='quem_somos.php'><span>Quem somos</span></a></li>
@@ -56,28 +56,28 @@
 <form action ="listar/listarProduto.jsp?categoria=jogos" method="post">
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
     <tr>
-        <td><p align="left"><a href="listar/listarBaixoEstoque.jsp" title="Ofertas"><img class="thumb" src="imagens/OFERTA-ESPECIAL-12-300x270.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="listar/listaEmOferta.jsp" title="Ofertas"><img class="thumb" src="imagens/OFERTA-ESPECIAL-12-300x270.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
     <tr>
-        <td><p align="left"><a href="listar/listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física"><img class="thumb" src="imagens/index_midia_fisica.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="listar/listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física"><img class="thumb" src="imagens/index_midia_fisica.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
     <tr>
-        <td><p align="left"><a href="" title="Consoles"><img class="thumb" src="imagens/index_consoles.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="" title="Consoles"><img class="thumb" src="imagens/index_consoles.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
     <tr>
-        <td><p align="left"><a href="" title="Hardware"><img class="thumb" src="imagens/index_hardware.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="" title="Hardware"><img class="thumb" src="imagens/index_hardware.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
     <tr>
-        <td><p align="left"><a href="" title="Computadores"><img class="thumb" src="imagens/index_computadores.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="" title="Computadores"><img class="thumb" src="imagens/index_computadores.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
     <tr>
-        <td><p align="left"><a href="" title="Periféricos"><img class="thumb" src="imagens/index_perifericos.png" width="20%" height="20%"  alt=""/></a></p></td>     
+        <td><p align="left"><a href="" title="Periféricos"><img class="thumb" src="imagens/index_perifericos.png" width="20%" height="30%"  alt=""/></a></p></td>     
     </tr>
     <tr>
-        <td><p align="left"><a href="" title="Smartphones"><img class="thumb" src="imagens/index_smartphone.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="" title="Smartphones"><img class="thumb" src="imagens/index_smartphone.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
     <tr>
-        <td><p align="left"><a href="listar/listarProduto.jsp" title="Mesas e Cadeiras Gamer"><img class="thumb" src="imagens/index_mesas_cadeiras.png" width="20%" height="20%"  alt=""/></a></p></td>
+        <td><p align="left"><a href="listar/listarProduto.jsp" title="Mesas e Cadeiras Gamer"><img class="thumb" src="imagens/index_mesas_cadeiras.png" width="20%" height="30%"  alt=""/></a></p></td>
     </tr>
 </table>
 </form>    

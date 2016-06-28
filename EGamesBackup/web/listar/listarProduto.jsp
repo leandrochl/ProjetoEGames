@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <%
    // Pedido carrinho = new Pedido();
- //   carrinho = (Pedido)session.getAttribute("carrinho");
+  //carrinho = (Pedido)session.getAttribute("carrinho");
 
 %>
 <html>
@@ -89,9 +89,9 @@
 
 
               
-              //  Integer i = Integer.parseInt(request.getParameter("crud"));
-                //fo=fd.buscaPorCodigo(i);
-                //carrinho.adiciona(fo, 1);
+    //            Integer i = Integer.parseInt(request.getParameter("crud"));
+      //          fo=fd.buscaPorCodigo(i);
+        //        carrinho.adiciona(fo, 1);
             %>
         </table>
     </form> 
