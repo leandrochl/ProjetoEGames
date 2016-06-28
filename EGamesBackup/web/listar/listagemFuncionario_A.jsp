@@ -76,7 +76,8 @@
                 f = fd.listarTodos();
                 for (Funcionario OBJForn : f) {
             %>
-
+<form action="">
+    <input type = "hidden" name="matricula">
             <tr>
                 <td width='10%'><b><% out.print(i);%></b></td>
                 <td width='10%'><b><%= OBJForn.getNomeFunc()%></b></td>
@@ -94,13 +95,22 @@
                 <td width='10%'><b><%= t.getTelefone1()%></b></td>
                 <td width='10%'><b><%= t.getTelefone2()%></b></td>
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
-                <td width='10%'><b><input type="button" value="Alterar"></b></td>
-                <td width='10%'><b><input type="button" value="Excluir"></b></td>
+                <td width='10%'><a href="../alteracao/alteraFuncionario.jsp?nomeFunc=<%=OBJForn.getNomeFunc()%>
+                                   &enderecoFunc=<%=OBJForn.getEnderecoFunc()%>
+                                   &emailFunc=<%= OBJForn.getEmailFunc() %>
+                                   &cepFunc= <%= OBJForn.getCepFunc() %>
+                                   &rgFunc=<%=OBJForn.getRgFunc()%>
+                                   &cpfFunc=<%=OBJForn.getCpfFunc()%>
+                                   &crud=Alterar">
+                        <img src="../imagens/alterar.png" height="40px" heigth="40px"></a></td>
+                <td width='10%'><a href="../pagina/excluido_sucesso.jsp?matricula=<%=OBJForn.getMatriculaFunc()%>&crud=Excluir"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
+                
             </tr>
 
             <%
                     i++;
                 }
+                
             %>
         </table>
 

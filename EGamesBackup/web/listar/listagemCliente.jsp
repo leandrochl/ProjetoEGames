@@ -16,7 +16,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head http-equiv="REFRESH" content="1;url=listagemCliente.jsp">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Página do Funcionário</title>
         <link rel="stylesheet" type="text/css" href="../css/layout_geral.css">
@@ -73,7 +73,8 @@
                 for (Cliente OBJForn : f) {
 
             %>
-
+<form action="../pagina/excluido_sucesso.jsp">
+    <input type = "hidden" name="cpfcli">
             <tr>
                 <td width='10%'><b><% out.print(i); %></b></td>
                 <td width='10%'><b><%= OBJForn.getNomeCliente()%></b></td>
@@ -89,9 +90,7 @@
                 <td width='10%'><b><%= t.getTelefone1()%></b></td>
                 <td width='10%'><b><%= t.getTelefone2()%></b></td>
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
-
-
-                <td width='10%'><input type="button" onclick="" value="Excluir" onclick="location.href = 'cadastro/cliente.jsp'"/></td>
+                <td width='10%'><a href="../pagina/excluido_sucesso.jsp?cpfcli=<%= OBJForn.getCpfCliente() %>&crud=Excluir_cli"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
 
             </tr>
 

@@ -66,7 +66,8 @@
                 f = fd.listarTodos();
                 for (Fornecedor OBJForn : f) {
             %>
-
+<form action="">
+    <input type = "hidden" name="cnpjforn">
             <tr>
                 <td width='10%'><b><% out.print(i);%></b></td>
                 <td width='10%'><b><%= OBJForn.getCnpjForn()%></b></td>
@@ -80,8 +81,8 @@
                 <td width='10%'><b><%= t.getTelefone2()%></b></td>
                 <td width='10%'><b><%= t.getTelefone3()%></b></td>
 
-                <td width='10%'><input type="button" onclick="" value="Excluir"/></td>
-                <td width='10%'><input type="button" value="Alterar"/></td>
+                <td width='10%'><a href="../alteracao/alteraFornecedor.jsp?cnpjforn=<%=OBJForn.getCnpjForn()%>&crud=Alterar"><img src="../imagens/alterar.png" height="40px" heigth="40px"></a></td>
+                <td width='10%'><a href="../pagina/excluido_sucesso.jsp?cnpjforn=<%=OBJForn.getCnpjForn()%>&crud=Excluir_forn"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
             </tr>
 
             <%

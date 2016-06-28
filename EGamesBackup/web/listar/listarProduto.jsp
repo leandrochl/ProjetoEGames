@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <%
     Pedido carrinho = new Pedido();
-    carrinho = (Pedido)session.getAttribute("carrinho");
+    //carrinho = (Pedido) session.getAttribute("carrinho"); //pegando o carrinho sa sessão
 
 %>
 <html>
@@ -34,41 +34,40 @@
             <li><a href='localizacao.html'><span>Como chegar</span></a></li>
         </ul>
     </div>
-    
+
     <!--FIM DO MENU SUSPENSO -->
 </head>
 <form action="listaProduto.jsp" method="post">
-<input type="hidden" value="" name="categoria">
-<!--<input type="submit" value="submit"></input>-->
+    <input type="hidden" value="" name="categoria">
+    <!--<input type="submit" value="submit"></input>-->
 
 
-<table width="100%">
-    <tr>
-        <td><a href="listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física">
-                <img class="thumb" src="../imagens/index_midia_fisica.png" width="100%" height="30%" alt=""/></a></td>
-        <td><a href="listarProduto.jsp?categoria=console" title="Consoles">
-                <img class="thumb" src="../imagens/index_consoles.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp?categoria=hardware" title="Hardware">
-                <img class="thumb" src="../imagens/index_hardware.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp?categoria=computador" title="Computadores">
-                <img class="thumb" src="../imagens/index_computadores.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp?categoria=periferico" title="Periféricos">
-                <img class="thumb" src="../imagens/index_perifericos.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp?categoria=smartphone" title="Smartphones">
-                <img class="thumb" src="../imagens/index_smartphone.png" width="100%" height="30%"  alt=""/></a></td>
-        <td><a href="listarProduto.jsp?categoria=movel" title="Mesas e Cadeiras Gamer">
-                <img class="thumb" src="../imagens/index_mesas_cadeiras.png" width="100%" height="30%"  alt=""/></a></td>
-    </tr>
+    <table width="100%">
+        <tr>
+            <td><a href="listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física">
+                    <img class="thumb" src="../imagens/index_midia_fisica.png" width="100%" height="30%" alt=""/></a></td>
+            <td><a href="listarProduto.jsp?categoria=console" title="Consoles">
+                    <img class="thumb" src="../imagens/index_consoles.png" width="100%" height="30%"  alt=""/></a></td>
+            <td><a href="listarProduto.jsp?categoria=hardware" title="Hardware">
+                    <img class="thumb" src="../imagens/index_hardware.png" width="100%" height="30%"  alt=""/></a></td>
+            <td><a href="listarProduto.jsp?categoria=computador" title="Computadores">
+                    <img class="thumb" src="../imagens/index_computadores.png" width="100%" height="30%"  alt=""/></a></td>
+            <td><a href="listarProduto.jsp?categoria=periferico" title="Periféricos">
+                    <img class="thumb" src="../imagens/index_perifericos.png" width="100%" height="30%"  alt=""/></a></td>
+            <td><a href="listarProduto.jsp?categoria=smartphone" title="Smartphones">
+                    <img class="thumb" src="../imagens/index_smartphone.png" width="100%" height="30%"  alt=""/></a></td>
+            <td><a href="listarProduto.jsp?categoria=movel" title="Mesas e Cadeiras Gamer">
+                    <img class="thumb" src="../imagens/index_mesas_cadeiras.png" width="100%" height="30%"  alt=""/></a></td>
+        </tr>
 
-</table>
+    </table>
 
 </form>
 <body>
     <form action="listarProduto.jsp" method="post">   
         <input type="hidden" name="comprou" value="">
         <table border = '0' width = '100%'>
-            <%
-                ProdutoDAO fd = new ProdutoDAO();
+            <%                ProdutoDAO fd = new ProdutoDAO();
                 Produto fo = new Produto();
                 List<Produto> f = new ArrayList();
                 f = fd.listarPorCategoria(request.getParameter("categoria"));
@@ -77,8 +76,8 @@
             <tr width='10%'>
                 <th rowspan="2" bgcolor="#894AB0"><font color="white">Foto</font></th>
                 <th rowspan="2" width='10'><a href="listarProduto.jsp?comprou=<%=OBJForn.getIdProduto().toString()%>" title="Comprar">
-                <img class="thumb" src="../imagens/1386061027_shopcartapply_128x128.png" width="100%" height="30%"  alt=""/></a></th>
-                
+                        <!--botao comprar--><img class="thumb" src="../imagens/1386061027_shopcartapply_128x128.png" width="100%" height="30%"  alt=""/></a></th>
+
                 <td><font size="6" color="#6F83B6"><b><%=OBJForn.getDescricao()%></b></font></td>
 
             </tr>
@@ -87,14 +86,28 @@
             </tr>
             <%
                 }
-
-               Produto p1 = new Produto();
-               Integer i = Integer.parseInt(request.getAttribute("comprou").toString());
-               p1=fd.buscaPorCodigo(i);
-               carrinho.adiciona(p1, 1);
+                Produto p1 = new Produto();
+                ProdutoDAO pd = new ProdutoDAO();
+                p1 = pd.buscaPorCodigo(Integer.parseInt(request.getParameter("comprou").toString()));
+                carrinho.adiciona(p1, 1);
+                
+                /*Integer i = Integer.parseInt(request.getAttribute("comprou").toString());
+                 p1 = fd.buscaPorCodigo(i);
+                 carrinho.adiciona(p1, 1);*/
             %>
         </table>
     </form> 
+    <hr color="#6F83B6">
+    Seu Carrinho
+    <form action="" method="post">   
+        <table border = '0' width = '100%'>
+            <tr bgcolor='gray' height='35'>
+                <td width='3%'><b>Descricao</b></td>
+                <td width='10%'><b>Preco</b></td>
+                <td width='10%'><b>Quantidade</b></td>
+            </tr>
+        </table>
+    </form>
     <hr color="#6F83B6">
     <!-- início do rodapé -->
 <center>

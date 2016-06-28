@@ -52,7 +52,7 @@
             <td width='10%'><b>Telefone 1</b></td>
             <td width='10%'><b>Telefone 2</b></td>
             <td width='10%'><b>Telefone 3</b></td>
-
+            <td width='10%'><b>Alterar</b></td>
             <td width='10%'><b>Excluir</b></td>
         </tr>
 
@@ -72,7 +72,8 @@
             f = fd.listarTodos();
             for (Transportadora OBJForn : f) {
         %>
-
+<form action="">
+    <input type = "hidden" name="cnpjtransp">
         <tr>
             <td width='10%'><b><% out.print(i);%></b></td>
             <td width='10%'><b><%= OBJForn.getCnpjTransp()%></b></td>
@@ -86,9 +87,8 @@
             <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
             <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
             <td width='10%'><b><%= OBJForn.getEmailTransp()%></b></td>
-
-
-            <td width='10%'><input type="button" onclick="" value="Exlcuir" name="acao"/></td>
+<td width='10%'><a href="../alteracao/alteraTrasportadora.jsp?matricula=<%=OBJForn.getCnpjTransp()%>&crud=Alterar"><img src="../imagens/alterar.png" height="40px" heigth="40px"></a></td>
+                <td width='10%'><a href="../pagina/excluido_sucesso.jsp?cnpjtransp=<%=OBJForn.getCnpjTransp()%>&crud=Excluir_transp"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
 
         </tr>
 

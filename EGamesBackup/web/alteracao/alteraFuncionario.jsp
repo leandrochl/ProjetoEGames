@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Funcionário</title>
+        <title>Alterar Funcionário</title>
     </head>
     <body>
         <%
@@ -61,9 +61,6 @@
     <div>Nome: <input type="text" name="nomeFunc" value="<%=nomeFunc%>"/></div><p>
     <div>Endereço: <input type="text" name="enderecoFunc" value="<%=enderecoFunc%>" </div><p>
     <div>Email: <input type="text" name="emailFunc" value="<%=emailFunc%>"/></div><p>
-    <div>Senha: <input type="text" name="senhaFunc" value="<%=senhaFunc%>"/></div><p>
-    <div>Repita a senha: <input type="text" name="senhaFunc2" value="<%=senhaFunc2%>"/></div><p>
-    <div>Telefone: <input type="text" name="idTelefone" value="<%=idTelefone%>"/></div><p>
     <div>CEP: <input type="text" name="cepFunc" value="<%=cepFunc%>"/></div><p>
     <div>RG: <input type="text" name="rgFunc" value="<%=rgFunc%>"/></div><p>
     <div>CPF: <input type="text" name="cpfFunc" value="<%=cpfFunc%>"/></div><p>

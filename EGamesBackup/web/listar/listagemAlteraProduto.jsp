@@ -48,7 +48,7 @@
                 <td width='10%'><b>Preço</b></td>
                 <td width='10%'><b>Data de inserção</b></td>
                 <td width='10%'><b>Categoria</b></td>
-                <td width='10%'><b>Imagem</b></td>
+                
                 <td width='10%'><b>Excluir</b></td>
                 <td width='10%'><b>Alterar</b></td>
 
@@ -66,7 +66,8 @@
                 f = fd.listarTodos();
                 for (Produto OBJForn : f) {
             %>
-
+<form action="">
+    <input type = "hidden" name="idproduto">
             <tr>
                 <td width='10%'><b><%= OBJForn.getIdProduto()%></b></td>
                 <td width='10%'><b><%= OBJForn.getDescricao()%></b></td>
@@ -74,9 +75,9 @@
                 <td width='10%'><b><%= OBJForn.getPreco()%></b></td>
                 <td width='10%'><b><%= OBJForn.getDataCadastro()%></b></td>
                 <td width='10%'><b><%= OBJForn.getCategoria()%></b></td>
-                <td width='10%'><b><%= OBJForn.getImagem()%></b></td>
-                <td width='10%'><input type='button' value='Excluir'></td>
-                <td width='10%'><input type='button' value='Alterar'></td>
+                
+                <td width='10%'><a href="../alteracao/alteraProduto.jsp?idproduto=<%=OBJForn.getIdProduto()%>&crud=Alterar"><img src="../imagens/alterar.png" height="40px" heigth="40px"></a></td>
+                <td width='10%'><a href="../pagina/excluido_sucesso.jsp?idproduto=<%=OBJForn.getIdProduto()%>&crud=Excluir_produto"><img src="../imagens/119498563188281957tasto_8_architetto_franc_01.svg.hi.png" height="20px" heigth="20px"></a></td>
             </tr>
             <%
                 }
