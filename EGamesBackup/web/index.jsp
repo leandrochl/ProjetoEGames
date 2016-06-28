@@ -56,6 +56,9 @@
 <form action ="listar/listarProduto.jsp?categoria=jogos" method="post">
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
     <tr>
+        <td><p align="left"><a href="listar/listarBaixoEstoque.jsp" title="Ofertas"><img class="thumb" src="imagens/OFERTA-ESPECIAL-12-300x270.png" width="20%" height="20%"  alt=""/></a></p></td>
+    </tr>
+    <tr>
         <td><p align="left"><a href="listar/listarProduto.jsp?categoria=jogos" title="Jogos em Mídia Física"><img class="thumb" src="imagens/index_midia_fisica.png" width="20%" height="20%"  alt=""/></a></p></td>
     </tr>
     <tr>
